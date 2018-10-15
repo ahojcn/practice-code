@@ -13,6 +13,9 @@ int main(int argc, const char * argv[])
     
     //printf("%d\n",DigitSum(13));
     
+    char s[1024] = "abcdefg";
+    ReverseString(s);
+    printf("%s\n",s);
     
     return 0;
 }

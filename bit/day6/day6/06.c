@@ -67,12 +67,28 @@ int DigitSum(int n)
     }
 }
 
-
+int right = 0;
+int left = 0;
+int cnt = 0;
 void ReverseString(char *string)
 {
+    int length = -1;
     char *p = string;
-    
-    
+    while (*p != '\0')
+    {
+        p++;
+        length++;
+    }
+    right = length - cnt;
+    cnt++;
+    char temp = *(string+left);
+    *(string+left) = *(string+right);
+    *(string+right) = temp;
+    left++;
+    if (left < right)
+    {
+        ReverseString(string);
+    }
 }
 
 
