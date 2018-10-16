@@ -22,7 +22,7 @@ int FibonacciNumberRecursion(int n);
  q2.
  编写一个函数实现n^k，使用递归实现。
  */
-int FactorialRecursion(int n);
+int N_K_Recursion(int n, int k);
 
 /*
  q3.
@@ -38,8 +38,25 @@ int DigitSum(int n);
  */
 void ReverseString(char *string);
 
+/*
+ q5.
+ 递归和非递归分别实现strlen.
+ */
+int MyStrlenRecursion(const char *string);
+int MyStrlen(const char *string);
 
+/*
+ q6.
+ 递归和非递归分别实现求n的阶乘
+ */
+int FactorialRecursion(int n);
+int Factorial(int n);
 
+/*
+ q7.
+ 递归方式实现打印一个整数的每一位
+ */
+void ShowdataRecursion(int n);
 
 
 #endif /* _6_h */

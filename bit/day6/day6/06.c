@@ -40,15 +40,26 @@ int FibonacciNumberRecursion(int n)
     }
 }
 
-int FactorialRecursion(int n)
+int N_K_Recursion(int n, int k)
 {
-    if (n<2)
+    if (k != 0)
     {
-        return 1;
+        if (0 == n)
+        {
+            return 0;
+        }
+        else if (1 == n)
+        {
+            return 1;
+        }
+        else
+        {
+            return N_K_Recursion(n, --k)*n;
+        }
     }
     else
     {
-        return FactorialRecursion(n-1)*n;
+        return 1;
     }
 }
 
@@ -91,6 +102,59 @@ void ReverseString(char *string)
     }
 }
 
+int MyStrlenRecursion(const char *string)
+{
+    if (*string != '\0')
+    {
+        return 1+MyStrlenRecursion(string+1);
+    }
+    else
+    {
+        return 0;
+    }
+}
+int MyStrlen(const char *string)
+{
+    int len = 0;
+    while (*string != '\0')
+    {
+        len++;
+        string++;
+    }
+    return len;
+}
 
+int FactorialRecursion(int n)
+{
+    if (n > 0)
+    {
+        return FactorialRecursion(n-1) * n;
+    }
+    else
+    {
+        return 1;
+    }
+}
+int Factorial(int n)
+{
+    int sum = 1;
+    for (int i = 1; i<=n; i++)
+    {
+        sum *= i;
+    }
+    return sum;
+}
 
+void ShowdataRecursion(int n)
+{
+    if (n < 0)
+    {
+        n = -n;
+    }
+    if (n != 0)
+    {
+        ShowdataRecursion(n/10);
+        printf("%d ",n%10);
+    }
+}
 
