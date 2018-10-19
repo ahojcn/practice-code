@@ -15,14 +15,27 @@ int main(int argc, const char * argv[])
     char str[MAXSIZE] = {0};
     scanf("%s", str);
     
-    int flag = 0;
+    int len = 0;
+    int half = 0;
+    while (str[len]!='\0')
+    {
+        len++;
+    }
+    
+    half = len/2;
+    
     int i = 0;
-    for (i=0; str[i]!='&'; i++)
+    for (i=0; i<half; i++)
     {
         Push(&S, str[i]);
     }
+    if (len%2!=0)
+    {
+        i++;
+    }
     
-    i++;
+    // 判断
+    int flag = 0;
     while (str[i]!='\0')
     {
         char e = 0;
@@ -50,7 +63,6 @@ int main(int argc, const char * argv[])
     {
         printf("no\n");
     }
-    
     
     return 0;
 }

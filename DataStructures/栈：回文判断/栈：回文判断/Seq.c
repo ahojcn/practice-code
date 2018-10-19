@@ -40,7 +40,7 @@ int Pop(SeqStack *S, ElemType *e)
         return TRUE;
     }
 }
-
+/*
 int GetTop(SeqStack *S, ElemType *e)
 {
     if (S->top == -1)
@@ -53,3 +53,4 @@ int GetTop(SeqStack *S, ElemType *e)
         return TRUE;
     }
 }
+*/

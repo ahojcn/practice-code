@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6808;&#xff1a;&#x56de;&#x6587;&#x5224;&#x65ad;/main.c"
-            timestampString = "561570545.87972"
+            timestampString = "561605144.754413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
@@ -26,11 +26,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6808;&#xff1a;&#x56de;&#x6587;&#x5224;&#x65ad;/main.c"
-            timestampString = "561570545.880125"
+            timestampString = "561605144.754786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "main"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6808;&#xff1a;&#x56de;&#x6587;&#x5224;&#x65ad;/main.c"
+            timestampString = "561605144.755055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "main"
             landmarkType = "9">
          </BreakpointContent>
