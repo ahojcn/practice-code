@@ -11,14 +11,20 @@
 
 #include <stdio.h>
 #include <string.h>  // memset()
+#include <stdlib.h>
+#include <time.h>
 
 #define ROW 3
 #define COL 3
 
-void Menu(void);
-void PlayGame(void);
-void Init(char map[ROW][COL], int row, int col);
-void Display(char map[ROW][COL], int row, int col);
+void menu(void);
+
+void BoardInit(char board[ROW][COL], int row, int col);
+void BoardShow(char board[ROW][COL], int row, int col);
+void PlayerMove(char board[ROW][COL], int row, int col);
+void ComputerMove(char board[ROW][COL], int row, int col);
+char IsWin(char board[ROW][COL], int row, int col);
+int IsFull(char board[ROW][COL], int row, int col);
 
 
 #endif /* game_h */

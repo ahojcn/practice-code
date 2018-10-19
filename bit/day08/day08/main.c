@@ -8,19 +8,55 @@
 
 #include "game.h"
 
-// 游戏控制函数
-void GameCtrl(void)
+void game()
 {
+    char board[ROW][COL] = {0};
+    BoardInit(board, ROW, COL);
+    BoardShow(board, ROW, COL);
+    char ret = 0;
+    while (1)
+    {
+        PlayerMove(board, ROW, COL);
+        system("clear");
+        ret = IsWin(board, ROW, COL);
+        if (ret != ' ')
+        {
+            break;
+        }
+        BoardShow(board, ROW, COL);
+        
+        ComputerMove(board, ROW, COL);
+        system("clear");
+        ret = IsWin(board, ROW, COL);
+        if (ret != ' ')
+        {
+            break;
+        }
+        BoardShow(board, ROW, COL);
+    }
+    if(ret == 'X')
+        printf("you win!\n");
+    else if(ret == '0')
+        printf("you lose!\n");
+    else if(ret == 'Q')
+        printf("over\n");
+    BoardShow(board, ROW, COL);
+}
+
+void GameCtrl()
+{
+    srand((unsigned int)time(NULL));
     int input = 0;
     do
     {
-        Menu();
-        printf("请选择>");
-        scanf("%d", &input);
+        menu();
+        printf(">");
+        scanf("%d",&input);
         switch (input)
         {
             case 1:
-                PlayGame();
+                system("clear");
+                game();
                 break;
             case 0:
                 printf("Bye!\n");
@@ -29,12 +65,11 @@ void GameCtrl(void)
                 printf("Error!\n");
                 break;
         }
-    }while(input);
+    } while (input);
 }
 
 int main(int argc, const char * argv[])
 {
     GameCtrl();
-    
     return 0;
 }
