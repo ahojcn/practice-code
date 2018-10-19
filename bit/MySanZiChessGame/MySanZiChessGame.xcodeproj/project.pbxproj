@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9DFF0B532178C9460007DBE4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF0B522178C9460007DBE4 /* main.c */; };
-		9DFF0B5B2178CA860007DBE4 /* game.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DFF0B5A2178CA860007DBE4 /* game.c */; };
+		9D906BCD2179CBEA000BCB1A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D906BCC2179CBEA000BCB1A /* main.c */; };
+		9D906BD52179D22F000BCB1A /* game.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D906BD42179D22F000BCB1A /* game.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9DFF0B4D2178C9460007DBE4 /* CopyFiles */ = {
+		9D906BC72179CBEA000BCB1A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,14 +24,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9DFF0B4F2178C9460007DBE4 /* day08 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = day08; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DFF0B522178C9460007DBE4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		9DFF0B592178CA860007DBE4 /* game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
-		9DFF0B5A2178CA860007DBE4 /* game.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = game.c; sourceTree = "<group>"; };
+		9D906BC92179CBEA000BCB1A /* MySanZiChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MySanZiChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D906BCC2179CBEA000BCB1A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9D906BD32179D22F000BCB1A /* game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		9D906BD42179D22F000BCB1A /* game.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = game.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9DFF0B4C2178C9460007DBE4 /* Frameworks */ = {
+		9D906BC62179CBEA000BCB1A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,97 +41,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DFF0B462178C9460007DBE4 = {
+		9D906BC02179CBE9000BCB1A = {
 			isa = PBXGroup;
 			children = (
-				9DFF0B512178C9460007DBE4 /* day08 */,
-				9DFF0B502178C9460007DBE4 /* Products */,
+				9D906BCB2179CBEA000BCB1A /* MySanZiChessGame */,
+				9D906BCA2179CBEA000BCB1A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9DFF0B502178C9460007DBE4 /* Products */ = {
+		9D906BCA2179CBEA000BCB1A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DFF0B4F2178C9460007DBE4 /* day08 */,
+				9D906BC92179CBEA000BCB1A /* MySanZiChessGame */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9DFF0B512178C9460007DBE4 /* day08 */ = {
+		9D906BCB2179CBEA000BCB1A /* MySanZiChessGame */ = {
 			isa = PBXGroup;
 			children = (
-				9DFF0B522178C9460007DBE4 /* main.c */,
-				9DFF0B592178CA860007DBE4 /* game.h */,
-				9DFF0B5A2178CA860007DBE4 /* game.c */,
+				9D906BCC2179CBEA000BCB1A /* main.c */,
+				9D906BD32179D22F000BCB1A /* game.h */,
+				9D906BD42179D22F000BCB1A /* game.c */,
 			);
-			path = day08;
+			path = MySanZiChessGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9DFF0B4E2178C9460007DBE4 /* day08 */ = {
+		9D906BC82179CBEA000BCB1A /* MySanZiChessGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DFF0B562178C9460007DBE4 /* Build configuration list for PBXNativeTarget "day08" */;
+			buildConfigurationList = 9D906BD02179CBEA000BCB1A /* Build configuration list for PBXNativeTarget "MySanZiChessGame" */;
 			buildPhases = (
-				9DFF0B4B2178C9460007DBE4 /* Sources */,
-				9DFF0B4C2178C9460007DBE4 /* Frameworks */,
-				9DFF0B4D2178C9460007DBE4 /* CopyFiles */,
+				9D906BC52179CBEA000BCB1A /* Sources */,
+				9D906BC62179CBEA000BCB1A /* Frameworks */,
+				9D906BC72179CBEA000BCB1A /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = day08;
-			productName = day08;
-			productReference = 9DFF0B4F2178C9460007DBE4 /* day08 */;
+			name = MySanZiChessGame;
+			productName = MySanZiChessGame;
+			productReference = 9D906BC92179CBEA000BCB1A /* MySanZiChessGame */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9DFF0B472178C9460007DBE4 /* Project object */ = {
+		9D906BC12179CBE9000BCB1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = hanoi_ahoj;
 				TargetAttributes = {
-					9DFF0B4E2178C9460007DBE4 = {
+					9D906BC82179CBEA000BCB1A = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = 9DFF0B4A2178C9460007DBE4 /* Build configuration list for PBXProject "day08" */;
+			buildConfigurationList = 9D906BC42179CBE9000BCB1A /* Build configuration list for PBXProject "MySanZiChessGame" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 9DFF0B462178C9460007DBE4;
-			productRefGroup = 9DFF0B502178C9460007DBE4 /* Products */;
+			mainGroup = 9D906BC02179CBE9000BCB1A;
+			productRefGroup = 9D906BCA2179CBEA000BCB1A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9DFF0B4E2178C9460007DBE4 /* day08 */,
+				9D906BC82179CBEA000BCB1A /* MySanZiChessGame */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9DFF0B4B2178C9460007DBE4 /* Sources */ = {
+		9D906BC52179CBEA000BCB1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DFF0B532178C9460007DBE4 /* main.c in Sources */,
-				9DFF0B5B2178CA860007DBE4 /* game.c in Sources */,
+				9D906BCD2179CBEA000BCB1A /* main.c in Sources */,
+				9D906BD52179D22F000BCB1A /* game.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9DFF0B542178C9460007DBE4 /* Debug */ = {
+		9D906BCE2179CBEA000BCB1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -190,7 +190,7 @@
 			};
 			name = Debug;
 		};
-		9DFF0B552178C9460007DBE4 /* Release */ = {
+		9D906BCF2179CBEA000BCB1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +242,7 @@
 			};
 			name = Release;
 		};
-		9DFF0B572178C9460007DBE4 /* Debug */ = {
+		9D906BD12179CBEA000BCB1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -250,7 +250,7 @@
 			};
 			name = Debug;
 		};
-		9DFF0B582178C9460007DBE4 /* Release */ = {
+		9D906BD22179CBEA000BCB1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -261,25 +261,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9DFF0B4A2178C9460007DBE4 /* Build configuration list for PBXProject "day08" */ = {
+		9D906BC42179CBE9000BCB1A /* Build configuration list for PBXProject "MySanZiChessGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9DFF0B542178C9460007DBE4 /* Debug */,
-				9DFF0B552178C9460007DBE4 /* Release */,
+				9D906BCE2179CBEA000BCB1A /* Debug */,
+				9D906BCF2179CBEA000BCB1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DFF0B562178C9460007DBE4 /* Build configuration list for PBXNativeTarget "day08" */ = {
+		9D906BD02179CBEA000BCB1A /* Build configuration list for PBXNativeTarget "MySanZiChessGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9DFF0B572178C9460007DBE4 /* Debug */,
-				9DFF0B582178C9460007DBE4 /* Release */,
+				9D906BD12179CBEA000BCB1A /* Debug */,
+				9D906BD22179CBEA000BCB1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9DFF0B472178C9460007DBE4 /* Project object */;
+	rootObject = 9D906BC12179CBE9000BCB1A /* Project object */;
 }
