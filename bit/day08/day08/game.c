@@ -75,16 +75,144 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 {
     int x = 0;
     int y = 0;
+    int i = 0;
     while (1)
     {
-        x = rand()%row;
-        y = rand()%row;
+        x = rand() % row;
+        y = rand() % col;
+        for (i = 0; i < row; i++)
+        {
+            if (board[i][0] == board[i][1] && board[i][0] == 'X' && board[i][2] == ' ')
+            {
+                board[i][2] = 'O';
+                goto flag1;
+            }
+            else if (board[i][1] == board[i][2] && board[i][1] == 'X' && board[i][0] == ' ')
+            {
+                board[i][0] = 'O';
+                goto flag1;
+            }
+            else if (board[i][0] == board[i][2] && board[i][2] == 'X' && board[i][1] == ' ')
+            {
+                board[i][1] = 'O';
+                goto flag1;
+            }
+            else if (board[0][i] == board[1][i] && board[0][i] == 'X' && board[2][i] == ' ')
+            {
+                board[2][i] = 'O';
+                goto flag1;
+            }
+            else if (board[1][i] == board[2][i] && board[1][i] == 'X' && board[0][i] == ' ')
+            {
+                board[0][i] = 'O';
+                goto flag1;
+            }
+            else if (board[0][i] == board[2][i] && board[2][i] == 'X' && board[1][i] == ' ')
+            {
+                board[1][i] = 'O';
+                goto flag1;
+            }
+            else if (board[0][0] == board[1][1] && board[0][0] == 'X' && board[2][2] == ' ')
+            {
+                board[2][2] = 'O';
+                goto flag1;
+            }
+            else if (board[1][1] == board[2][2] && board[1][1] == 'X' && board[0][0] == ' ')
+            {
+                board[0][0] = 'O';
+                goto flag1;
+            }
+            else if (board[0][0] == board[2][2] && board[0][0] == 'X' && board[1][1] == ' ')
+            {
+                board[1][1] = 'O';
+                goto flag1;
+            }
+            else if (board[0][2] == board[1][1] && board[1][1] == 'X' && board[2][0] == ' ')
+            {
+                board[2][0] = 'O';
+                goto flag1;
+            }
+            else if (board[1][1] == board[2][0] && board[1][1] == 'X' && board[0][2] == ' ')
+            {
+                board[0][2] = 'O';
+                goto flag1;
+            }
+            else if (board[2][0] == board[0][2] && board[2][0] == 'X' && board[1][1] == ' ')
+            {
+                board[1][1] = 'O';
+                goto flag1;
+            }
+        }
+        for (i = 0; i < row; i++)
+        {
+            if (board[i][0] == board[i][1] && board[i][0] == 'O' && board[i][2] == ' ')
+            {
+                board[i][2] = 'O';
+                goto flag1;
+            }
+            else if (board[i][1] == board[i][2] && board[i][1] == 'O' && board[i][0] == ' ')
+            {
+                board[i][0] = 'O';
+                goto flag1;
+            }
+            else if (board[i][0] == board[i][2] && board[i][2] == 'O' && board[i][1] == ' ')
+            {
+                board[i][1] = 'O';
+                goto flag1;
+            }
+            else if (board[0][i] == board[1][i] && board[0][i] == 'O' && board[2][i] == ' ')
+            {
+                board[2][i] = 'O';
+                goto flag1;
+            }
+            else if (board[1][i] == board[2][i] && board[1][i] == 'O' && board[0][i] == ' ')
+            {
+                board[0][i] = 'O';
+                goto flag1;
+            }
+            else if (board[0][i] == board[2][i] && board[2][i] == 'O' && board[1][i] == ' ')
+            {
+                board[1][i] = 'O';
+                goto flag1;
+            }
+            else if (board[0][0] == board[1][1] && board[0][0] == 'O' && board[2][2] == ' ')
+            {
+                board[2][2] = 'O';
+                goto flag1;
+            }
+            else if (board[1][1] == board[2][2] && board[1][1] == 'O' && board[0][0] == ' ')
+            {
+                board[0][0] = 'O';
+                goto flag1;
+            }
+            else if (board[0][0] == board[2][2] && board[0][0] == 'O' && board[1][1] == ' ')
+            {
+                board[1][1] = 'O';
+                goto flag1;
+            }
+            else if (board[0][2] == board[1][1] && board[1][1] == 'O' && board[2][0] == ' ')
+            {
+                board[2][0] = 'O';
+                goto flag1;
+            }
+            else if (board[1][1] == board[2][0] && board[1][1] == 'O' && board[0][2] == ' ')
+            {
+                board[0][2] = 'O';
+                goto flag1;
+            }
+            else if (board[2][0] == board[0][2] && board[2][0] == 'O' && board[1][1] == ' ')
+            {
+                board[1][1] = 'O';
+                goto flag1;
+            }
+        }
         if (board[x][y] == ' ')
         {
             board[x][y] = 'O';
-            break;
+            goto flag1;
         }
     }
+flag1:;
 }
 
 char IsWin(char board[ROW][COL], int row, int col)

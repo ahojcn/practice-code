@@ -26,5 +26,4 @@ void ComputerMove(char board[ROW][COL], int row, int col);
 char IsWin(char board[ROW][COL], int row, int col);
 int IsFull(char board[ROW][COL], int row, int col);
 
-
 #endif /* game_h */
