@@ -32,10 +32,12 @@ void game_ctrl()
         printf("you lose!\n");
     else if(ret == 'Q')
         printf("again?!\n");
+    system("sleep 1s");
 }
 
 int main(int argc, const char * argv[])
 {
+    srand((unsigned int)time(NULL));
     int input = 0;
     do
     {

@@ -77,12 +77,48 @@ void computer_move(char board[ROW][COL], int row, int col)
     Point p;
     while (true)
     {
-        p.x = rand()%row;
-        p.y = rand()%col;
-        if (board[p.x][p.y] == ' ')
+        p = scan_row(board, ROW, COL);
+        if (p.x == -1)
         {
-            board[p.x][p.y] = 'O';
-            break;
+            p = scan_col(board, ROW, COL);
+            if (p.x == -1)
+            {
+                p.x = rand()%row;
+                p.y = rand()%col;
+                if (board[p.x][p.y] == ' ')
+                {
+                    board[p.x][p.y] = 'O';
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            else
+            {
+                if (board[p.x][p.y] == ' ')
+                {
+                    board[p.x][p.y] = 'O';
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        else
+        {
+            if (board[p.x][p.y] == ' ')
+            {
+                board[p.x][p.y] = 'O';
+                break;
+            }
+            else
+            {
+                continue;
+            }
         }
     }
 }
@@ -132,4 +168,60 @@ int is_full(char board[ROW][COL], int row, int col)
         }
     }
     return 1;
+}
+
+// 扫描行 如果玩家即将胜利，返回一个他下一步的棋子位置，如果没有，返回(-1，-1)点
+Point scan_row(char board[ROW][COL], int row, int col)
+{
+    Point p;
+    p.x = -1;
+    p.y = -1;
+    for (int i=0; i<row; i++)
+    {
+        if (board[i][0]==board[i][1]&&board[i][0]=='X'&&board[i][2]==' ')
+        {
+            p.x = i;
+            p.y = 2;
+            return p;
+        }
+        else if(board[i][1]==board[i][2]&&board[i][1]=='X'&&board[i][0]==' ')
+        {
+            p.x = i;
+            p.y = 0;
+            return p;
+        }
+        else
+        {
+            return p;
+        }
+    }
+    return p;
+}
+
+// 扫描列 如果玩家即将胜利，返回一个他下一步的棋子位置，如果没有，返回(-1，-1)点
+Point scan_col(char board[ROW][COL], int row, int col)
+{
+    Point p;
+    p.x = -1;
+    p.y = -1;
+    for (int i=0; i<row; i++)
+    {
+        if (board[0][i]==board[1][i]&&board[0][i]=='X'&&board[2][i]==' ')
+        {
+            p.x = 2;
+            p.y = i;
+            return p;
+        }
+        else if(board[1][i]==board[2][i]&&board[1][i]=='X'&&board[0][i]==' ')
+        {
+            p.x = 0;
+            p.y = i;
+            return p;
+        }
+        else
+        {
+            return p;
+        }
+    }
+    return p;
 }
