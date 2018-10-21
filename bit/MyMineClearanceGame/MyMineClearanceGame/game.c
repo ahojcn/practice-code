@@ -109,7 +109,9 @@ void clear_mine(char board_mine[ROWS][COLS], char board_show[ROWS][COLS], char s
             {
                 int count = get_mine_count(board_mine, p);
                 board_show[p.x][p.y] = count + '0';
-                open_show(board_mine, board_show, sign, row, col, p);
+                int cnt = MAXOPEN;
+                open_show(board_mine, board_show, sign, row, col, p, cnt);
+//                open_mine(board_show, board_mine, p.x, p.y);
                 board_print(board_show, row, col);
                 win++;
             }
@@ -154,83 +156,75 @@ void calculate_mine(char mine[ROWS][COLS], char sign[ROWS][COLS])
     }
 }
 
-int count = MAXOPEN;
 // 展开周围没有雷的地方，直到遇到 show[][]有数字
-void open_show(char mine[ROWS][COLS], char show[ROWS][COLS], char sign[ROWS][COLS], int row, int col, Point p)
+void open_show(char mine[ROWS][COLS], char show[ROWS][COLS], char sign[ROWS][COLS], int row, int col, Point p, int count)
 {
+    Point tmp;
     if (count>=0)
     {
         if (mine[p.x-1][p.y-1] == '0')
         {
-            Point tmp;
             tmp.x = p.x-1;
             tmp.y = p.y-1;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
         if(mine[p.x-1][p.y] == '0')
         {
-            Point tmp;
             tmp.x = p.x-1;
             tmp.y = p.y;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
         if(mine[p.x-1][p.y+1] == '0')
         {
-            Point tmp;
             tmp.x = p.x-1;
             tmp.y = p.y+1;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
         if(mine[p.x][p.y+1] == '0')
         {
-            Point tmp;
             tmp.x = p.x;
             tmp.y = p.y+1;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
         if(mine[p.x+1][p.y+1] == '0')
         {
-            Point tmp;
             tmp.x = p.x+1;
             tmp.y = p.y+1;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
         if(mine[p.x+1][p.y] == '0')
         {
-            Point tmp;
             tmp.x = p.x+1;
             tmp.y = p.y;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
         if(mine[p.x+1][p.y-1] == '0')
         {
-            Point tmp;
             tmp.x = p.x+1;
             tmp.y = p.y-1;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
         if(mine[p.x][p.y-1] == '0')
         {
-            Point tmp;
             tmp.x = p.x;
             tmp.y = p.y-1;
             show[tmp.x][tmp.y] = sign[tmp.x][tmp.y];
             count--;
-            open_show(mine, show, sign, row, col, tmp);
+            open_show(mine, show, sign, row, col, tmp, count);
         }
     }
     else
@@ -238,3 +232,37 @@ void open_show(char mine[ROWS][COLS], char show[ROWS][COLS], char sign[ROWS][COL
         NULL;
     }
 }
+
+
+// 下面这个是Tim学长的扫雷展开函数
+//int GetMineCount(char mine[ROWS][COLS], int x, int y)
+//{
+//
+//    return (mine[x - 1][y - 1] + mine[x - 1][y] + mine[x - 1][y + 1]
+//            + mine[x][y - 1] + mine[x][y + 1]
+//            + mine[x + 1][y - 1] + mine[x + 1][y] + mine[x + 1][y + 1] - 8 * '0');
+//}
+//
+//void open_mine(char show[ROWS][COLS], char mine[ROWS][COLS],int x, int y)//坐标周围展开函数
+//{
+//    if (show[x][y] == '*' && ((x >= 1) && (x <= 9)) && ((y >= 1) && (y <= 9)))
+//    {
+//        if (GetMineCount(mine,x, y) != 0)
+//        {
+//            show[x][y] = GetMineCount(mine, x, y) + '0';
+//        }
+//        else
+//        {
+//            show[x][y] = ' ';
+//            open_mine(show, mine,x - 1, y);
+//            open_mine(show, mine, x - 1, y - 1);
+//            open_mine(show, mine, x - 1, y + 1);
+//            open_mine(show, mine, x, y - 1);
+//            open_mine(show, mine, x, y + 1);
+//            open_mine(show, mine, x + 1, y - 1);
+//            open_mine(show, mine, x + 1, y);
+//            open_mine(show, mine, x + 1, y + 1);
+//        }
+//    }
+//    return;
+//}

@@ -41,6 +41,11 @@ int get_mine_count(char board_mine[ROWS][COLS], Point p);
 // 计算所有雷数，放到sign[][]里
 void calculate_mine(char mine[ROWS][COLS], char sign[ROWS][COLS]);
 // 展开周围没有雷的地方，直到遇到 show[][]有数字
-void open_show(char mine[ROWS][COLS], char show[ROWS][COLS], char sign[ROWS][COLS], int row, int col, Point p);
+void open_show(char mine[ROWS][COLS], char show[ROWS][COLS], char sign[ROWS][COLS], int row, int col, Point p, int count);
+
+
+// Tim学长的扫雷展开函数
+//void open_mine(char show[ROWS][COLS], char mine[ROWS][COLS],int x, int y);
+//int GetMineCount(char mine[ROWS][COLS], int x, int y);
 
 #endif /* game_h */
