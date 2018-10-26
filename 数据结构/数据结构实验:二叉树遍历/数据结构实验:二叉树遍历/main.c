@@ -1,8 +1,3 @@
-//    二叉树的实现（C语言）
-//    链表，递归实现
-//    编译环境：visual studio 2017
-//    操作系统：win8.1
-
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -10,7 +5,8 @@
 typedef char Elementtype;    //    定义数据类型，可根据需要自行定制
 typedef struct TreeNode * Node;    //    Node相当于struct treeNode *
 //    定义数节点结构
-typedef struct TreeNode {
+typedef struct TreeNode
+{
     Elementtype Element;
     Node left;    //    树节点的左子节点
     Node right;    //    树节点的右子节点
@@ -25,8 +21,6 @@ void LeafOfTree(PTREE );    //    打印树的叶子节点函数
 int Get_Leaf_Num(PTREE );    //    获取树叶子节点个数
 int Get_Height(PTREE );    //    获取树的高度
 
-
-//    主函数
 int main() {
     
     PTREE Root;
@@ -51,14 +45,14 @@ int main() {
 void CreatTree(PTREE *Root) {
     char val=0;    //    用于下面存放数据
     val=getchar();    //    输入数据值
-    //    如果输入'*'，则指向为空
+    //    如果输入' '，则指向为空
     if (val == ' ')
         (*Root) = NULL;
-    //    如果输入非'*'，则给数据域赋值
-    else {
+    else
+    {
         (*Root) = (PTREE)malloc(sizeof(TREE));    //    申请内存空间
         if ((*Root) == NULL) {
-            printf("创建节点失败，无法分配可用内存...");
+            printf("创建节点失败，无法分配可用内存...\n");
             exit(-1);
         }
         else {
