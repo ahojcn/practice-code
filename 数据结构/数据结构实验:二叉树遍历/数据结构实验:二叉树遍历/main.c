@@ -22,7 +22,7 @@ void PreOrderTree(PTREE );    //    树的前序遍历函数
 void InOrderTree(PTREE );    //    树的中序遍历
 void PostOrderTree(PTREE );    //    树的后序遍历
 void LeafOfTree(PTREE );    //    打印树的叶子节点函数
-int  Get_Leaf_Num(PTREE );    //    获取树叶子节点个数
+int Get_Leaf_Num(PTREE );    //    获取树叶子节点个数
 int Get_Height(PTREE );    //    获取树的高度
 
 
