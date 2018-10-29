@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "fun:main.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "arr[2]">
+            </PersistentString>
+            <PersistentString
+               value = "arr[0]">
+            </PersistentString>
+            <PersistentString
+               value = "arr[3]">
+            </PersistentString>
+            <PersistentString
+               value = "arr[4]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

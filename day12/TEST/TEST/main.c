@@ -64,9 +64,9 @@ int fun(char *arr[], char *src)
 // 以下是第二种我在网上看到的比较棒的方法～来实现下子
 /*
  1. 将整个字符串全部反转过来
- student a am i    ->    i ma a tneduts
+    student a am i    ->    i ma a tneduts
  2. 然后开始反转单个单词
- i am a student
+    i am a student
  */
 
 void reverse(char *left, char *right)
