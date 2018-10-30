@@ -17,6 +17,6 @@ int f(int m, int n)
 
 int main()
 {
-    printf("%d\n", f(3, 1));
+    printf("%d\n", f(3, 2));
     return 0;
 }
