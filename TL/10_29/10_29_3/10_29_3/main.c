@@ -20,7 +20,7 @@ int nk(int n, int k)
     return ret;
 }
 
-// 2进制
+// 转成2进制保存在数组a中，返回二进制的长度
 int f(int a[], int N)
 {
     int i=0;
