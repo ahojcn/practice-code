@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9D50EC2B218BCE3F006A1D73 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D50EC2A218BCE3F006A1D73 /* main.c */; };
-		9D50EC32218BD2D6006A1D73 /* t1.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D50EC31218BD2D6006A1D73 /* t1.c */; };
+		9D50EC32218BD2D6006A1D73 /* t.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D50EC31218BD2D6006A1D73 /* t.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +26,8 @@
 /* Begin PBXFileReference section */
 		9D50EC27218BCE3F006A1D73 /* 典型题目11_02 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "典型题目11_02"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D50EC2A218BCE3F006A1D73 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		9D50EC31218BD2D6006A1D73 /* t1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = t1.c; sourceTree = "<group>"; };
+		9D50EC31218BD2D6006A1D73 /* t.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = t.c; sourceTree = "<group>"; };
+		9D7F77A8218C763800A5830F /* t.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = t.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				9D50EC2A218BCE3F006A1D73 /* main.c */,
-				9D50EC31218BD2D6006A1D73 /* t1.c */,
+				9D50EC31218BD2D6006A1D73 /* t.c */,
+				9D7F77A8218C763800A5830F /* t.h */,
 			);
 			path = "典型题目11_02";
 			sourceTree = "<group>";
@@ -121,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D50EC32218BD2D6006A1D73 /* t1.c in Sources */,
+				9D50EC32218BD2D6006A1D73 /* t.c in Sources */,
 				9D50EC2B218BCE3F006A1D73 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

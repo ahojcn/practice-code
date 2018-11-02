@@ -7,12 +7,15 @@
 //
 
 #include <stdio.h>
+#include "t.h"
 
 int main(int argc, const char * argv[])
 {
+    t1();
     
+    //t2();
     
-    
+    t3();
     
     return 0;
 }
