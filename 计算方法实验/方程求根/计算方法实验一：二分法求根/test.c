@@ -9,16 +9,21 @@ double erfenfa();
 double diedai();
 double newtown();
 
+int cnt = 0;
+
 int main()
 {
 	// 二分法
 	printf("二分法：%lf\n", erfenfa());
+	printf("%d\n", cnt);
 
 	// 迭代法
 	printf("迭代法：%lf\n", diedai());
+	printf("%d\n", cnt);
 
 	// 牛顿法
 	printf("牛顿法：%lf\n", newtown());
+	printf("%d\n", cnt);
 
 	system("pause");
 	return 0;
@@ -40,12 +45,15 @@ double fd_x(double x)
 // 牛顿法
 double newtown()
 {
+	cnt = 0;
+
 	double x0 = 0.0;
 	double ret = f_x(x0);
 	double xk = x0 - f_x(x0) / fd_x(x0);
 
 	for (int k = 0; ; k++)
 	{
+		cnt++;
 		if (fabs(ret - 0) <= WUCHA)
 		{
 			break;
@@ -61,6 +69,7 @@ double newtown()
 // 迭代法
 double diedai()
 {
+	cnt = 0;
 	double x0 = 0.0;
 	double ret = f_x(x0);
 	double xk = x0;
@@ -68,6 +77,7 @@ double diedai()
 	//int k = 0;
 	for (int k = 0; ; k++)
 	{
+		cnt++;
 		if (fabs(ret - 0) <= WUCHA)
 		{
 			break;
@@ -83,6 +93,7 @@ double diedai()
 // 二分法
 double erfenfa()
 {
+	cnt = 0;
 	double left = 0.0;
 	double right = 0.1;
 	double x = (left + right) / 2;
@@ -90,6 +101,7 @@ double erfenfa()
 
 	while (fabs(ret - 0) >= WUCHA)
 	{
+		cnt++;
 		if (ret > 0)
 		{
 			right = x;

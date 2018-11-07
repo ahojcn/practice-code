@@ -21,11 +21,6 @@ int main()
     }
     printf("%lf\n", count);
     
-    //FILE *fp = fopen("a.txt", "r");
-    
-    //assert(fp != NULL);
-    
-    
     
     return 0;
 }

@@ -1,6 +1,7 @@
 // 5000 的阶乘
 
 #include <stdio.h>
+#include <time.h>
 
 int main(int argc, const char * argv[])
 {
@@ -44,6 +45,7 @@ int main(int argc, const char * argv[])
         printf("%d", a[i]);
     }
     printf("\n");
+    //printf("time used = %.2f\n", (double)clock()/CLOCKS_PER_SEC);
     
     return 0;
 }
