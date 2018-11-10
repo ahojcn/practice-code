@@ -1,15 +1,24 @@
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void t_1(void);
 void t_2(void);
 void t_3(void);
+void t_3_1(int n);
 
 int main(int argc, const char * argv[])
 {
     t_1();
     t_2();
     t_3();
+    
+    //动态打印杨辉三角
+    int n = -1;
+    scanf("%d", &n);
+    t_3_1(n);
+    
     return 0;
 }
 
@@ -117,5 +126,49 @@ void t_3()
             printf("%d ", a[i][j]);
         }
         printf("%d\n", a[i][j]);
+    }
+}
+
+void t_3_1(int n)
+{
+    int **p = (int **)malloc(sizeof(int *) * n);
+    
+    int i = 0;
+    for(; i<n; i++)
+    {
+        p[i] = (int *)malloc(sizeof(int) * n);
+    }
+    
+    memset(&p[0][0], 0, sizeof(int) *n*n);
+    
+    // 初始化两边为 1
+    for(i=0; i<n; i++)
+    {
+        p[i][0] = 1;
+        p[i][i] = 1;
+    }
+    
+    // 填充数字
+    i = 2;
+    for(; i<n; i++)
+    {
+        for(int j=1; j<i; j++)
+        {
+            p[i][j] = p[i-1][j] + p[i-1][j-1];
+        }
+    }
+    
+    // 打印
+    for(i=0; i<n; i++)
+    {
+        for(int j=0; j<n-i; j++)
+        {
+            printf("%c", ' ');
+        }
+        for(int j=0; j<=i; j++)
+        {
+            printf("%d ", p[i][j]);
+        }
+        printf("\n");
     }
 }
