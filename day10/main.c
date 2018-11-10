@@ -72,13 +72,13 @@ void t_2()
         number/=2;
         cnt++;
     }
-    printf("odd:");
+    printf("odd:");     //奇数
     for (int j=cnt; j>=0; j-=2)
     {
         printf("%d ", arr[j]);
     }
     printf("\n");
-    printf("even:");
+    printf("even:");    //偶数
     for (int j=cnt-1; j>=0; j-=2)
     {
         printf("%d ", arr[j]);
@@ -106,13 +106,10 @@ void t_3(int n)
 
 int t_4(int m, int n)
 {
-    int cnt = 0;
     // 相同为0 相异为1
     int tmp = m^n;
     
-    cnt = count_one_bits(tmp);
-    
-    return cnt;
+    return count_one_bits(tmp);
 }
 
 int main(int argc, const char * argv[])
