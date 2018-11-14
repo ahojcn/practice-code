@@ -15,15 +15,15 @@ int main()
 {
 	// 二分法
 	printf("二分法：%lf\n", erfenfa());
-	printf("%d\n", cnt);
+	printf("计算次数%d\n", cnt);
 
 	// 迭代法
 	printf("迭代法：%lf\n", diedai());
-	printf("%d\n", cnt);
+	printf("计算次数%d\n", cnt);
 
 	// 牛顿法
 	printf("牛顿法：%lf\n", newtown());
-	printf("%d\n", cnt);
+	printf("计算次数%d\n", cnt);
 
 	system("pause");
 	return 0;

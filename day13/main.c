@@ -60,13 +60,15 @@
 #include <stdio.h>
 #define MAXSIZE 5
 
-void t1(void );
+void t_1(void );
+void t_1_2(void );   //改进
 
 int t2(int arr[][3], int row, int col, int value);
 
 int main(int argc, const char * argv[])
 {
-    //t1();
+    t_1();
+    t_1_2();
     
     int arr[][3] =
     {
@@ -117,6 +119,37 @@ void t_1()
     }
     
     for(int i=0; i<MAXSIZE; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+void t_1_2(void )
+{
+    int arr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int left = 0;
+    int right = sizeof(arr)/sizeof(arr[0])-1;
+    
+    while(left < right)
+    {
+        while((left<right) && (arr[left]&1))
+        {
+            left++;
+        }
+        while((left<right) && (!(arr[right]&1)))
+        {
+            right--;
+        }
+        if(left < right)
+        {
+            int tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+    
+    for(int i=0; i<10; i++)
     {
         printf("%d ", arr[i]);
     }
