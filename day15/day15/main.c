@@ -8,17 +8,20 @@
  3.模拟实现strcpy
  4.模拟实现strcat
  */
+
 #include <stdio.h>
 #include "Header.h"
 
-int main(int argc, const char * argv[])
+int main()
 {
-    // 1.
-    int arr[10] = {1,2,3,4,5,5,4,9,10,13};
-    FindNum(arr, sizeof(arr)/sizeof(arr[0]));
+    //t1();
     
+    //t2();
     
+    char dest[10] = {0};
+    char *src = "abcd";
     
+    printf("%s\n", my_strcpy(dest, src));
     
     return 0;
 }

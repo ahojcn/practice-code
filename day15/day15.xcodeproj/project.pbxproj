@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D57983C219847DB00619E13 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D57983B219847DB00619E13 /* main.c */; };
 		9D5798442198481100619E13 /* 1.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D5798432198481100619E13 /* 1.c */; };
+		9D665626219C142200372F0F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D665625219C142200372F0F /* main.c */; };
+		9D665628219C148700372F0F /* 2.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D665627219C148700372F0F /* 2.c */; };
+		9D66562C219C1E7D00372F0F /* 34.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D66562B219C1E7D00372F0F /* 34.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +27,11 @@
 
 /* Begin PBXFileReference section */
 		9D579838219847DB00619E13 /* day15 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = day15; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D57983B219847DB00619E13 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		9D579842219847FE00619E13 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		9D5798432198481100619E13 /* 1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 1.c; sourceTree = "<group>"; };
+		9D665624219C13D600372F0F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		9D665625219C142200372F0F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9D665627219C148700372F0F /* 2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 2.c; sourceTree = "<group>"; };
+		9D66562B219C1E7D00372F0F /* 34.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 34.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +64,11 @@
 		9D57983A219847DB00619E13 /* day15 */ = {
 			isa = PBXGroup;
 			children = (
-				9D57983B219847DB00619E13 /* main.c */,
+				9D665624219C13D600372F0F /* Header.h */,
+				9D665625219C142200372F0F /* main.c */,
 				9D5798432198481100619E13 /* 1.c */,
-				9D579842219847FE00619E13 /* Header.h */,
+				9D665627219C148700372F0F /* 2.c */,
+				9D66562B219C1E7D00372F0F /* 34.c */,
 			);
 			path = day15;
 			sourceTree = "<group>";
@@ -123,7 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D57983C219847DB00619E13 /* main.c in Sources */,
+				9D66562C219C1E7D00372F0F /* 34.c in Sources */,
+				9D665628219C148700372F0F /* 2.c in Sources */,
+				9D665626219C142200372F0F /* main.c in Sources */,
 				9D5798442198481100619E13 /* 1.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
