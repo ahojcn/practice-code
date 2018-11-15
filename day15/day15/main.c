@@ -23,5 +23,8 @@ int main()
     
     printf("%s\n", my_strcpy(dest, src));
     
+    my_strcat(dest, src);
+    printf("%s\n", dest);
+    
     return 0;
 }
