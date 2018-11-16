@@ -1,0 +1,6 @@
+﻿  main.c
+\\mac\code\practice\day16\day16\main.c(32): warning C4477: “printf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“void *”
+\\mac\code\practice\day16\day16\main.c(33): warning C4477: “printf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“void *”
+\\mac\code\practice\day16\day16\main.c(35): warning C4477: “printf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“void *”
+\\mac\code\practice\day16\day16\main.c(36): warning C4477: “printf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“void *”
+  day16.vcxproj -> \\Mac\Code\Practice\day16\Debug\day16.exe
