@@ -5,7 +5,6 @@
 4.实现strchr
 5.实现strcmp
 6.实现memcpy 
-
 7.实现memmove
 * Liujingliang 2018_11_15
 */

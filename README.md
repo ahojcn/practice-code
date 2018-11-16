@@ -220,6 +220,21 @@ day15
 > 2. 喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水， 
 >    给20元，可以多少汽水。 
 >    编程实现。 
->
 > 3. 模拟实现strcpy。
 > 4. 模拟实现strcat。
+
+day16
+
+> 1. 实现strcpy 
+>
+> 2. 实现strcat 
+>
+> 3. 实现strstr
+>
+> 4. 实现strchr
+>
+> 5. 实现strcmp
+>
+> 6. 实现memcpy 
+>
+> 7. 实现memmove
