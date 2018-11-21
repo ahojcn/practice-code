@@ -3,8 +3,48 @@
 #include <ctype.h>
 #include <string.h>
 
+/* 5 铺地砖问题 */
+//int digui(int );
+//int main()
+//{
+//    int N = 0;
+//    scanf("%d", &N);
+//
+//    printf("%d\n", digui(N));
+//
+//    return 0;
+//}
+//int digui(int N)
+//{
+//    if(N == 1)
+//    {
+//        return 1;
+//    }
+//    if(N == 2)
+//    {
+//        return 2;
+//    }
+//    return digui(N-1) + digui(N-2);
+//}
 
 
+
+// /* 4 */
+/* k=3,N=100 */
+// N=11(1011)->1*3^3+0*3^2+1*3^1+1*3^0=31
+//int main()
+//{
+//    int k,N,sum=0,i=0;
+//    scanf("%d%d", &k, &N);
+//    while(N != 0)
+//    {
+//        sum += (N&1)*pow(k, i++);
+//        N >>= 1;
+//    }
+//    printf("%d\n", sum);
+//
+//    return 0;
+//}
 
 
 
