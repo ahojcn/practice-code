@@ -3,6 +3,18 @@
 #include <ctype.h>
 #include <string.h>
 
+/* 约瑟夫环 */
+int main()
+{
+    int n = 0;
+    scanf("%d", &n);
+    int arr[1000] = {0};
+    
+    
+    return 0;
+}
+
+
 /* 5 铺地砖问题 */
 //int digui(int );
 //int main()
