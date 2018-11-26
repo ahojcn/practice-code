@@ -1,8 +1,10 @@
 #include <stdio.h>
-#include <math.h>
+#include <string.h>
 #include <stdlib.h>
+#include <assert.h>
+#include <math.h>
 
-int int_cmp(const void * p1, const void *p2)
+int int_cmp(const void *p1, const void *p2)
 {
 //    return (*(int *)p1 < *(int *)p2); //这样只对正整数有效
     int x = *(int *)p1;
@@ -13,6 +15,30 @@ int int_cmp(const void * p1, const void *p2)
         return 0;
     else
         return 1;
+}
+
+int dou_cmp(const void *p1, const void *p2)
+{
+    int x = *(double *)p1;
+    int y = *(double *)p2;
+    if(x > y)
+    {
+        return 1;
+    }
+    else if(x < y)
+    {
+        return -1;
+    }
+    else
+        return 0;
+}
+
+int CmpStr(const void *x, const void *y)
+{
+    assert(x && y);
+    char **_x = (char **)x;
+    char **_y = (char **)y;
+    return strcmp(*_x, *_y);
 }
 
 void swap(void *p1, void *p2, int size)
@@ -54,6 +80,15 @@ int main(int argc, const char * argv[])
     for(int i=0; i<sizeof(arr)/sizeof(arr[0]); i++)
     {
         printf("%d ", arr[i]);
+    }
+    printf("\n");
+    
+    double darr[] = {1.2,1.3,-0.005,3.0001,3.0000002};
+    qsort(darr, sizeof(darr)/sizeof(darr[0]), sizeof(double), dou_cmp);
+    
+    for(int i=0; i<sizeof(darr)/sizeof(darr[0]); i++)
+    {
+        printf("%lf ", darr[i]);
     }
     printf("\n");
     
