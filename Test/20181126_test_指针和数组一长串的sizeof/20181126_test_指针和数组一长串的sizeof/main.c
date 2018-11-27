@@ -23,8 +23,7 @@ int main()
     printf("%d\n", sizeof(*(&a[0]+1)));//16，相当于a[1]
     printf("%d\n", sizeof(*a));//16，相当于a[0]
     printf("%d\n", sizeof(a[3]));//16，虽然越界了，但是还是当前数组的类型
-    
-    
+
     return 0;
 }
 
@@ -63,7 +62,7 @@ int main()
 
 
 
-// 字符串
+// 字符数组
 //int main()
 //{
 //    char a[] = "abcdef";
@@ -136,36 +135,36 @@ int main()
 
 
 
-/*
-int main(int argc, const char * argv[])
-{
-    // 一维数组
-    int a[] = {1,2,3,4};
-    printf("----------\n");
-    printf("%p\t->\ta[0]\t->\t%d\n", &a[0], a[0]);
-    printf("%p\t->\ta[1]\t->\t%d\n", &a[1], a[1]);
-    printf("%p\t->\ta[2]\t->\t%d\n", &a[2], a[2]);
-    printf("%p\t->\ta[3]\t->\t%d\n", &a[3], a[3]);
-    printf("----------\n");
-    printf("sizeof(a)\t->\t%lu\n", sizeof(a));//a代表整个数组，16
-    printf("sizeof(a+0)\t->\t%lu\n", sizeof(a+0));//a+0代表的是数组首元素的地址，&a[0]，这里32位输出4，64位输出8。
-//    printf("a+0\t->\t%p\n", a + 0);
-//    printf("a\t->\t%p\n", a);
-    printf("sizeof(*a)\t->\t%lu\n", sizeof(*a));//*a是数组第一个元素，4
-//    printf("*a\t->\t%d\n", *a);
-    printf("sizeof(a+1)\t->\t%lu\n", sizeof(a+1));//a+1代表数组第二个元素的地址，&a[1]，8
-//    printf("%p\n", a+1);
-    printf("sizeof(a[1])\t->\t%lu\n", sizeof(a[1]));//a[1]的大小，4
-    printf("sizeof(&a)\t->\t%lu\n", sizeof(&a));//数组的地址，8
-//    printf("%p\n", &a);
-    printf("sizeof(*&a)\t->\t%lu\n", sizeof(*&a));//*和&抵消，相当于a代表整个数组，16
-    printf("sizeof(&a+1)\t->\t%lu\n", sizeof(&a+1));//这个是个地址，跨过了16个字节，8
-//    printf("%p\n", &a+1);
-    printf("sizeof(&a[0])\t->\t%lu\n", sizeof(&a[0]));//8
-    printf("sizeof(&a[0]+1\t->\t%lu\n", sizeof(&a[0]+1));//&a[1]
-//    printf("%p\n", &a[0]+1);
-    
-    
-    return 0;
-}
-*/
+
+//int main(int argc, const char * argv[])
+//{
+//    // 一维数组
+//    int a[] = {1,2,3,4};
+//    printf("----------\n");
+//    printf("%p\t->\ta[0]\t->\t%d\n", &a[0], a[0]);
+//    printf("%p\t->\ta[1]\t->\t%d\n", &a[1], a[1]);
+//    printf("%p\t->\ta[2]\t->\t%d\n", &a[2], a[2]);
+//    printf("%p\t->\ta[3]\t->\t%d\n", &a[3], a[3]);
+//    printf("----------\n");
+//    printf("sizeof(a)\t->\t%lu\n", sizeof(a));//a代表整个数组，16
+//    printf("sizeof(a+0)\t->\t%lu\n", sizeof(a+0));//a+0代表的是数组首元素的地址，&a[0]，这里32位输出4，64位输出8。
+////    printf("a+0\t->\t%p\n", a + 0);
+////    printf("a\t->\t%p\n", a);
+//    printf("sizeof(*a)\t->\t%lu\n", sizeof(*a));//*a是数组第一个元素，4
+////    printf("*a\t->\t%d\n", *a);
+//    printf("sizeof(a+1)\t->\t%lu\n", sizeof(a+1));//a+1代表数组第二个元素的地址，&a[1]，8
+////    printf("%p\n", a+1);
+//    printf("sizeof(a[1])\t->\t%lu\n", sizeof(a[1]));//a[1]的大小，4
+//    printf("sizeof(&a)\t->\t%lu\n", sizeof(&a));//数组的地址，8
+////    printf("%p\n", &a);
+//    printf("sizeof(*&a)\t->\t%lu\n", sizeof(*&a));//*和&抵消，相当于a代表整个数组，16
+//    printf("sizeof(&a+1)\t->\t%lu\n", sizeof(&a+1));//这个是个地址，跨过了16个字节，8
+////    printf("%p\n", &a+1);
+//    printf("sizeof(&a[0])\t->\t%lu\n", sizeof(&a[0]));//8
+//    printf("sizeof(&a[0]+1\t->\t%lu\n", sizeof(&a[0]+1));//&a[1]
+////    printf("%p\n", &a[0]+1);
+//
+//
+//    return 0;
+//}
+
