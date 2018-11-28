@@ -37,5 +37,55 @@
 //    return 0;
 //}
 
+//
+//int main()
+//{
+//    int a[3][2] = { (0,1), (2,3), (4,5) };
+//    int *p = a[0];
+//    printf("%d\n", p[0]);
+//
+//    return 0;
+//}
 
+//int main()
+//{
+//    int a[5][5];
+//    int (*p)[4];
+//    p = a;
+//    printf("%p,%d\n", &p[4][2]-&a[4][2], &p[4][2]-&a[4][2]);
+//
+//    return 0;
+//}
 
+//int main()
+//{
+//    int aa[2][5] = { 1,2,3,4,5,6,7,8,9,10 };
+//    int *p1 = (int *)(&aa + 1);
+//    int *p2 = (int *)(*(aa + 1));
+//    printf("%d,%d\n", *(p1-1), *(p2-1));
+//
+//    return 0;
+//}
+
+//int main()
+//{
+//    char *a[] = {"work", "at", "360"};
+//    char **pa = a;
+//    pa++;
+//    printf("%s\n", *pa);
+//
+//    return 0;
+//}
+
+int main()
+{
+    char *c[] = { "ENTER", "NEW", "POINT", "FIRST" };
+    int **cp[] = { c+3, c+2, c+1, c };
+    char ***cpp = cp;
+    printf("%s\n", **++cpp);
+    printf("%s\n", *--*++cpp+3);
+    printf("%s\n", *cpp[-2]+3);
+    printf("%s\n", cpp[-1][-1]+1);
+    
+    return 0;
+}
