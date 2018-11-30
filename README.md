@@ -224,15 +224,19 @@ day15
 day16
 
 > 1. 实现strcpy 
->
 > 2. 实现strcat 
->
 > 3. 实现strstr
->
 > 4. 实现strchr
->
 > 5. 实现strcmp
->
 > 6. 实现memcpy 
->
 > 7. 实现memmove
+
+day17
+
+> 课程设计～通讯录。
+
+day19
+
+> 1. 模拟实现strncpy 
+> 2. 模拟实现strncat 
+> 3. 模拟实现strncmp 
