@@ -56,4 +56,8 @@ void SortPerson(p_contact ct);
 
 void SearchPerson(p_contact ct);
 
+void ListPerson(p_contact ct);
+
+void ClearContact(p_contact ct);
+
 #endif /* contacts_h */

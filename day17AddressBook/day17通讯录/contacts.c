@@ -46,16 +46,16 @@ int ContactCmp(const void * s1, const void * s2)
 void ShowPersonInfo(p_person p)
 {
     assert(p);
-    printf("姓名:");
-    printf("%s\n", p->person_name);
-    printf("性别:");
-    printf("%s\n", p->person_sex);
-    printf("年龄:");
-    printf("%d\n", p->person_age);
-    printf("手机号:");
-    printf("%s\n", p->person_telphone);
-    printf("家庭地址:");
-    printf("%s\n", p->person_address);
+//    printf("姓名:");
+    printf("|%s|", p->person_name);
+//    printf("性别:");
+    printf("%s|", p->person_sex);
+//    printf("年龄:");
+    printf("%d|", p->person_age);
+//    printf("手机号:");
+    printf("%s|", p->person_telphone);
+//    printf("家庭地址:");
+    printf("%s|\n", p->person_address);
 }
 
 // TODO:文件加密处理
@@ -89,7 +89,6 @@ void Login(void )
             printf("密码>");
             scanf("%s", input.user_pwd);    //TODO:密码输入隐藏
             fscanf(fp, "%s", admin.user_pwd);
-            puts(admin.user_pwd);
             fclose(fp);
             if(strcmp(admin.user_pwd, input.user_pwd) == 0)
             {
@@ -212,4 +211,22 @@ void SearchPerson(p_contact ct)
         }
     }
     LogInfo("INFO", "查找完成");
+}
+
+void ListPerson(p_contact ct)
+{
+    assert(ct);
+    
+    for(int i=0; i<ct->contact_now; i++)
+    {
+        ShowPersonInfo(&(ct->contact_people[i]));
+    }
+    LogInfo("INFO", "已列出所有联系人");
+    
+}
+
+void ClearContact(p_contact ct)
+{
+    assert(ct);
+    ct->contact_now = 0;
 }

@@ -2,7 +2,7 @@
 
 int main()
 {
-    //Login();
+    Login();
     
     contact ct;
     p_contact pct = &ct;
@@ -32,8 +32,10 @@ int main()
                 SearchPerson(pct);
                 break;
             case 5:
+                ListPerson(pct);
                 break;
             case 6:
+                ClearContact(pct);
                 break;
             default:
                 break;
