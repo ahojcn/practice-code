@@ -45,19 +45,23 @@ typedef struct Contact
 // leval:INFO,WARNING,ERROR
 void LogInfo(const char * leval, const char * msg);
 
+// 未登录的菜单
+// 登陆，注册
+void MenuUnlogin(void);
+
 // 登陆
-// 返回登陆的用户信息
-p_user Login(void);
+// 登陆成功则进入功能菜单，否则返回0
+int UserLogin(void);
 
-// 初始化(加载)通讯录
-// 参数：当前登陆的用户信息
-// 返回值：加载好的通讯录。如果是用户第一次登陆，创建一个通讯录，否则加载对应用户的通讯录文件并返回。
-p_contact InitContact(p_user p);
+// 注册
+// 注册成功返回1，否则返回0
+int UserRegist(void);
 
-// 通讯录扩容函数
-// 参数：当前登录的用户信息，通讯录
-// 返回扩容好的通讯录
-p_contact IncContact(p_user p, pp_contact ppct);
+// 登陆控制
+void LoginCtrl(void);
+
+
+
 
 
 #endif /* contact_h */
