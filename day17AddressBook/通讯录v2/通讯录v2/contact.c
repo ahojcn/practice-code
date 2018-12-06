@@ -85,6 +85,10 @@ int UserLogin(void)
             MainCtrl(&u); /* 登录成功，跳到主要功能控制函数，并传入登陆的用户信息 */
             exit(0);
         }
+        else
+        {
+            LogInfo("ERROR", "密码错误");
+        }
     }
     
     
@@ -192,7 +196,7 @@ p_contact ContactInit(p_user pu)
     }
     else // 存在文件
     {
-        fp = fopen(contact_file_name, "wb+");
+        fp = fopen(contact_file_name, "rb+");
         fread(pct, sizeof(*pct), 1, fp);
         pct = malloc(sizeof(people) * pct->con_total + sizeof(contact));
         if(!pct)

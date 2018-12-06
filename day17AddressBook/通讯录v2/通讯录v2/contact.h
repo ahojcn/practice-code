@@ -17,7 +17,7 @@ typedef enum USIZE
     TEL_SIZE = 15,
     ADDR_SIZE = 100,
     PASSWORD_SIZE = 18,
-    INIT_CONTACT_SIZE = 2,
+    INIT_CONTACT_SIZE = 100,
 }usize;
 
 typedef struct User
