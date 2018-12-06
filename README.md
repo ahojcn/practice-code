@@ -4,11 +4,7 @@ My practice code here.
 
 ******
 
-+ PurpleBook：算法竞赛入门(紫色)的练习题和读书笔记。
-+ DataStructure：是数据结构学习过程中的code。
-+ day xx ：是学习过程中的练习题code。
-+ Hope：第一次参加的编程比赛code。
-+ Test：OtherCodeInTest（计算方法试验啦之类的Code、蓝桥杯练习Code）。
+![pic](https://raw.githubusercontent.com/ahojcn/Practice/master/Pratice.png)
 
 *****
 
