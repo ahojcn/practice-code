@@ -4,7 +4,7 @@ My practice code here.
 
 ******
 
-![pic](https://raw.githubusercontent.com/ahojcn/Practice/master/Pratice.png)
+![pic](https://wx4.sinaimg.cn/mw690/006wR0dcly1fy51c2ocm6j31580u00uo.jpg)
 
 *****
 
