@@ -1,7 +1,7 @@
 *.xcodeproj
 *.out
-/.DS_Store
-/**/.DS_Store
+/*.DS_Store
+/**/*.DS_Store
 a.out
 
 *.xmind
