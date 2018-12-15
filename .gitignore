@@ -3,7 +3,7 @@
 /*.DS_Store
 /**/*.DS_Store
 a.out
-
+*.vscode
 *.xmind
 .//.DS_Store
 .//Test/经典递归问题1&2/.DS_Store
