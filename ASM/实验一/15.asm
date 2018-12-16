@@ -1,4 +1,4 @@
-;5
+; 5
 data segment
 	dat1 dw 13h
 data ends
@@ -9,7 +9,6 @@ start:
 	mov ax, data
 	mov ds, ax
 	
-	;TODO : show raw dat1
 	
 	;call newline
 	
@@ -109,7 +108,7 @@ start:
 		mov dl,'H'
 		mov ah,2
 		int 21h
-		call newline;输出完，回车换行
+		call newline	;输出完，回车换行
 	prt2 endp
 
 

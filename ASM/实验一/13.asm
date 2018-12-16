@@ -1,5 +1,5 @@
 data segment
-dat1 dw 13h
+dat1 dw 1h
 data ends
 
 code segment
@@ -10,7 +10,8 @@ start:
  
   mov ax, dat1
   call print
-  mov ax, 4c00h
+  
+  mov ax, 4ch	;return dos
   int 21h
  
 print proc near
