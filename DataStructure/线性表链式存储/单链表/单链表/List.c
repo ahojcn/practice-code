@@ -15,7 +15,7 @@ void ShowList(LinkList L)
     assert(L != NULL);
 
     Node *p = L->next;
-    if(p == NULL)
+    if (p == NULL)
     {
         printf("NULL List");
     }
@@ -192,4 +192,23 @@ void DestoryList(LinkList *L)
         tmp = p;
     }
     (*L)->next = NULL;
+}
+
+// 合并两个已经有序的单链表（增序）
+// 返回合并好的单链表，这是一个新的链表
+LinkList MerageList(LinkList L1, LinkList L2)
+{
+    assert(L1 != NULL);
+    assert(L2 != NULL);
+
+    LinkList newL = NULL;
+    LinkList p1 = L1->next, p2 = L2->next;
+    Node *s = NULL;
+
+    while(1)
+    {
+        /* code */
+    }
+
+    return newL;
 }

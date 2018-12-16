@@ -26,5 +26,6 @@ int ListLength(LinkList L);
 void InsertList(LinkList L, int i, ElemType e);
 void DeleteList(LinkList L, int i);
 void DestoryList(LinkList *L);
+LinkList MerageList(LinkList L1, LinkList L2);
 
 #endif /* List_h */
