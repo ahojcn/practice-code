@@ -21,7 +21,7 @@ start:
 	mov ax, data1
 	call fun	; 调用10进制显示子程序
 	;ret
-	mov ax, 4ch	;return dos
+	mov ax, 4ch	; return dos
 	int 21h
 	
 	fun proc near

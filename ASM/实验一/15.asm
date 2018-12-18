@@ -27,6 +27,10 @@ start:
 	call prt3
 	;mov ax, 4c00h
 	
+	; return dos
+	mov ah, 4ch
+	int 21h
+	
 	;回车换行
 	newline proc near
 		mov dl,0ah

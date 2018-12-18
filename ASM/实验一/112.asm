@@ -1,13 +1,12 @@
 ; multi-segment executable file template.
 
 data segment
-    ; add your data here!
     dat1 dw 12
 ends
 
 code segment
+	assume cs:code, ds:data
 start:
-; set segment registers:
     mov ax, data
     mov ds, ax
 	
@@ -15,7 +14,6 @@ start:
     mov bx, dat1
     mov cx, 16
 
-    ; add your code here
 T:  rol bx,1 ;循环左移
 	mov dl,bl
 	and dl,01h
@@ -24,6 +22,9 @@ T:  rol bx,1 ;循环左移
 	int 21h
 	loop T
 	
+	;return dos
+	mov ah, 4ch
+	int 21h
+	
 ends
-
-end start ; set entry point and stop the assembler.
+end start

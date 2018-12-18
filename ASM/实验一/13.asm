@@ -4,6 +4,7 @@ data ends
 
 code segment
 	assume cs:code, ds:data
+	
 start:
   mov ax, data
   mov ds, ax
@@ -11,7 +12,8 @@ start:
   mov ax, dat1
   call print
   
-  mov ax, 4ch	;return dos
+  ;return dos
+  mov ax, 4ch	
   int 21h
  
 print proc near

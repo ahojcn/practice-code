@@ -17,6 +17,7 @@ start:
 	mov ax, -13h;;;;;;;;;;;;;;;;
 	;mov ax, data1
 	call fun
+	
 	mov ah, 4ch	;return dos
     int 21h
 	

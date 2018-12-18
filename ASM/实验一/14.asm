@@ -8,7 +8,9 @@ start:
 	mov ax, data
 	mov ds, ax
 	
-	;show raw dat1
+	; return dos
+	mov ah, 4ch
+	int 21h
 	
 	call prt1
 	;call newline ;调用回车换行子函数

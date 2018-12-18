@@ -1,5 +1,6 @@
 code segment
 	assume cs:code
+	
 start:
 	mov bx,11 ;B
 	sub ax,ax
@@ -22,6 +23,11 @@ print:
 	mov dl,'H'
 	mov ah,2
 	int 21h
+	
+	; return dos
+	mov ah, 4ch
+	int 21h
+	
 code ends
 end start
 

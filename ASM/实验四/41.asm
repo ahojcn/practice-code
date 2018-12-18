@@ -146,6 +146,7 @@ start:
 			ret
 	getNum endp
 	
+	; num -> ax
 	prtDec proc near
 		mov cx, 0	; cx -> 0，计数器清 0
 		mov bx, 10	; bx -> 10，除10
