@@ -10,6 +10,7 @@ data segment
 	msg1 db 'before sort:', '$'
 	msg2 db 'after sort:', '$'
 	msg3 db 'sorting:', '$'
+	flag db 0
 data ends
 
 code segment
@@ -20,18 +21,19 @@ start:
 	mov ds, ax
 	
 	; 输出数组元素
-	mov dx, offset msg1
-	mov ah, 09h
-	int 21h
-	call newline
-	call printArr ;;;;;;
-	call newline
+	; mov dx, offset msg1
+	; mov ah, 09h
+	; int 21h
+	; call newline
+	; call printArr ;;;;;;
+	; call newline
 	
 	; sort
 	mov dx, offset msg3
 	mov ah, 09h
 	int 21h
 	call bobSort ;;;;;;;
+	call newline
 	mov dx, offset msg2
 	mov ah, 09h
 	int 21h
@@ -49,20 +51,26 @@ start:
 		push cx
 		lea si, arr
 		mov cx, 10
+		mov flag, 0
 		w2: ; for j
 			mov ax, [si]
 			cmp ax, [si+2] 	; a[j] a[j+1]
-			jbe nextNum		; a[j] < a[j+1] -> nextNum
+			jbe nextNum		; a[j] <= a[j+1] -> nextNum
 							; else(a[j]>a[j+1])
 			xchg ax, [si+2]	; a[j+1] -> ax
 			mov [si], ax	; a[j] -> ax
+			mov flag, 1
 		nextNum:
 			add si, 2
-			loop w2
+		loop w2
 		call newline
+		cmp flag, 0
+		jz EXIT
 		call printArr
 		pop cx
-		loop w1
+	loop w1
+	EXIT:
+		ret
 	bobSort endp
 	
 	

@@ -2,7 +2,7 @@
 ; 添加功能：数组元素由用户键入。
 
 data segment
-	arr dw 0,0,0,0 ,0, 0,0,0,0,0
+	arr dw 0,0,0,0,0, 0,0,0,0,0
 	n dw 10
 	num dw 0
 	msgArr db 'arr:', '$'

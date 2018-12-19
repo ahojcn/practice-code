@@ -4,7 +4,7 @@
 ; 并将数组元素及最大数输出。
 
 data segment
-	arr dw 0,1,2,3,4,5,6,7,8,9
+	arr dw 0,1,2,3,-4,5,6,-77,8,100
 	n dw 10
 	msg db 'max:','$'
 	max dw ?
@@ -35,7 +35,7 @@ start:
 	
 	
 	mov ax, max
-	call fun
+	call prtfun
 	
 	; return dos
 	mov ah, 4ch
@@ -67,13 +67,33 @@ start:
 		t:
 		mov ax, [si]
 		push cx	;;;;;;;;;;;
-		call fun
+		call judgeSign	;;;;;;;;;;;;
 		call space
 		add si, 2	; dw
 		pop cx	;;;;;;;;;;;
 		loop t
 		ret
 	printArr endp
+	
+	judgeSign proc near
+		and ax, ax
+		push ax
+		jns prt10	;不是负数（正数），直接输出
+		;负数：取反+1，输出
+		mov dl, '-'	;输出'-'号
+		mov ah, 2
+		int 21h
+		
+		pop ax
+		neg ax	; 取反+1
+		jmp p
+	
+	prt10:
+		pop ax
+	p:
+		call prtfun
+		ret
+	judgeSign endp
 	
 	;回车换行
 	newline proc near
@@ -94,7 +114,7 @@ start:
 		ret
 	space endp
 	
-	fun proc near
+	prtfun proc near
 		mov cx, 0	; cx -> 0，计数器清 0
 		mov bx, 10	; bx -> 10，除10
 	q1:
@@ -111,7 +131,7 @@ start:
 		int 21h
 		loop q2
 		ret
-	fun endp
+	prtfun endp
 	
 code ends
 end start

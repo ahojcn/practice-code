@@ -1,5 +1,5 @@
 data segment
-dat1 dw 1h
+	dat1 dw 1h
 data ends
 
 code segment
@@ -33,5 +33,6 @@ q1:
   loop q1
   ret
 print endp
+
 code ends
 end start
