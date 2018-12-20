@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 10
+#define N 100
 
 int partition(int a[], int l, int r)
 {
@@ -60,14 +60,15 @@ int main(int argc, char const *argv[])
     srand((unsigned int)time(NULL));
     for(int i = 0; i<N; i++)
     {
-        arr[i] = rand()%100+1;
+        arr[i] = rand()%N+1;
     }
-
+    // printf("%s\n", __TIME__);
     prt_arr(arr, N);
 
     quick_sort(arr, 0, N-1);
 
     prt_arr(arr, N);
+    
 
     return 0;
 }
