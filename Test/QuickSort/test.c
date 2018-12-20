@@ -22,25 +22,47 @@ void Swap(int *arr, int m, int n)
 
 int Partation(int *arr, int left, int right)
 {
-    int i = left, j = right-1;
+    int i=left;
+    int j=right;
+    int temp=arr[i];
+    while(i<j)
+    {
+        while(i<j && arr[j]>=temp)
+            j--;
+            if(i<j)
+                arr[i]=arr[j];
+        while(i<j && arr[i]<=temp)
+            i++;
+            if(i<j)
+                arr[j]=arr[i];
+    }
+    arr[i]=temp;
+    return i;
+    /*
+    int i = left, j = right;
     int pivot = 0;
     while(1)
     {
-        while(pivot > arr[i++])
-            ;
-        while(pivot < arr[j++] && i <= j)
-            ;
-        if(i >= j)
+        while(pivot > arr[i])
+        {
+            i++;
+        }
+        while(pivot < arr[j] && i <= j)
+        {
+            j++;
+        }
+        if(i <= j)
             break;
         Swap(arr, i, j);
     }
     Swap(arr, i, right);
     return i;
+    */
 }
 
 void QuickSort(int *arr, int left, int right)
 {
-    if(left <= right)
+    if(left < right)
     {
         int i = Partation(arr, left, right);
         QuickSort(arr, left, i-1);
