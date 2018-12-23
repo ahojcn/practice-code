@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 #define INIT_SIZE 10    // 初始大小
-#define INC_SIZE 2  // 扩容倍数
+#define INC_SIZE 3  // 扩容倍数
 
 typedef int SeqElemType;
 
@@ -14,6 +14,9 @@ typedef struct SeqList
     int size;
     int cap;
 } SeqList;
+
+// log fun
+void SeqListLog(const char *leval, const char *msg);
 
 // 初始化
 void SeqListInit(SeqList *sl);
@@ -40,9 +43,23 @@ void SeqListAddFromFront(SeqList *sl, SeqElemType value);
 void SeqListInsert(SeqList *sl, SeqElemType value, int index);
 
 // 删
+void SeqListDelFromTail(SeqList *sl);
+void SeqListDelFromHead(SeqList *sl);
+// 删除sl中第一个值为value的元素，返回这个元素的下标，如果没有返回-1
+int SeqListDelFirstOne(SeqList *sl, SeqElemType value);
+// 删除sl中所有值为value的元素，有元素返回删除了几个，没有返回0
+int SeqListDelAllValue(SeqList *sl, SeqElemType value);
 
-// 改
+// TODO: 改
 
-// 查 
+// 查
+// 返回遍历查找到的第一个value的下标，没有返回-1
+int SeqListFindValue(SeqList *sl, SeqElemType value);
+// TODO : 二分查找，找到返回下标，找不到返回-1
+int SeqListBinFindValue(SeqList *sl, SeqElemType value);
+
+// 对arr进行冒泡排序
+void SeqListBobSort(SeqList *sl);
+void SeqListQSort(SeqList *sl);
 
 #endif /* SeqList_h */
