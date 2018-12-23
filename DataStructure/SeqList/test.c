@@ -53,7 +53,7 @@ int main(int argc, char const *argv[])
     puts("---");
 
 
-    SeqListInsert(&sl, -1, 5);  // 正常条件测试
+    SeqListInsert(&sl, 555, 5);  // 正常条件测试
     SeqListQSort(&sl);
     SeqListShowArr(&sl);
 

@@ -285,11 +285,11 @@ int SeqListBinFindValue(SeqList *sl, SeqElemType value)
         int mid = (r - l) / 2 + l;
         if (value < sl->arr[mid])
         {
-            l = mid + 1;
+            r = mid - 1;
         }
         else if (value > sl->arr[mid])
         {
-            r = mid;
+            l = mid + 1;
         }
         else
         {
@@ -333,4 +333,11 @@ void SeqListQSort(SeqList *sl)
 {
     assert(sl != NULL);
     qsort(sl->arr, sl->size, sizeof(int), SeqElemTypeCmp);
+}
+
+SeqElemType SeqListSearchIndex(SeqList *sl, int index)
+{
+    assert(sl != NULL);
+    assert(index > 0 && index < sl->size);
+    return sl->arr[index];
 }

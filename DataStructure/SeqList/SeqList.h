@@ -50,13 +50,15 @@ int SeqListDelFirstOne(SeqList *sl, SeqElemType value);
 // 删除sl中所有值为value的元素，有元素返回删除了几个，没有返回0
 int SeqListDelAllValue(SeqList *sl, SeqElemType value);
 
-// TODO: 改
+// 改
 
 // 查
 // 返回遍历查找到的第一个value的下标，没有返回-1
 int SeqListFindValue(SeqList *sl, SeqElemType value);
-// TODO : 二分查找，找到返回下标，找不到返回-1
+// 二分查找，找到返回下标，找不到返回-1
 int SeqListBinFindValue(SeqList *sl, SeqElemType value);
+// 在sl中查找index下标的元素值
+SeqElemType SeqListSearchIndex(SeqList *sl, int index);
 
 // 对arr进行冒泡排序
 void SeqListBobSort(SeqList *sl);
