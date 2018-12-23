@@ -282,18 +282,19 @@ int SeqListBinFindValue(SeqList *sl, SeqElemType value)
     while (l < r)
     {
         printf("l -> %d, r -> %d\n", l, r);
-        int mid = (r - l) / 2 + l;
-        if (value < sl->arr[mid])
-        {
-            r = mid - 1;
-        }
-        else if (value > sl->arr[mid])
+        int mid = (r + l) / 2;
+        if (value > sl->arr[mid])
         {
             l = mid + 1;
         }
+        else if (value < sl->arr[mid])
+        {
+            r = mid;
+        }
         else
         {
-            return mid;
+            ret = mid;
+            break;
         }
     }
     
@@ -338,6 +339,19 @@ void SeqListQSort(SeqList *sl)
 SeqElemType SeqListSearchIndex(SeqList *sl, int index)
 {
     assert(sl != NULL);
-    assert(index > 0 && index < sl->size);
+    assert(index >=0 && index < sl->size);
+
     return sl->arr[index];
+}
+
+void SeqListUpdateValue(SeqList *sl, int index, SeqElemType value)
+{
+    assert(sl != NULL);
+    if (index < 0 || index > sl->size)
+    {
+        SeqListLog("ERROR", "修改位置不合法");
+        return;
+    }
+
+    sl->arr[index] = value;
 }

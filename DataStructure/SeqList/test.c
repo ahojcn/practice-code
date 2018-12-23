@@ -53,11 +53,11 @@ int main(int argc, char const *argv[])
     puts("---");
 
 
-    SeqListInsert(&sl, 555, 5);  // 正常条件测试
-    SeqListQSort(&sl);
+    SeqListInsert(&sl, -1, 5);  // 正常条件测试
+    SeqListBobSort(&sl);
     SeqListShowArr(&sl);
 
-    printf("%d\n", sl.arr[SeqListBinFindValue(&sl, -1)]);
+    printf("%d\n", SeqListBinFindValue(&sl, -1));
 
     return 0;
 }

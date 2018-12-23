@@ -51,11 +51,12 @@ int SeqListDelFirstOne(SeqList *sl, SeqElemType value);
 int SeqListDelAllValue(SeqList *sl, SeqElemType value);
 
 // 改
+void SeqListUpdateValue(SeqList *sl, int index, SeqElemType value);
 
 // 查
 // 返回遍历查找到的第一个value的下标，没有返回-1
 int SeqListFindValue(SeqList *sl, SeqElemType value);
-// 二分查找，找到返回下标，找不到返回-1
+// 二分查找，找到返回下标，找不到返回-1，要求arr为正向有序（从小到大）
 int SeqListBinFindValue(SeqList *sl, SeqElemType value);
 // 在sl中查找index下标的元素值
 SeqElemType SeqListSearchIndex(SeqList *sl, int index);
