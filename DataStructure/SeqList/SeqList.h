@@ -65,4 +65,7 @@ SeqElemType SeqListSearchIndex(SeqList *sl, int index);
 void SeqListBobSort(SeqList *sl);
 void SeqListQSort(SeqList *sl);
 
+// 快速排序练习
+void SeqListQuickSort(SeqList *sl);
+
 #endif /* SeqList_h */

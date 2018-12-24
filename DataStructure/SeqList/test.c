@@ -23,41 +23,47 @@ int main(int argc, char const *argv[])
     }
     SeqListShowArr(&sl);
 
-    SeqListInsert(&sl, -1, 0);  // 边界条件测试
-    SeqListShowArr(&sl);
-    SeqListInsert(&sl, -1, 20); // 边界条件测试
-    SeqListShowArr(&sl);
-    SeqListInsert(&sl, -1, 19); // 边界条件测试
-    SeqListShowArr(&sl);
-    SeqListInsert(&sl, -1, 5);  // 正常条件测试
+    SeqListLog(TEST, "快速排序测试");
+    SeqListQuickSort(&sl);
     SeqListShowArr(&sl);
 
-    SeqListLog(TEST, "删除测试");
-    SeqListDelFromHead(&sl);
-    SeqListShowArr(&sl);
-    SeqListDelFromTail(&sl);
-    SeqListShowArr(&sl);
+    // puts("---------");
 
-    SeqListDelFirstOne(&sl, -1);
-    SeqListShowArr(&sl);
-    puts("---");
-    SeqListDelAllValue(&sl, -1);
-    SeqListShowArr(&sl);
+    // SeqListInsert(&sl, -1, 0);  // 边界条件测试
+    // SeqListShowArr(&sl);
+    // SeqListInsert(&sl, -1, 20); // 边界条件测试
+    // SeqListShowArr(&sl);
+    // SeqListInsert(&sl, -1, 19); // 边界条件测试
+    // SeqListShowArr(&sl);
+    // SeqListInsert(&sl, -1, 5);  // 正常条件测试
+    // SeqListShowArr(&sl);
 
-    SeqListLog(TEST, "排序测试");
-    SeqListBobSort(&sl);
-    SeqListShowArr(&sl);
+    // SeqListLog(TEST, "删除测试");
+    // SeqListDelFromHead(&sl);
+    // SeqListShowArr(&sl);
+    // SeqListDelFromTail(&sl);
+    // SeqListShowArr(&sl);
 
-    SeqListQSort(&sl);
-    SeqListShowArr(&sl);
-    puts("---");
+    // SeqListDelFirstOne(&sl, -1);
+    // SeqListShowArr(&sl);
+    // puts("---");
+    // SeqListDelAllValue(&sl, -1);
+    // SeqListShowArr(&sl);
+
+    // SeqListLog(TEST, "排序测试");
+    // SeqListBobSort(&sl);
+    // SeqListShowArr(&sl);
+
+    // SeqListQSort(&sl);
+    // SeqListShowArr(&sl);
+    // puts("---");
 
 
-    SeqListInsert(&sl, -1, 5);  // 正常条件测试
-    SeqListBobSort(&sl);
-    SeqListShowArr(&sl);
+    // SeqListInsert(&sl, -1, 5);  // 正常条件测试
+    // SeqListBobSort(&sl);
+    // SeqListShowArr(&sl);
 
-    printf("%d\n", SeqListBinFindValue(&sl, -1));
+    // printf("%d\n", SeqListBinFindValue(&sl, -1));
 
     return 0;
 }

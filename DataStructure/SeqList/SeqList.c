@@ -281,7 +281,7 @@ int SeqListBinFindValue(SeqList *sl, SeqElemType value)
     int l = 0, r = sl->size;
     while (l < r)
     {
-        printf("l -> %d, r -> %d\n", l, r);
+        // printf("l -> %d, r -> %d\n", l, r);  //// TEST
         int mid = (r + l) / 2;
         if (value > sl->arr[mid])
         {
@@ -297,7 +297,7 @@ int SeqListBinFindValue(SeqList *sl, SeqElemType value)
             break;
         }
     }
-    
+
     return ret;
 }
 
@@ -339,7 +339,7 @@ void SeqListQSort(SeqList *sl)
 SeqElemType SeqListSearchIndex(SeqList *sl, int index)
 {
     assert(sl != NULL);
-    assert(index >=0 && index < sl->size);
+    assert(index >= 0 && index < sl->size);
 
     return sl->arr[index];
 }
@@ -354,4 +354,61 @@ void SeqListUpdateValue(SeqList *sl, int index, SeqElemType value)
     }
 
     sl->arr[index] = value;
+}
+
+static int SeqListAdjustArr(SeqElemType *arr, int l, int r)
+{
+    int i = l, j = r;
+    int x = arr[i]; // 挖坑 arr[i]
+    while (i < j)
+    {
+        // 从后向前找小于 x 的数填充arr[i]
+        while (i < j && arr[j] >= x)
+        {
+            j--;
+        }
+        // printf("i = %d, j = %d, arr[i] = %d, arr[j] = %d\n", i,j,arr[i],arr[j]);
+        if (i < j)
+        {
+            arr[i] = arr[j];
+            i++;
+        }
+        // 从前向后找大于等于x的数填arr[j]
+        while (i < j && arr[i] < x)
+        {
+            i++;
+        }
+        if (i < j)
+        {
+            arr[j] = arr[i];
+            j--;
+        }
+    }
+    // 退出时， i == j，将x填入这个坑中
+    arr[i] = x;
+
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     printf("%d ", arr[i]);
+    // }
+    // printf("\n");
+
+    return i;
+}
+
+static void SeqListQuickSortFun(SeqElemType *arr, int l, int r)
+{
+    if (l < r)
+    {
+        int i = SeqListAdjustArr(arr, l, r);
+        SeqListQuickSortFun(arr, l, i - 1);
+        SeqListQuickSortFun(arr, i + 1, r);
+    }
+}
+
+void SeqListQuickSort(SeqList *sl)
+{
+    assert(sl != NULL);
+    assert(sl->arr != NULL);
+    SeqListQuickSortFun(sl->arr, 0, sl->size);
 }
