@@ -27,6 +27,16 @@ int main(int argc, char const *argv[])
     SeqListQuickSort(&sl);
     SeqListShowArr(&sl);
 
+    SeqListInsert(&sl, 5, 5);
+    SeqListInsert(&sl, 5, 5);
+    SeqListInsert(&sl, 5, 5);
+    SeqListInsert(&sl, 5, 5);
+    SeqListShowArr(&sl);
+    SeqListUpdateAllOldValue(&sl, 5, 50);
+    SeqListShowArr(&sl);
+
+
+
     // puts("---------");
 
     // SeqListInsert(&sl, -1, 0);  // 边界条件测试

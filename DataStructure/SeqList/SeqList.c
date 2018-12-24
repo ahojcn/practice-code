@@ -412,3 +412,27 @@ void SeqListQuickSort(SeqList *sl)
     assert(sl->arr != NULL);
     SeqListQuickSortFun(sl->arr, 0, sl->size);
 }
+
+void SeqListUpdateOneValue(SeqList *sl, SeqElemType old_value, SeqElemType new_value)
+{
+    assert(sl != NULL);
+    assert(sl->arr != NULL);
+
+    int pos = SeqListFindValue(sl, old_value);
+
+    sl->arr[pos] = new_value;
+}
+
+void SeqListUpdateAllOldValue(SeqList *sl, SeqElemType old_value, SeqElemType new_value)
+{
+    assert(sl != NULL);
+    assert(sl->arr != NULL);
+    
+    for (int i = 0; i < sl->size; i++)
+    {
+        if (sl->arr[i] == old_value)
+        {
+            sl->arr[i] = new_value;
+        }
+    }
+}

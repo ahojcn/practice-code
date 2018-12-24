@@ -51,7 +51,13 @@ int SeqListDelFirstOne(SeqList *sl, SeqElemType value);
 int SeqListDelAllValue(SeqList *sl, SeqElemType value);
 
 // 改
+// 修改指定下标的元素值
 void SeqListUpdateValue(SeqList *sl, int index, SeqElemType value);
+// 修改值等于old_value的第一个元素为new_value
+void SeqListUpdateOneValue(SeqList *sl, SeqElemType old_value, SeqElemType new_value);
+// 修改所有值等于old_value的元素为new_value
+void SeqListUpdateAllOldValue(SeqList *sl, SeqElemType old_value, SeqElemType new_value);
+
 
 // 查
 // 返回遍历查找到的第一个value的下标，没有返回-1
