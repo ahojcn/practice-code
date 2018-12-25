@@ -52,7 +52,7 @@ void ShowLinkList(LinkList **pHead)
     printf("NULL\n");
 }
 
-void CreateFromHead(LinkList **pHead, LinkListElemType value)
+void InsertFromHead(LinkList **pHead, LinkListElemType value)
 {
     assert(pHead != NULL);
     
@@ -61,25 +61,25 @@ void CreateFromHead(LinkList **pHead, LinkListElemType value)
     (*pHead) = s;
 }
 
-void CreateFromTail(LinkList **pHead, LinkListElemType value)
+void InsertFromTail(LinkList **pHead, LinkListElemType value)
 {
     assert(pHead != NULL);
     
     LinkList *s = GetOneLNode(value);
     
-    LinkList **p = pHead;
-    if((*p) == NULL)    // 处理空链表
+    LinkList *p = *pHead;
+    if(p == NULL)    // 处理空链表
     {
-        (*p) = s;
+        p = s;
     }
     else    // 非空链表
     {
-        while((*p)->next != NULL)
+        while(p->next != NULL)
         {
-            (*p) = (*p)->next;
+            p = p->next;
         }
         
-        (*p)->next = s;
+        p->next = s;
     }
 }
 
@@ -172,3 +172,17 @@ int UpdateFirstData(LinkList **pHead, LinkListElemType old_value, LinkListElemTy
     
     return ret;
 }
+
+int UpdateAllData(LinkList **pHead, LinkListElemType old_value, LinkListElemType new_value)
+{
+    assert(pHead != NULL);
+    
+    int ret = 0;
+    while(UpdateFirstData(pHead, old_value, new_value))
+    {
+        ret++;
+    }
+    return ret;
+}
+
+

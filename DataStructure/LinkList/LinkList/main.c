@@ -4,19 +4,29 @@ int main(int argc, const char * argv[])
 {
     LinkList *p = NULL;
     InitLinkList(&p);
-    CreateFromTail(&p, 1);
-    CreateFromTail(&p, 2);
-    CreateFromHead(&p, 3);
+    InsertFromHead(&p, 1);
+    InsertFromHead(&p, 2);
+    InsertFromHead(&p, 3);
+    InsertFromHead(&p, 4);
+    InsertFromHead(&p, 5);
     
+    ShowLinkList(&p);
+    
+    InsertFromTail(&p, 666);
+    
+    ShowLinkList(&p);
+    
+    UpdateAllData(&p, 666, 777);
+
     ShowLinkList(&p);
     
 //    DelFromHead(&p);
-    DelFromTail(&p);
+//    DelFromTail(&p);
     
-    ShowLinkList(&p);
+//    ShowLinkList(&p);
     
-    printf("%d\n", UpdateFirstData(&p, 5, 2));
-    ShowLinkList(&p);
+//    printf("%d\n", UpdateFirstData(&p, 5, 2));
+//    ShowLinkList(&p);
     
 //    DestoryLinkList(&p);
     

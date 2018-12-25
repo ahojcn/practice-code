@@ -32,9 +32,9 @@ void ShowLinkList(LinkList **pHead);
 
 /*   增   */
 // 尾插
-void CreateFromTail(LinkList **pHead, LinkListElemType value);
+void InsertFromTail(LinkList **pHead, LinkListElemType value);
 // 头插
-void CreateFromHead(LinkList **pHead, LinkListElemType value);
+void InsertFromHead(LinkList **pHead, LinkListElemType value);
 
 /*   删   */
 // 头删
@@ -54,6 +54,8 @@ LinkList * SearchCount(LinkList **pHead, int i);
 // 修改链表中第一个值为old_value的节点data为new_value
 // 如果存在则修改并返回1，不存在则不修改返回0
 int UpdateFirstData(LinkList **pHead, LinkListElemType old_value, LinkListElemType new_value);
-
+// 修改链表中所有值为old_value的节点data为new_value
+// 如果没有old_value返回0，有则返回修改的数量
+int UpdateAllData(LinkList **pHead, LinkListElemType old_value, LinkListElemType new_value);
 
 #endif /* LinkList_h */
