@@ -1,9 +1,8 @@
 //
-//  LinkList.c
+//  LinkList.h
 //  LinkList
-//
-//  Created by hanoi_ahoj on 2018/12/24.
-//  Copyright © 2018 ahoj. All rights reserved.
+//  无头节点 单链表
+//  Created by ahoj on 2018/12/24.
 //
 
 #include "LinkList.h"
@@ -98,7 +97,7 @@ void InsertFromTail(LinkList **pHead, LinkListElemType value)
     }
 }
 
-void DelFromHead(LinkList **pHead)
+void DelOneNodeHead(LinkList **pHead)
 {
     assert(pHead != NULL);
 
@@ -108,7 +107,7 @@ void DelFromHead(LinkList **pHead)
     free(p);
 }
 
-void DelFromTail(LinkList **pHead)
+void DelOneNodeTail(LinkList **pHead)
 {
     assert(pHead != NULL);
     

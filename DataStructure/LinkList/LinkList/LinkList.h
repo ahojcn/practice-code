@@ -32,20 +32,32 @@ void ShowLinkList(LinkList **pHead);
 // 单链表长度
 int GetLinkListLength(LinkList **pHead);
 
+
 /*   增   */
 // 尾插
 void InsertFromTail(LinkList **pHead, LinkListElemType value);
 // 头插
 void InsertFromHead(LinkList **pHead, LinkListElemType value);
-// 中间插
+// 任意位置(index位置)插
 // 新建节点插入从前往后数第index个节点，从0开始数
 void InsertInMid(LinkList **pHead, int index, LinkListElemType value);
+// TODO: 键盘输入建立单链表
+// 以LinkList_INF为输入结束标志
+
 
 /*   删   */
 // 头删
-void DelFromHead(LinkList **pHead);
+void DelOneNodeHead(LinkList **pHead);
 // 尾删
-void DelFromTail(LinkList **pHead);
+void DelOneNodeTail(LinkList **pHead);
+// TODO: 中间删
+// 删除从前往后数第index个节点，从0开始
+void DelOneNodeIndex(LinkList **pHead);
+// 删除从前往后数第一个值为value的节点
+void DelOneNodeValue(LinkList **pHead, LinkListElemType value);
+// 删除链表中所有值为value的节点
+void DelAllNodeValue(LinkList **pHead, LinkListElemType value);
+
 
 /*   查   */
 // 在链表中查找data域等于value的节点
@@ -54,6 +66,7 @@ LinkList * SearchValue(LinkList **pHead, LinkListElemType value);
 // 在链表中查找 第i个 节点（0开始计数）
 // 找到返回这个节点，否则额返回NUll
 LinkList * SearchCount(LinkList **pHead, int i);
+
 
 /*   改   */
 // 修改链表中第一个值为old_value的节点data为new_value
