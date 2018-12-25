@@ -35,5 +35,9 @@ void CreateFromTail(LinkList **pHead, LinkListElemType value);
 void CreateFromHead(LinkList **pHead, LinkListElemType value);
 
 /*   删   */
+// 头删
+void DelFromHead(LinkList **pHead);
+// 尾删
+void DelFromTail(LinkList **pHead);
 
 #endif /* LinkList_h */

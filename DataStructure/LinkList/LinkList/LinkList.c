@@ -19,10 +19,11 @@ void ShowLinkList(LinkList **pHead)
 {
     assert(pHead != NULL);
     
-    while((*pHead) != NULL)
+    LinkList *p = *pHead;
+    while(p != NULL)
     {
-        printf("%d -> ", (*pHead)->data);
-        (*pHead) = (*pHead)->next;
+        printf("%d -> ", p->data);
+        p = p->next;
     }
     printf("NULL\n");
 }
@@ -61,4 +62,16 @@ void CreateFromTail(LinkList **pHead, LinkListElemType value)
         
         (*p)->next = s;
     }
+}
+
+void DelFromHead(LinkList **pHead)
+{
+    assert(pHead != NULL);
+
+    LinkList *p = (*pHead);
+
+    printf("p : %p\n", p);
+    (*pHead) = (*pHead)->next;
+    printf("Delete : %d\n", p->data);
+    free(p);
 }

@@ -7,6 +7,10 @@ int main(int argc, const char * argv[])
     CreateFromTail(&p, 1);
     CreateFromTail(&p, 2);
     CreateFromHead(&p, 3);
+    
+    ShowLinkList(&p);
+    
+    DelFromHead(&p);
     ShowLinkList(&p);
     
     return 0;
