@@ -17,6 +17,21 @@ static LinkList *GetOneLNode(LinkListElemType value)
     return s;
 }
 
+int GetLinkListLength(LinkList **pHead)
+{
+    assert(pHead != NULL);
+    
+    int len = 0;
+    LinkList *p = *pHead;
+    while(p != NULL)
+    {
+        p = p->next;
+        len++;
+    }
+    
+    return len;
+}
+
 void InitLinkList(LinkList **pHead)
 {
     assert(pHead != NULL);
@@ -185,4 +200,33 @@ int UpdateAllData(LinkList **pHead, LinkListElemType old_value, LinkListElemType
     return ret;
 }
 
-
+void InsertInMid(LinkList **pHead, int index, LinkListElemType value)
+{
+    assert(pHead != NULL);
+    int ll_len = GetLinkListLength(pHead);  //链表长度
+    assert(index >= 0 && index <= ll_len);
+    
+    LinkList *p = *pHead;
+    if(ll_len == 0)
+    {
+        InsertFromHead(pHead, value);
+    }
+    else if(ll_len == index)
+    {
+        InsertFromTail(pHead, value);
+    }
+    else
+    {
+        LinkList *s = GetOneLNode(value);
+        // 找节点
+        while(p != NULL && index != 1)  // 这里是1，找到的是要插入位置的前一个节点
+        {
+            p = p->next;
+            index--;
+        }
+        // attach
+        s->data = value;
+        s->next = p->next;
+        p->next = s;
+    }
+}

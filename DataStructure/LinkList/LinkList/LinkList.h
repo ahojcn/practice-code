@@ -29,12 +29,17 @@ void DestoryLinkList(LinkList **pHead);
 
 // 打印
 void ShowLinkList(LinkList **pHead);
+// 单链表长度
+int GetLinkListLength(LinkList **pHead);
 
 /*   增   */
 // 尾插
 void InsertFromTail(LinkList **pHead, LinkListElemType value);
 // 头插
 void InsertFromHead(LinkList **pHead, LinkListElemType value);
+// 中间插
+// 新建节点插入从前往后数第index个节点，从0开始数
+void InsertInMid(LinkList **pHead, int index, LinkListElemType value);
 
 /*   删   */
 // 头删
@@ -59,3 +64,6 @@ int UpdateFirstData(LinkList **pHead, LinkListElemType old_value, LinkListElemTy
 int UpdateAllData(LinkList **pHead, LinkListElemType old_value, LinkListElemType new_value);
 
 #endif /* LinkList_h */
+
+
+
