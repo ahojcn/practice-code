@@ -52,7 +52,7 @@ void CreateFromTail(LinkList **pHead, LinkListElemType value)
     {
         (*p) = s;
     }
-    else
+    else    // 非空链表
     {
         while((*p)->next != NULL)
         {
