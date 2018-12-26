@@ -51,14 +51,8 @@ void CreateLinkListByKeyBorad(LinkList **pHead);
 void DelOneNodeHead(LinkList **pHead);
 // 尾删
 void DelOneNodeTail(LinkList **pHead);
-// TODO: Here
 // 删除从前往后数第index个节点，从0开始
 void DelOneNodeIndex(LinkList **pHead, int index);
-// 删除从前往后数第一个值为value的节点
-void DelOneNodeValue(LinkList **pHead, LinkListElemType value);
-// 删除链表中所有值为value的节点
-void DelAllNodeValue(LinkList **pHead, LinkListElemType value);
-
 
 /*   查   */
 // 在链表中查找data域等于value的节点
@@ -76,8 +70,6 @@ LinkList * GetNodeCountPre(LinkList **pHead, int i);
 /*   改   */
 // 修改链表中第一个值为old_value的节点data为new_value
 // 如果存在则修改并返回1，不存在则不修改返回0
-// TODO: 优化这里
-// 利用查找来更新值，复用
 int UpdateFirstData(LinkList **pHead, LinkListElemType old_value, LinkListElemType new_value);
 // 修改链表中所有值为old_value的节点data为new_value
 // 如果没有old_value返回0，有则返回修改的数量

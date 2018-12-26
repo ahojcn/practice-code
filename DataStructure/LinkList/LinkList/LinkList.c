@@ -177,19 +177,15 @@ int UpdateFirstData(LinkList **pHead, LinkListElemType old_value, LinkListElemTy
     assert(pHead != NULL);
     
     int ret = 0;    // 默认不存在
-    LinkList *p = *pHead;
-    while(p != NULL && p->data != old_value)
-    {
-        p = p->next;
-    }
+    LinkList *p = GetNodeFirstValue(pHead, old_value);
     if(p == NULL)
     {
         ret = 0;
     }
     else
     {
-        p->data = new_value;
         ret = 1;
+        p->data = new_value;
     }
     
     return ret;

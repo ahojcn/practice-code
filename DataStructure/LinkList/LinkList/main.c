@@ -21,6 +21,8 @@ int main(int argc, const char * argv[])
     InsertInMid(&p, 4, 11111);
     ShowLinkList(&p);
     
+    
+    
 //    InsertFromTail(&p, 666);
 //    printf("%d\n", GetLinkListLength(&p));
 //    ShowLinkList(&p);
