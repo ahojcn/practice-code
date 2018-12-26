@@ -12,7 +12,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#define LinkList_INF
+#define LinkList_INF 65535
 
 typedef int LinkListElemType;
 
@@ -41,8 +41,9 @@ void InsertFromHead(LinkList **pHead, LinkListElemType value);
 // 任意位置(index位置)插
 // 新建节点插入从前往后数第index个节点，从0开始数
 void InsertInMid(LinkList **pHead, int index, LinkListElemType value);
-// TODO: 键盘输入建立单链表
+// 键盘输入，以尾插法建立单链表
 // 以LinkList_INF为输入结束标志
+void CreateLinkListByKeyBorad(LinkList **pHead);
 
 
 /*   删   */
@@ -50,9 +51,9 @@ void InsertInMid(LinkList **pHead, int index, LinkListElemType value);
 void DelOneNodeHead(LinkList **pHead);
 // 尾删
 void DelOneNodeTail(LinkList **pHead);
-// TODO: 中间删
+// TODO: Here
 // 删除从前往后数第index个节点，从0开始
-void DelOneNodeIndex(LinkList **pHead);
+void DelOneNodeIndex(LinkList **pHead, int index);
 // 删除从前往后数第一个值为value的节点
 void DelOneNodeValue(LinkList **pHead, LinkListElemType value);
 // 删除链表中所有值为value的节点
@@ -62,15 +63,21 @@ void DelAllNodeValue(LinkList **pHead, LinkListElemType value);
 /*   查   */
 // 在链表中查找data域等于value的节点
 // 找到返回指向这个节点的指针，否则返回NULL
-LinkList * SearchValue(LinkList **pHead, LinkListElemType value);
+LinkList * GetNodeFirstValue(LinkList **pHead, LinkListElemType value);
 // 在链表中查找 第i个 节点（0开始计数）
 // 找到返回这个节点，否则额返回NUll
-LinkList * SearchCount(LinkList **pHead, int i);
+// LinkList * SearchCount(LinkList **pHead, int i);
+// 获取单链表最后一个节点指针
+LinkList * GetTailNode(LinkList **pHead);
+// 找到index个节点的前驱节点
+LinkList * GetNodeCountPre(LinkList **pHead, int i);
 
 
 /*   改   */
 // 修改链表中第一个值为old_value的节点data为new_value
 // 如果存在则修改并返回1，不存在则不修改返回0
+// TODO: 优化这里
+// 利用查找来更新值，复用
 int UpdateFirstData(LinkList **pHead, LinkListElemType old_value, LinkListElemType new_value);
 // 修改链表中所有值为old_value的节点data为new_value
 // 如果没有old_value返回0，有则返回修改的数量

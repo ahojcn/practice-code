@@ -31,6 +31,19 @@ int GetLinkListLength(LinkList **pHead)
     return len;
 }
 
+LinkList * GetTailNode(LinkList **pHead)
+{
+    assert(pHead != NULL);
+    
+    LinkList *p = *pHead;
+    
+    while(p->next != NULL)
+    {
+        p = p->next;
+    }
+    return p;
+}
+
 void InitLinkList(LinkList **pHead)
 {
     assert(pHead != NULL);
@@ -84,15 +97,11 @@ void InsertFromTail(LinkList **pHead, LinkListElemType value)
     LinkList *p = *pHead;
     if(p == NULL)    // 处理空链表
     {
-        p = s;
+        InsertFromHead(pHead, value);
     }
     else    // 非空链表
     {
-        while(p->next != NULL)
-        {
-            p = p->next;
-        }
-        
+        p = GetTailNode(&p);
         p->next = s;
     }
 }
@@ -123,7 +132,7 @@ void DelOneNodeTail(LinkList **pHead)
 //    printf("--%d--\n", p->data);
 }
 
-LinkList * SearchValue(LinkList **pHead, LinkListElemType value)
+LinkList * GetNodeFirstValue(LinkList **pHead, LinkListElemType value)
 {
     assert(pHead != NULL);
     
@@ -143,18 +152,17 @@ LinkList * SearchValue(LinkList **pHead, LinkListElemType value)
     }
 }
 
-LinkList * SearchCount(LinkList **pHead, int i)
+LinkList * GetNodeCountPre(LinkList **pHead, int i)
 {
     assert(pHead != NULL);
     
     LinkList *p = *pHead;
-    while(p->next != NULL && i != 0)
+    while(p->next != NULL && i != 1)
     {
         p = p->next;
         i--;
     }
-    
-    if(i == 0)
+    if(i == 1)
     {
         return p;
     }
@@ -206,7 +214,7 @@ void InsertInMid(LinkList **pHead, int index, LinkListElemType value)
     assert(index >= 0 && index <= ll_len);
     
     LinkList *p = *pHead;
-    if(ll_len == 0)
+    if(ll_len == 0 || index == 0)
     {
         InsertFromHead(pHead, value);
     }
@@ -217,15 +225,46 @@ void InsertInMid(LinkList **pHead, int index, LinkListElemType value)
     else
     {
         LinkList *s = GetOneLNode(value);
-        // 找节点
-        while(p != NULL && index != 1)  // 这里是1，找到的是要插入位置的前一个节点
-        {
-            p = p->next;
-            index--;
-        }
+        // 找到前一个节点
+        p = GetNodeCountPre(pHead, index);
         // attach
         s->data = value;
         s->next = p->next;
         p->next = s;
     }
 }
+
+void CreateLinkListByKeyBorad(LinkList **pHead)
+{
+    assert(pHead != NULL);
+    
+    LinkListElemType input = LinkList_INF;
+    while(scanf("%d", &input) && input != LinkList_INF)
+    {
+        InsertFromTail(pHead, input);
+    }
+}
+
+void DelOneNodeIndex(LinkList **pHead, int index)
+{
+    assert(pHead != NULL);
+    int ll_len = GetLinkListLength(pHead);
+    assert(index >= 0 && index <= ll_len);
+    
+    if(index == 0)
+    {
+        DelOneNodeHead(pHead);
+    }
+    else if(index == ll_len)
+    {
+        DelOneNodeTail(pHead);
+    }
+    else
+    {
+        LinkList *p = GetNodeCountPre(pHead, index);
+        LinkList *s = p->next;
+        p->next = s->next;
+        free(s);
+    }
+}
+
