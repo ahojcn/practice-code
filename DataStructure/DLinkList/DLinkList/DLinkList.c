@@ -172,3 +172,29 @@ DListNode *SearchIndex(const DListNode *phead, int index)
     
     return cur;
 }
+
+void UpdateAValue(DListNode *phead, DLinkListElemType old_val, DLinkListElemType new_val)
+{
+    assert(phead != NULL);
+    
+    DListNode *cur = SearchValue(phead, old_val);
+    if(cur == NULL)
+    {
+        printf("Not Find!\n");
+        return;
+    }
+    else
+    {
+        cur->val = new_val;
+    }
+}
+
+void UpdataAllValue(DListNode *phead, DLinkListElemType old_val, DLinkListElemType new_val)
+{
+    assert(phead != NULL);
+    DListNode *cur = NULL;
+    while((cur = SearchValue(phead, old_val)) != NULL)
+    {
+        cur->val = new_val;
+    }
+}

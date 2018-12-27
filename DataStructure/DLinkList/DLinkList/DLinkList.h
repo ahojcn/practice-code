@@ -54,6 +54,7 @@ DListNode *SearchValue(const DListNode *phead, DLinkListElemType value);
 DListNode *SearchIndex(const DListNode *phead, int index);
 
 /*   改   */
-
+void UpdateAValue(DListNode *phead, DLinkListElemType old_val, DLinkListElemType new_val);
+void UpdataAllValue(DListNode *phead, DLinkListElemType old_val, DLinkListElemType new_val);
 
 #endif /* DLinkList_h */
