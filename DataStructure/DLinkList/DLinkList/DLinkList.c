@@ -23,15 +23,30 @@ static DListNode *DListBuyNode(const DLinkListElemType value)
 
 void ShowDLinkList(const DListNode *phead)
 {
+    assert(phead != NULL);
     DListNode *cur = phead->next;   // phead指向的是头节点，不打印
     
-    printf("headnode -> ");
+    printf("headnode <=> ");
     while(cur != phead)
     {
-        printf("%d -> ", cur->val);
+        printf("%d <=> ", cur->val);
         cur = cur->next;
     }
     printf("headnode\n");
+}
+
+int GetDLinkListLength(const DListNode *phead)
+{
+    assert(phead != NULL);
+    
+    DListNode *cur = phead->next;
+    int ret = 0;
+    while(cur != phead)
+    {
+        cur = cur->next;
+        ret++;
+    }
+    return ret;
 }
 
 void InitDLinkList(DListNode **pphead)
@@ -41,6 +56,30 @@ void InitDLinkList(DListNode **pphead)
     (*pphead) = DListBuyNode(0);
     (*pphead)->prev = *pphead;
     (*pphead)->next = *pphead;
+}
+
+void ClearDLinkList(DListNode **pphead)
+{
+    assert(pphead != NULL);
+    DListNode *cur = (*pphead)->next;
+    DListNode *tmp = cur;
+    while(cur != (*pphead))
+    {
+        tmp = cur;
+        cur = cur->next;
+        free(tmp);
+    }
+    (*pphead)->prev = *pphead;
+    (*pphead)->next = *pphead;
+}
+
+void DestoryDLinkList(DListNode **pphead)
+{
+    assert(pphead != NULL);
+    ClearDLinkList(pphead);
+    free(*pphead);
+    (*pphead) = NULL;
+    pphead = NULL;
 }
 
 void InsertFromHead(DListNode *phead, DLinkListElemType value)
@@ -79,3 +118,57 @@ void InsertBeforeOneNode(DListNode *cur, DLinkListElemType value)
     cur->prev = new_node;
 }
 
+void DelFromHead(DListNode *phead)
+{
+    assert(phead != NULL);
+    DelPosNode(phead->next);
+}
+
+void DelFromTail(DListNode *phead)
+{
+    assert(phead != NULL);
+    DelPosNode(phead->prev);
+}
+
+void DelPosNode(DListNode *pos)
+{
+    assert(pos != NULL);
+    
+    pos->prev->next = pos->next;
+    pos->next->prev = pos->prev;
+    
+    free(pos);
+    pos = NULL;
+}
+
+DListNode *SearchValue(const DListNode *phead, DLinkListElemType value)
+{
+    assert(phead != NULL);
+    
+    DListNode *cur = phead->next;
+    while(cur != phead)
+    {
+        if(cur->val == value)
+        {
+            return cur;
+        }
+        cur = cur->next;
+    }
+    
+    return NULL;
+}
+
+DListNode *SearchIndex(const DListNode *phead, int index)
+{
+    assert(phead != NULL);
+    int dl_len = GetDLinkListLength(phead);
+    assert(index >= 1 && index <=dl_len);
+    
+    DListNode *cur = phead->next;
+    while(dl_len != 1)
+    {
+        cur = cur->next;
+    }
+    
+    return cur;
+}
