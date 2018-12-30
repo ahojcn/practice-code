@@ -321,27 +321,12 @@ LinkList *MerageOrderedLinkList(LinkList **headA, LinkList **headB)
     LinkList *tmpB = curB->next;
     while(curA != NULL && curB != NULL)
     {
-        if(curA->data <= curB->data)
-        {
-            curA->next = curB;
-            curB->next = tmpA;
-            curA = tmpA;
-        }
-        else
-        {
-            curB->next = curA;
-            curA->next = tmpB;
-            curB = tmpB;
-        }
+        
     }
     puts("A:");
     ShowLinkList(&curA);
     puts("B:");
     ShowLinkList(&curB);
-    
-//    if(curA != NULL)
-//    {
-//        curA
-//    }
+
     return NULL;
 }

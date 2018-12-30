@@ -6,19 +6,28 @@ int main(int argc, const char * argv[])
     InitLinkList(&p);
 //    printf("%d\n", GetLinkListLength(&p));
     InsertFromHead(&p, 1);
-    InsertFromHead(&p, 2);
+//    InsertFromHead(&p, 2);
     InsertFromHead(&p, 3);
-    InsertFromHead(&p, 4);
+//    InsertFromHead(&p, 4);
     InsertFromHead(&p, 5);
+    ShowLinkList(&p);
+    
+    LinkList *q = NULL;
+    InitLinkList(&q);
+    InsertFromHead(&q, 2);
+    InsertFromHead(&q, 4);
+    InsertFromHead(&q, 6);
+    ShowLinkList(&q);
+    MerageOrderedLinkList(&p, &q);
     
 //    printf("%d\n", GetLinkListLength(&p));
 //    CreateLinkListByKeyBorad(&p);
-    ShowLinkList(&p);
-    p = ReverseLinkList_1(&p);
-    ShowLinkList(&p);
+//    ShowLinkList(&p);
+//    p = ReverseLinkList_1(&p);
+//    ShowLinkList(&p);
     
-    p = ReverseLinkList_2(&p);
-    ShowLinkList(&p);
+//    p = ReverseLinkList_2(&p);
+//    ShowLinkList(&p);
     
     //    DelOneNodeIndex(&p, 4);
 //    ShowLinkList(&p);
