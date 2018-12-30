@@ -57,7 +57,7 @@ float DECIMAL_AllToDec(const char *str, const int power) {
     size_t len = strlen(str)-1;
     int mi = -1;  // mi = len-1    // mi从 -1 开始计算
     float ret = 0;
-    puts(str);
+//    puts(str);
     for (int i = 0; i < len; ++i) {
         int t = str[i] - '0';   // 字符串转为数字
 
@@ -66,10 +66,10 @@ float DECIMAL_AllToDec(const char *str, const int power) {
         }
 
         ret += t * pow(power, mi); // t * power^mi
-        printf("--%d * 8^%d--\n", t, mi);
+//        printf("--%d * 8^%d--\n", t, mi);
         mi--;
     }
-    printf("##### %f #####\n", ret);
+//    printf("##### %f #####\n", ret);
     return ret;
 }
 
