@@ -35,6 +35,7 @@ char *DecToAll (const int dec, const int power) {
     }
 //    printf("<-raw\n");
 
+    // 将结果转换为字符串并return
     char *ret = (char *)malloc(MAXLENGTH);
     int i = 0;
     while (!StackEmpty(&s)) {
