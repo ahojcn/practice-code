@@ -75,6 +75,14 @@ int UpdateFirstData(LinkList **pHead, LinkListElemType old_value, LinkListElemTy
 // 如果没有old_value返回0，有则返回修改的数量
 int UpdateAllData(LinkList **pHead, LinkListElemType old_value, LinkListElemType new_value);
 
+
+// 反转单链表
+LinkList *ReverseLinkList_1(LinkList **head);
+LinkList *ReverseLinkList_2(LinkList **head);
+
+// 合并两个有序链表
+LinkList *MerageOrderedLinkList(LinkList **headA, LinkList **headB);
+
 #endif /* LinkList_h */
 
 

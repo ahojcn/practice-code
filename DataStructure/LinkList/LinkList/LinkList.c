@@ -264,3 +264,84 @@ void DelOneNodeIndex(LinkList **pHead, int index)
     }
 }
 
+LinkList *ReverseLinkList_1(LinkList **head)
+{
+    if ((*head) == NULL)
+    {
+        return NULL;
+    }
+    
+    LinkList *ret = NULL;
+    LinkList *cur = *head;
+    while(cur != NULL)
+    {
+        // 头删 头插
+        LinkList *tmp = cur->next;
+        cur->next = ret;
+        ret = cur;
+        cur = tmp;
+    }
+    return ret;
+}
+
+LinkList *ReverseLinkList_2(LinkList **head)
+{
+    if ((*head) == NULL)
+    {
+        return NULL;
+    }
+    
+    LinkList *prev = NULL;
+    LinkList *cur = *head;
+    while(cur != NULL)
+    {
+        LinkList *tmp = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = tmp;
+    }
+    return prev;
+}
+
+// TODO: 测试这个函数
+LinkList *MerageOrderedLinkList(LinkList **headA, LinkList **headB)
+{
+    if((*headA) == NULL)
+    {
+        return *headB;
+    }
+    if((*headB) == NULL)
+    {
+        return *headA;
+    }
+    
+    LinkList *curA = *headA;
+    LinkList *curB = *headB;
+    LinkList *tmpA = curA->next;
+    LinkList *tmpB = curB->next;
+    while(curA != NULL && curB != NULL)
+    {
+        if(curA->data <= curB->data)
+        {
+            curA->next = curB;
+            curB->next = tmpA;
+            curA = tmpA;
+        }
+        else
+        {
+            curB->next = curA;
+            curA->next = tmpB;
+            curB = tmpB;
+        }
+    }
+    puts("A:");
+    ShowLinkList(&curA);
+    puts("B:");
+    ShowLinkList(&curB);
+    
+//    if(curA != NULL)
+//    {
+//        curA
+//    }
+    return NULL;
+}
