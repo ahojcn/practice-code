@@ -4,13 +4,11 @@
 
 typedef enum MenuSelect {
     EXIT = 0,
-    NULLDECIMAL = 1,    // 选择，无小数
+    NULLDECIMAL = 1,    // 无小数
     DECIMAL = 2,        // 有小数
 } MenuSelect;
 
 void ShowAnswer(const Answer *ans); // 打印答案
-void Menu(void );
-char *GetInput(void );
 void NullDecimal (char *input, Answer *ans); // 处理无小数的输入
 void Decimal (char *input, Answer *ans);    // 处理正数 + 小数
 
@@ -22,44 +20,57 @@ int main()
     ans.a_dec = (char *)malloc(MAXLENGTH);
     ans.a_hex = (char *)malloc(MAXLENGTH);
 
+    printf("##########################################\n");
+    printf("input 'end' or 'END' to exit the program!\n");
+    printf("##########################################\n");
     while (1) {
-        Menu();
-        printf("select>");
-        MenuSelect ms = EXIT;
-        scanf("%d", &ms);
-        char *input = NULL;
-        switch(ms) {
-            case NULLDECIMAL:   // 无符号小数
-                input = GetInput();
+        char input[MAXLENGTH] = {0};
+        printf("input>");
+        scanf("%s", input);
+        // 转换乘大写
+        for (int j = 0; j < strlen(input); ++j) {
+            if (islower(input[j])) {
+                input[j] = (char)toupper(input[j]);
+            }
+        }
+        // 如果输入 EXIT 则退出程序
+        if (strcmp(input, "END") == 0)
+            goto HERETOEXIT;
+        MenuSelect flag = EXIT;   // NULLDECIMAL->无小数部分   DECIMAL->有小数部分
+        // 判断是否为小数
+        for (int i = 0; i < strlen(input); ++i) {
+            if (input[i] == POINT) {
+                flag = DECIMAL;
+            }
+        }
+        if (flag != DECIMAL)
+        {
+            flag = NULLDECIMAL;
+        }
+
+        switch (flag){
+            case NULLDECIMAL:   // 无小数
                 NullDecimal(input, &ans);
                 break;
-            case DECIMAL:{
-                input = GetInput();
+            case DECIMAL:
                 Decimal(input, &ans);
                 break;
-            }
 
-            case EXIT:
             default:
-                exit(0);    // 正常退出
+                goto HERETOEXIT;    // 正常退出
                 break;
         }
 
         ShowAnswer(&ans);
     }
 
+    HERETOEXIT:
+        printf("Bye!\n");
     return 0;
 }
 
-void Menu(void ) {
-    printf("##################\n");
-    printf("##  1. 无小数\t##\n");
-    printf("##  2. 带小数\t##\n");
-    printf("##  0. 退出\t\t##\n");
-    printf("##################\n");
-}
-
 void NullDecimal (char *input, Answer *ans) {
+
     assert(input != NULL);
     assert(ans != NULL);
 
@@ -202,20 +213,6 @@ void Decimal (char *input, Answer *ans) {
     strcat(ans->a_oct, o);
     strcat(ans->a_dec, d);
     strcat(ans->a_hex, h);
-}
-
-char *GetInput (void) {
-    char *input = (char *)malloc(MAXLENGTH);
-    printf("input>");
-    scanf("%s", input);
-
-    // 将输入的 input 转为大写，如果是大写则不转换
-    for (int i = 0; i < strlen(input); ++i) {
-        if (islower(input[i])) {
-            input[i] = (char)toupper(input[i]);
-        }
-    }
-    return input;
 }
 
 void ShowAnswer(const Answer *ans) {
