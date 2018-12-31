@@ -8,9 +8,29 @@ typedef enum MenuSelect {
     DECIMAL = 2,        // 有小数
 } MenuSelect;
 
+void Menu(void );
+void HelpInfo(void );
 void ShowAnswer(const Answer *ans); // 打印答案
 void NullDecimal (char *input, Answer *ans); // 处理无小数的输入
 void Decimal (char *input, Answer *ans);    // 处理正数 + 小数
+
+void HelpInfo(void ) {
+    printf("#############  help info  ############\n");
+    printf("number input format are as follows:\n");
+    printf("bin number '111b' or '1111.111b'\n");
+    printf("oct number '777O' or '0777.777o'\n");
+    printf("dec number '999D' or '0999.999d'\n");
+    printf("hex number 'fffh' or 'ffff.fffh'\n");
+    printf("#############  help info  ############\n");
+}
+
+void Menu(void ) {
+    printf("#################  Menu  #################\n");
+    printf("input 'end' or 'END' to exit the program!\n");
+    printf("-----------------------------------------\n");
+    printf("input 'help' or 'HELP' to get user guide!\n");
+    printf("#################  Menu  #################\n");
+}
 
 int main()
 {
@@ -20,22 +40,35 @@ int main()
     ans.a_dec = (char *)malloc(MAXLENGTH);
     ans.a_hex = (char *)malloc(MAXLENGTH);
 
-    printf("##########################################\n");
-    printf("input 'end' or 'END' to exit the program!\n");
-    printf("##########################################\n");
+    Menu();
+
     while (1) {
         char input[MAXLENGTH] = {0};
         printf("input>");
         scanf("%s", input);
-        // 转换乘大写
         for (int j = 0; j < strlen(input); ++j) {
+            // 转换成大写
             if (islower(input[j])) {
                 input[j] = (char)toupper(input[j]);
             }
         }
+        // 判断是否为默认 十进制
+        char c = input[strlen(input)-1];
+        if (
+                c != BIN
+                && c != OCT
+                && c != DEC
+                && c != HEX
+                )
+            strcat(input, "D");
         // 如果输入 EXIT 则退出程序
         if (strcmp(input, "END") == 0)
             goto HERETOEXIT;
+        if (strcmp(input, "HELP") == 0)
+        {
+            HelpInfo();
+            continue;
+        }
         MenuSelect flag = EXIT;   // NULLDECIMAL->无小数部分   DECIMAL->有小数部分
         // 判断是否为小数
         for (int i = 0; i < strlen(input); ++i) {
@@ -55,9 +88,8 @@ int main()
             case DECIMAL:
                 Decimal(input, &ans);
                 break;
-
             default:
-                goto HERETOEXIT;    // 正常退出
+                printf("input error!\n");
                 break;
         }
 
