@@ -15,23 +15,24 @@ void NullDecimal (char *input, Answer *ans); // 处理无小数的输入
 void Decimal (char *input, Answer *ans);    // 处理正数 + 小数
 
 void HelpInfo(void ) {
-    printf("#############  help info  ############\n");
-    printf("number input format are as follows:\n");
-    printf("bin number '111b' or '1111.111b'\n");
-    printf("oct number '777O' or '0777.777o'\n");
-    printf("dec number '999D' or '0999.999d'\n");
-    printf("hex number 'fffh' or 'ffff.fffh'\n");
-    printf("#############  help info  ############\n");
+    printf("\t#############  help info  #########\n");
+    printf("\tnumber input format are as follows:\n");
+    printf("\tbin number '111b' or '1111.111b'\n");
+    printf("\toct number '777O' or '0777.777o'\n");
+    printf("\tdec number '999D' or '0999.999d'\n");
+    printf("\thex number 'fffh' or 'ffff.fffh'\n");
+    printf("\t#############  help info  #########\n");
 }
 
 void Menu(void ) {
-    printf("#################  Menu  #################\n");
-    printf("input 'end' or 'END' to exit the program!\n");
-    printf("-----------------------------------------\n");
-    printf("input 'help' or 'HELP' to get user guide!\n");
-    printf("#################  Menu  #################\n");
+    printf("\t#################  Menu  #################\n");
+    printf("\tinput 'end' or 'END' to exit the program!\n");
+    printf("\t-----------------------------------------\n");
+    printf("\tinput 'help' or 'HELP' to get user guide!\n");
+    printf("\t#################  Menu  #################\n");
 }
 
+// 主函数：获取输入的字符串，将字母统一为大写，根据输入判断是否有小数部分，做相应的处理
 int main()
 {
     Answer ans;
@@ -52,6 +53,14 @@ int main()
                 input[j] = (char)toupper(input[j]);
             }
         }
+        // 如果输入 EXIT 则退出程序
+        if (strcmp(input, "END") == 0)
+            goto HERETOEXIT;
+        if (strcmp(input, "HELP") == 0)
+        {
+            HelpInfo();
+            continue;
+        }
         // 判断是否为默认 十进制
         char c = input[strlen(input)-1];
         if (
@@ -61,14 +70,6 @@ int main()
                 && c != HEX
                 )
             strcat(input, "D");
-        // 如果输入 EXIT 则退出程序
-        if (strcmp(input, "END") == 0)
-            goto HERETOEXIT;
-        if (strcmp(input, "HELP") == 0)
-        {
-            HelpInfo();
-            continue;
-        }
         MenuSelect flag = EXIT;   // NULLDECIMAL->无小数部分   DECIMAL->有小数部分
         // 判断是否为小数
         for (int i = 0; i < strlen(input); ++i) {
@@ -250,10 +251,10 @@ void Decimal (char *input, Answer *ans) {
 void ShowAnswer(const Answer *ans) {
     assert(ans != NULL);
 //    system("clear");
-    printf("-----answer-----\n");
-    printf("bin : %s\n", ans->a_bin);
-    printf("oct : %s\n", ans->a_oct);
-    printf("dec : %s\n", ans->a_dec);
-    printf("hex : %s\n", ans->a_hex);
-    printf("-----answer-----\n");
+    printf("\t\t-----answer-----\n");
+    printf("\t\tbin : %s\n", ans->a_bin);
+    printf("\t\toct : %s\n", ans->a_oct);
+    printf("\t\tdec : %s\n", ans->a_dec);
+    printf("\t\thex : %s\n", ans->a_hex);
+    printf("\t\t-----answer-----\n");
 }
