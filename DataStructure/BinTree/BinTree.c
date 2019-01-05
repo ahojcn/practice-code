@@ -6,6 +6,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+Status IsFull (const SqQueue *q) {
+    return ((q->rear + 1) % MAXSIZE) == q->front ? FULL : NOTFULL;
+}
+
+Status IsEmpty(const SqQueue *q){
+    return q->front == q->rear ? EMPTY : NOTEMPTY;
+}
+
+Status InitQueue(SqQueue *q){
+    q->front = 0;
+    q->rear = 0;
+    return OK;
+}
+
+int QueueLength(const SqQueue *q){
+    return (q->rear-q->front+MAXSIZE) % MAXSIZE;
+}
+
+Status EnQueue(SqQueue *q, const QElemType e){
+    if (IsFull(q) == FULL){
+        return ERROR;
+    }
+    else{
+        q->data[q->rear] = e;
+        q->rear = (q->rear + 1) % MAXSIZE;
+        return OK;
+    }
+}
+
+Status DeQueue(SqQueue *q, QElemType *e){
+    if (IsEmpty(q) == EMPTY){
+        return ERROR;
+    }
+    else{
+        *e = q->data[q->front];
+        q->front = (q->front + 1) % MAXSIZE;
+        return OK;
+    }
+}
+
 void CreateBinTreeByKeyBoard (BinTree *root)
 {
     BinTreeElemType ch;
@@ -120,7 +161,7 @@ void TreeNodeNum(BinTree root, int *num)
         return;
     }
 
-    (*num) ++;
+    (*num)++;
     TreeNodeNum(root->lchild, num);
     TreeNodeNum(root->rchild, num);
 }
@@ -184,3 +225,64 @@ BinTree TreeFindX (BinTree root, BinTreeElemType x)
 
     return TreeFindX(root->rchild, x);
 }
+
+void LevelOrderTraversal (BinTree root)
+{
+    if (root == NULL)
+        return;
+
+    SqQueue qu;
+    InitQueue(&qu);
+    EnQueue(&qu, root);
+    while (!IsEmpty(&qu))
+    {
+        BinTree e = NULL;
+        DeQueue(&qu, &e);
+        printf("%c ", e->val);
+
+        if (e->lchild != NULL)
+        {
+            EnQueue(&qu, e->lchild);
+        }
+        if (e->rchild != NULL)
+        {
+            EnQueue(&qu, e->rchild);
+        }
+    }
+}
+
+bool IsCompleteTree (BinTree root)
+{
+    if (root == NULL)
+        return true;
+
+    SqQueue qu;
+    InitQueue(&qu);
+    EnQueue(&qu, root);
+    while (1)
+    {
+        BinTree e = NULL;
+        DeQueue(&qu, &e);
+        if (e == NULL)
+        {
+            break;
+        }
+
+        EnQueue(&qu, e->lchild);
+        EnQueue(&qu, e->rchild);
+    }
+
+    // 检查队列中是否还有非空节点
+    while (!IsEmpty(&qu))
+    {
+        BinTree e = NULL;
+        DeQueue(&qu,&e);
+        if (e == NULL)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+

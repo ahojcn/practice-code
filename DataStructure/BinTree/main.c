@@ -39,5 +39,11 @@ int main()
 
     printf("find %c\n", TreeFindX(T, 'f')->val);
 
+    printf("层序遍历：\n");
+    LevelOrderTraversal(T);
+    printf("\n");
+
+    printf("IsCompleteTree : %d\n", IsCompleteTree(T));
+
     return 0;
 }
