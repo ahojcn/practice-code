@@ -14,12 +14,13 @@ void AdjustDown(HeapElemType *arr, int sz, HeapElemType root)
     while (left <= sz)
     {
         int min = left;
-        if (right < sz && arr[right] > arr[left])
+        // 右孩子存在    &&  右孩子大于左孩子
+        if (right < sz && arr[right] <= arr[left])
         {
             min = right;
         }
 
-        // 比较 array[min]	array[root]
+        // 比较 array[min] 和 array[root]
         if (arr[root] >= arr[min])
         {
             break;
