@@ -79,4 +79,41 @@ void TestForDelAtTail(void )
     PrintLinkedList(phead);
 }
 
+// 链表的第一道题，删除单链表中所有值为val的元素
+void RemoveAll(LinkedListNode *phead, LinkedListElemType val)
+{
+    if(phead == NULL)
+    {
+        return;
+    }
+    LinkedListNode *pre = phead;
+    LinkedListNode *cur = phead->next;
+    LinkedListNode *tmp = NULL;
+    while (cur != NULL)
+    {
+        if (cur->val == val)
+        {
+            tmp = cur;
+            cur = cur->next;
+            pre->next = cur;
+            free(tmp);
+            tmp = NULL;
+        }
+        else
+        {
+            pre = cur;
+            cur = cur->next;
+        }
+    }
+}
+
+void TestRemoveAll(void )
+{
+    LinkedListNode *phead = InitLinkedList();
+    InsertNodeAtHead(phead, 1);
+    PrintLinkedList(phead);
+    RemoveAll(phead, 1);
+    PrintLinkedList(phead);
+}
+
 #endif /* LinkedListDelAtTail_h */

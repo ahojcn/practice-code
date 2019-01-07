@@ -1,8 +1,12 @@
 #include "LinkedListDelAtTail.h"
+#include "BubbleSort.h"
 
 int main(void )
 {
-    TestForDelAtTail();
+//    TestForDelAtTail();
+    TestRemoveAll();
+    
+//    TestBubbleSort();
     
     return 0;
 }
