@@ -6,6 +6,7 @@ class Student {
 	public Student() {
 		this.name = "test";
 		this.age = -1;
+		System.out.println("这是构造方法");
 	}
 }
 
