@@ -4,4 +4,10 @@
 *.out
 CMakeLists.txt
 *.vscode
-*.pbxproj
+*.pbxproj/
+*.vcxproj
+*.filters
+*.user
+
+*.classpath
+*.project
