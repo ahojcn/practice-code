@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+
+<body>
+
+    <!-- v-on 是用来绑定事件的 -->
+    <!-- v-on 的缩写是 @ -->
+    <div id="app">
+        <!-- <input type="button" value="按钮" :title="mytitle" v-on:click="show"> -->
+        <input type="button" value="按钮" :title="mytitle" @click="show">
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                mytitle: '这是一个自定义的title',
+            },
+            methods: { // 在 methods 属性中定义了当前 Vue 实例所有可用的方法
+                show: function() {
+                    alert("hello");
+                }
+            }
+        })    
+    </script>
+
+</body>
+
+</html>

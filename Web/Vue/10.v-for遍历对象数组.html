@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for循环对象数组</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- <p v-for="user in list">{{ user.id }} ==> {{ user.name }}</p> -->
+        <p v-for="(user, i) in list">{{i}} ==> {{ user.id }} ==> {{ user.name }}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: 1, name: 'zhangsan' },
+                    { id: 2, name: 'lisi' },
+                    { id: 3, name: 'wangwu' },
+                    { id: 4, name: 'zhaoliu' },
+                ]
+            },
+            methods: {},
+        })
+    </script>
+
+</body>
+
+</html>

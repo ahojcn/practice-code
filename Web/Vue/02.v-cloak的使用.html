@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02.v-cloak的使用</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- v-cloak 能解决插值表达式的闪烁问题 -->
+    <!-- v-text 默认是没有闪烁问题的 -->
+    <!-- v-text 会替换到全部内容，但是插值表达式不会 -->
+    <div id="app">
+        <p v-cloak>+++ {{ msg }} ---</p>
+        <h4 v-text="msg">这里的内容会被 msg 覆盖掉</h4>
+
+        <div>{{ msg2 }}</div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2">这里的内容会被 msg2 覆盖</div>
+    </div>
+
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '123',
+                msg2: '<h1>我是 h1，我大我骄傲！</h1>'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

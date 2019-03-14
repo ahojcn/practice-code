@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-Vue基本代码</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <p>{{ msg }}</p>
+    </div>
+
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello Vue.js'
+            }
+        })
+    </script>
+    
+</body>
+</html>
