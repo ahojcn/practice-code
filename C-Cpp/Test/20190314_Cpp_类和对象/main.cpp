@@ -45,8 +45,9 @@ class A1
   public:
     void f1() {}
 
-  private:
+  public:
     int _a;
+    double _d;
 
     class A3
     {
@@ -68,5 +69,7 @@ int main()
     cout << "sizeof(A1) : " << sizeof(A1) << endl;
     cout << "sizeof(A2) : " << sizeof(A2) << endl;
     cout << "sizeof(A3) : " << sizeof(A3) << endl;
+
+    cout << "---" << &(((A1*)0)->_d) << endl;
     return 0;
 }
