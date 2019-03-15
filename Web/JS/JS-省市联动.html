@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>省市联动案例</title>
+</head>
+<body>
+    
+    <select name="country" id="country" onchange="add1(this.value);">
+        <option value="0">--请选择--</option>
+        <option value="中国">中国</option>
+        <option value="美国">美国</option>
+        <option value="日本">日本</option>
+    </select>
+
+    <select name="city" id="city">
+
+    </select>
+
+    <script>
+
+        var arr = new Array(3);
+        arr[0] = ["中国", "北京", "南京", "西安", "上海"];
+        arr[1] = ["美国", "华盛顿", "底特律", "旧金山", "休斯顿", "纽约"];
+        arr[2] = ["日本", "东京", "北海道", "名古屋", "大阪", "广岛"];
+
+        function add1(val) {
+
+            var city = document.getElementById("city");
+            var option1 = city.getElementsByTagName("option");
+            for(var i = 0; i < option1.length; i++) {
+                var op = option1[i];
+                city.removeChild(op);
+                i--;
+            }
+
+            // alert(val);
+            for(var i = 0; i < arr.length; i++) {
+                if(arr[i][0] == val) {
+                    var city = document.getElementById("city");
+                    for(var j = 1; j < arr[i].length; j++) {
+                        var option1 = document.createElement("option");
+                        var text1 = document.createTextNode(arr[i][j]);
+                        option1.appendChild(text1);
+                        city.appendChild(option1);
+                    }
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>

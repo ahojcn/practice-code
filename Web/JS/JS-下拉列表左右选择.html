@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>下拉列表左右选择</title>
+</head>
+
+<body>
+
+    <div style="float: left">
+        <select name="left" id="left" multiple="multiple" style="width: 100px;height: 100px;">
+            <option value="op1">111111</option>
+            <option value="op2">222222</option>
+            <option value="op3">333333</option>
+            <option value="op4">444444</option>
+            <option value="op5">555555</option>
+        </select>
+
+        <br>
+        <input type="button" value="选中添加到右边 >" onclick="selToRight();">
+        <br>
+        <input type="button" value="全部添加到右边 >>" onclick="allToRight();">
+    </div>
+
+    <div>
+        <select name="right" id="right" multiple="multiple" style="width: 100px;height: 100px;">
+            <option value="opa">aaa</option>
+            <option value="opb">bbb</option>
+            <option value="opc">ccc</option>
+        </select>
+
+        <br>
+        <input type="button" value="< 选中添加到左边" onclick="selToleft();">
+        <br>
+        <input type="button" value="<< 全部添加到左边" onclick="allToleft();">
+    </div>
+
+    <script>
+        // 选中添加到左边
+        function selToleft() {
+            var leftSelectBox = document.getElementById("left");
+            var rightSelectBox = document.getElementById("right");
+            var rightOptions = rightSelectBox.getElementsByTagName("option");
+            for(var i = 0; i < rightOptions.length; i++) {
+                if(rightOptions[i].selected == true) {
+                    leftSelectBox.appendChild(rightOptions[i]);
+                    i--;
+                }
+            }
+        }
+
+        // 全选添加到左边
+        function allToleft() {
+            var leftSelectBox = document.getElementById("left");
+            var rightSelectBox = document.getElementById("right");
+            var rightOptions = rightSelectBox.getElementsByTagName("option");
+            for(var i = 0; i < rightOptions.length; i++) {
+                leftSelectBox.appendChild(rightOptions[i]);
+                i--;
+            }
+        }
+
+        // 选中添加到右边
+        function selToRight() {
+            /* 
+            获取 left 里面的 option 
+                - getElementsByTagName()
+            判断是否被选中
+                - 属性 selected = true 是选中
+            如果是选中，添加到右边（right）
+            */
+            // 得到左边栏
+            var leftSelectBox = document.getElementById("left");
+            // 得到 left 下的 option
+            var leftOptions = leftSelectBox.getElementsByTagName("option");
+            // alert("left option length : " + leftOptions.length);
+            // 得到 right 的 selectBox
+            var rightSelectBox = document.getElementById("right");
+            // 遍历 option
+            for(var i = 0; i < leftOptions.length; i++) {
+                if(leftOptions[i].selected == true) {
+                    rightSelectBox.appendChild(leftOptions[i]);
+                    i--;
+                }
+            }
+        }
+
+        // 全部添加到右边
+        function allToRight() {
+            var leftSelectBox = document.getElementById("left");
+            var leftOptions = leftSelectBox.getElementsByTagName("option");
+            var rightSelectBox = document.getElementById("right");
+            for(var i = 0; i < leftOptions.length; i++) {
+                    rightSelectBox.appendChild(leftOptions[i]);
+                    i--;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

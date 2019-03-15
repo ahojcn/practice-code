@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>动态生成表格</title>
+</head>
+
+<body>
+
+    行：<input type="text" id="h">
+    列：<input type="text" id="l">
+    <br>
+    <input type="button" value="生成" onclick="add2();">
+
+    <div id="divv">
+
+    </div>
+
+</body>
+
+
+<script>
+
+    function add2() {
+        // 获取输入的数据
+        var h = document.getElementById("h").value;
+        var l = document.getElementById("l").value;
+        // 把表格代码放到一个变量里面
+        var tab = "<table border='1' bordercolor='blue'>";
+            for(var i = 0; i < h; i++) {
+                tab += "<tr>";
+                    for(var j = 0; j < l; j++) {
+                        tab += "<td>aaaa</td>";
+                    }
+                tab += "</tr>";
+            }
+        tab += "</table>";
+
+        // 得到 div
+        var divv = document.getElementById("divv");
+        divv.innerHTML = tab;
+    }
+
+</script>
+
+</html>

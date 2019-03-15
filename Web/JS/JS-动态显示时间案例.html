@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS 动态显示时间</title>
+</head>
+<body>
+    <div id="times">
+    </div>
+
+    <script>
+        function getD1() {
+            var date = new Date();
+            var d1 = date.toLocaleString();
+            var div1 = document.getElementById("times");
+            div1.innerHTML = d1;
+        }
+
+        // 使用定时器，每秒执行一次
+        setInterval("getD1();", 1000);
+    </script>
+</body>
+</html>
