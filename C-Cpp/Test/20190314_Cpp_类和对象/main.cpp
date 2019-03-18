@@ -64,12 +64,27 @@ class A3
 {
 };
 
+class Date
+{
+  public:
+    Date(const Date d)
+    {
+        _year = d._year;
+        _month = d._month;
+        _day = d._day;
+    }
+  private:
+    int _year;
+    int _month;
+    int _day;
+};
+
 int main()
 {
     cout << "sizeof(A1) : " << sizeof(A1) << endl;
     cout << "sizeof(A2) : " << sizeof(A2) << endl;
     cout << "sizeof(A3) : " << sizeof(A3) << endl;
 
-    cout << "---" << &(((A1*)0)->_d) << endl;
+    cout << "---" << &(((A1 *)0)->_d) << endl;
     return 0;
 }
