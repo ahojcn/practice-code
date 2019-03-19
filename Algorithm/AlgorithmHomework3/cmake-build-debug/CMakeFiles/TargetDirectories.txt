@@ -1,3 +1,0 @@
-/Users/hanoi_ahoj/Code/PracticeCode/Algorithm/AlgorithmHomework3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/hanoi_ahoj/Code/PracticeCode/Algorithm/AlgorithmHomework3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/hanoi_ahoj/Code/PracticeCode/Algorithm/AlgorithmHomework3/cmake-build-debug/CMakeFiles/AlgorithmHomework3.dir
