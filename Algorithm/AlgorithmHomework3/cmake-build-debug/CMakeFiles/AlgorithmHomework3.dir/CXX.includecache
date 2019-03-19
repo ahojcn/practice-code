@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/hanoi_ahoj/Code/PracticeCode/Algorithm/AlgorithmHomework3/main.cpp
+iostream
+-
+math.h
+-
+
