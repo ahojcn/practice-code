@@ -51,7 +51,7 @@ void hanoiTower(int n, stack<int> &a, stack<int> &b, stack<int> &c)
     所以如果N是偶数我们就令第二个柱子为c，第三个柱子为b，这样就一定最后是摞在c上的。
  */
 // 2. 非递归
-char s[4] = { 'q', 'a', 'b', 'c' };
+char s[4] = { '0', 'a', 'b', 'c' };
 stack<int> a[4];
 
 bool move(int before, int after)
@@ -67,7 +67,7 @@ bool move(int before, int after)
             return false;
         }
     }
-    a[after].push(a[before].top());
+    a[after].push(a[before].top()); // a -> c   // a -> b
     a[before].pop();
     cout << s[before] << " -> " << s[after] << endl;
     return true;
@@ -96,9 +96,9 @@ int main()
     int count = 0;
     for (int i = 0; i < N; i++)
     {
-        a[1].push(N - i);
+        a[1].push(N - i);   // a[1] : 3 2 1
     }
-    if (N % 2 == 1)
+    if (N % 2 == 1) // N 是奇数，交换 b c 柱子的位置
     {
         s[2] = 'c';
         s[3] = 'b';
