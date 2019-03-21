@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,19 @@
     <title>v-model</title>
     <script src="./vue.min.js"></script>
 </head>
-<body>
 
+<body>
+    <!-- 
+        v-model 只能和输入型的组件进行绑定
+        v-model 进来的数据都是字符串
+    -->
     <div id="app">
         <h4>{{ msg }}</h4>
-        <input type="text" v-model:value="msg" style="width:100%">
+        <input type="text" v-model="msg" style="width:100%">
+        <hr>
+        <input type="text" v-model="n1">+
+        <input type="text" v-model="n2">=
+        {{sum()}}
     </div>
 
     <script>
@@ -19,12 +28,16 @@
             el: '#app',
             data: {
                 msg: '我们爱学习',
+                n1: 0, n2: 0,
             },
             methods: {
-
+                sum() {
+                    return parseInt(this.n1) + parseInt(this.n2);
+                },
             },
         })
     </script>
-    
+
 </body>
+
 </html>

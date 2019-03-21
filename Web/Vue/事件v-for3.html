@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <script src="vue.min.js"></script>
+    <style media="screen">
+    </style>
+</head>
+<body>
+    <!-- v-for -->
+    <!-- 
+        1. 数组     v-for="item,index in array"
+        2. JSON    v-for="val,key in json"
+        3. 字符串   v-for="char,index in str"
+        4. 数字     v-for="i in num"    从 1 开始
+     -->
+    <div id="div1">
+        <ul>
+            <li v-for="val,name in style">
+                {{name}} : {{val}}
+            </li>
+            <li v-for="s in str">
+                {{s}}
+            </li>
+            <li v-for="i in 50">
+                {{i}}
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        let vm = new Vue({
+            el: '#div1',
+            data: {
+                style: {
+                    width: '200px',
+                    height: '300px',
+                },
+                str: 'ssasdaczbciub',
+            },
+        });
+    </script>
+    
+</body>
+</html>

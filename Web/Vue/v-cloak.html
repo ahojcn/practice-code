@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <script src="vue.min.js"></script>
+    <style>
+        *[v-clock] {display: "loading"}
+    </style>
+</head>
+<body>
+    <!-- js 有一个特性，就是前面的 js 卡住了，后面的也在等 -->
+    <!-- 希望在编译完成之前是不要显示出来，要自己加一个样式，可以是进度条了什么的东西 -->
+    <div id="div1" v-cloak>
+        {{a}} : {{b}}
+    </div>
+    
+    <script>
+        let vm = new Vue({
+            el: '#div1',
+            data: {
+                a: 12,
+                b: 5,
+            },
+        });
+    </script>
+    
+</body>
+</html>

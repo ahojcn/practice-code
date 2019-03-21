@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <!-- v-pre 
+        1. 提高性能的
+        2. 防止意外的解析，原模原样的显示
+    -->
+    <div id="div1">
+        <div v-pre>
+            {{aaa}} - {{bbb}}
+        </div>
+    </div>
+    
+    <script>
+        let vm = new Vue({
+            el: '#div1',
+            data: {
+                a: 0,
+            },
+        });
+    </script>
+    
+</body>
+</html>

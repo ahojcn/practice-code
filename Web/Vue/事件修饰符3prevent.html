@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="div1">
+        <div class="" @click="fun1()">
+            <!-- 冒泡顺序 : 子集 -> 父集 -->
+            <!-- 不想让它冒泡 : 加一个修饰符 stop -->
+            <!-- once 修饰符 : 单次事件 -->
+            <!-- prevent : 阻止默认事件，比如下面的提交，我们不想让他按照原有的方式提交，要通过别的提交，就可以使用这个事件修饰符 -->
+            <form action="index.html" method="POST" @submit.prevent.once="submit(this)">
+                <input type="submit" value="提交">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: '#div1',
+        data: {
+        },
+        methods: {
+            submit(form) {
+                alert('提交');
+                console.log(form);
+            },
+        },
+    });
+</script>
+</html>

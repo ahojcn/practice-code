@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="div1">
+        <div class="" @click="fun1()">
+            <!-- 冒泡顺序 : 子集 -> 父集 -->
+            <!-- 不想让它冒泡 : 加一个修饰符 stop -->
+            <!-- once 修饰符 : 单次事件 -->
+            <!-- prevent : 阻止默认事件 -->
+            <input type="button" value="按钮" @click.stop="fun2()">
+        </div>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: '#div1',
+        data: {
+
+        },
+        methods: {
+            fun1() {
+                alert('111');
+            },
+            fun2() {
+                alert('222');
+            },
+        },
+    });
+</script>
+</html>

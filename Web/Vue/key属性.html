@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <script src="vue.min.js"></script>
+    <style media="screen">
+    </style>
+</head>
+<body>
+    <!-- :key 属性 -->
+    <!-- 
+        1. 不能重复
+        2. 不能变    
+    -->
+    <div id="div1">
+        <ul>
+            <li v-for="user in users" :key="user.id">
+                用户名: {{user.name}} 密码 : {{user.password}}
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        let vm = new Vue({
+            el: '#div1',
+            data: {
+                users: [
+                    {id: 1, name: "zhangsan", password: "123"},
+                    {id: 2, name: "lisi", password: "123"},
+                    {id: 3, name: "ahoj", password: "123"},
+                ]
+            },
+        });
+    </script>
+    
+</body>
+</html>

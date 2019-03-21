@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js</title>
+    <script src="vue.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id="div1">
+        姓名:{{name}}
+        <br>
+        年龄:{{age+5}}
+        <br>
+        出生:{{fun()}}
+        <hr>
+        <strong v-bind:title="age+'岁'">{{name}}</strong>
+        <strong :title="age+'岁'">{{name}}</strong>
+        <hr>
+        <img :src="url" alt="">
+        <!-- 
+            v-bind 可以用于任何属性，有两个例外：
+                class="aa bb cc dd"
+                style="width: 200px; height: 100px"
+         -->
+         <strong :style="style_str">{{name}}</strong>
+         <strong :style="style_json">{{name}}</strong>
+    </div>
+</body>
+
+<script>
+    let vm = new Vue({
+        el: '#div1',
+        data: {
+            name: 'blue',
+            age: 18,
+            url: 'https://www.baidu.com/img/bd_logo1.png?where=super',
+            style_str: 'width: 200px; background: yellow; display: block;',
+            style_json: {width: '200px', background: 'green', display: 'block'}
+        },
+        methods: {
+            fun() {
+                return new Date().getFullYear()-this.age;
+            }
+        }
+    });
+</script>
+
+</html>

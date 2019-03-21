@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <script src="vue.min.js"></script>
+    <style media="screen">
+    </style>
+</head>
+<body>
+    <!-- v-for -->
+    <!-- 
+        1. 数组     v-for="item,index in array"
+        2. JSON    v-for="val,key in json"
+     -->
+    <div id="div1">
+        <ul>
+            <li v-for="user,index in users">
+                {{index}}.用户名: {{user.name}} 密码: {{user.password}}
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        let vm = new Vue({
+            el: '#div1',
+            data: {
+                users: [
+                    {name: 'ahoj', password: '123456'},
+                    {name: 'zhangsan', password: '654321'},
+                    {name: 'lisi', password: '111111'},
+                ]
+            },
+        });
+    </script>
+    
+</body>
+</html>
