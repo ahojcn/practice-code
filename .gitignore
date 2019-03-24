@@ -1,3 +1,4 @@
+*.class
 *.gch
 **/cmake-build-debug/*
 *.idea
