@@ -6,80 +6,46 @@
 #define STRING_STRING_H
 
 #include <iostream>
-#include <cstring>
-#include <string>
 #include <cassert>
 
-class String
+namespace ahoj
 {
-public:
-    String(char *str = "") : m_str(new char[strlen(str) + 1])
+    class string
     {
-        strcpy(m_str, str);
-    }
-
-    // 传统写法
-    // 深拷贝：拷贝成员变量 + 资源
-    /*String(String const &s) : m_str(new char[strlen(s.m_str) + 1])
-    {
-        strcpy(m_str, s.m_str);
-    }*/
-
-    // 现代写法
-    String(String const &s) : m_str(nullptr)    // 注意这里的把 m_str 赋为空，因为当 temp 和 this的东西交换了后，temp除了作用域会成一个null被析构
-    {
-        String temp(s.m_str);
-        std::swap(m_str, temp.m_str);
-    }
-
-    // 深拷贝，传统写法
-    /*String &operator=(String const &s)
-    {
-        if (this != &s)
+    public:
+        string(const char *str = "")
         {
-            delete[] m_str;
-            m_str = new char[strlen(s.m_str) + 1];
-            strcpy(m_str, s.m_str);
-        }
-        return *this;
-    }*/
+            assert(str != nullptr);
 
-    // 现代写法 1.
-    /*String &operator=(String const &s)
-    {
-        if (this != &s)
+            _size = strlen(str);
+            _capacity = _size + 1;
+            _str = new char[_capacity + 1]; // '\0'
+            strcpy(_str, str);
+        }
+
+        string(const string &s) : _str(nullptr)
         {
-            String temp(s.m_str);
-            std::swap(m_str, temp.m_str);
+            string t(s._str);
+            std::swap(_str, t._str);
         }
-        return *this;
-    }*/
 
-
-    // 现代写法 2.
-    String &operator=(String s)
-    {
-        std::swap(m_str, s.m_str);
-        return *this;
-    }
-
-    ~String()
-    {
-        if (m_str)
+        string &operator=(string s)
         {
-            delete[] m_str;
-            m_str = nullptr;
+            std::swap(_str, s._str);
+            return *this;
         }
-    }
 
-    char *c_str()
-    {
-        return m_str;
-    }
+        char *c_str()
+        {
+            return _str;
+        }
 
-private:
-    char *m_str;
-};
+    private:
+        size_t _size;
+        size_t _capacity;
+        char *_str;
+    };
+}
 
 
 #endif //STRING_STRING_H
