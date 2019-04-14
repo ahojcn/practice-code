@@ -1,3 +1,4 @@
+IDEAProj.iml
 *.class
 *.gch
 **/cmake-build-debug/*
