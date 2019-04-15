@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson05 ????</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="myApp">
+        <p>your game : {{mygame}}</p>
+        <button v-on:click="btnClick('my world')">my world</button>
+        <button @click="btnClick('LOL')">LOL</button>
+    </div>
+
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data() {
+                return {
+                    mygame: 'ma li ao'
+                }
+            },
+            methods: {
+                btnClick: function(name) {
+                    this.mygame = name;
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>

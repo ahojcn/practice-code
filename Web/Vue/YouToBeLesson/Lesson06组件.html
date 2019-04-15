@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson06 组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="myApp">
+        <ol>
+            <game-item v-for="item in games" v-bind:game="item"></game-item>
+        </ol>
+    </div>
+
+    <script>
+        Vue.component('game-item', {
+            props: ['game'],
+            template: '<li>{{ game.title }}</li>'
+        });
+        var myApp = new Vue({
+            el: '#myApp',
+            data() {
+                return {
+                    games: [
+                        {title: '斗地主'},
+                        {title: '打麻将'},
+                        {title: '跑得快'},
+                    ]
+                }
+            },
+        });
+    </script>
+    
+</body>
+</html>
