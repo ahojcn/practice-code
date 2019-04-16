@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09 观察属性 watch</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        主机 switch 的价格是：{{price}} 日元 <br>
+        含税价格是：{{priceInTax}} 日元 <br>
+        折合人民币：{{priceInRMB}} RMB <br>
+        <button @click="btnClick(10000)">加价 1w 日元</button>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    price: 0,
+                    priceInTax: 0,
+                    priceInRMB: 0,
+                }
+            },
+            watch: {    // watch 盯着 price，当 price 发生变化的时候，调用这个函数
+                price: function(new_val, old_val) {
+                    console.log(new_val, old_val);
+                    this.priceInTax = Math.round(this.price * 1.08);
+                    this.priceInRMB = Math.round(this.priceInTax / 16.75);
+                },
+            },
+            methods: {
+                btnClick: function(new_price) {
+                    this.price += new_price;
+                },
+            },
+        });
+        vm.price = 29980;
+    </script>
+
+</body>
+</html>

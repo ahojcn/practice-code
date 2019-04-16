@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10 设置计算属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <p>设置计算属性，同步更新数据的值。</p>
+    <hr>
+    <div id="app">
+        主机 switch 的间隔是：{{price}} 日元。<br>
+        含税价格为：{{priceInTax}} 日元。<br>
+        折合人民币：{{priceChinaRMB}} 元。<br>
+        <button @click="btnClick(10800)">把含税价格改为10800日元</button>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    price: 29980,
+                }
+            },
+            computed: {
+                priceInTax: {
+                    get: function() {
+                        return this.price * 1.08;
+                    },
+                    set: function(value) {
+                        this.price = value / 1.08;
+                    }
+                },
+                priceChinaRMB: function() {
+                    return Math.round(this.priceInTax / 16.75);
+                },
+            },
+            methods: {
+                btnClick: function(new_price) {
+                    this.priceInTax = new_price;
+                }
+            },
+        });
+    </script>
+
+</body>
+</html>

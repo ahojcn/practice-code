@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14 - v-show</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <p>知识点：v-show</p>
+    <p>标记是否显示HTML元素，注意：v-show设置的标记在HTML DOM中不会消失，只是将style的display设置为了none。</p>
+    <p>v-if是条件渲染，条件不成立的将不会渲染至DOM中。</p>
+    <hr>
+    <div id="app">
+        <h1 v-show="flag">这里这里这里</h1>
+        <button @click="btnClick">点我点我点我</button>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    flag: true,
+                }
+            },
+            methods: {
+                btnClick: function() {
+                    this.flag = !this.flag;
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

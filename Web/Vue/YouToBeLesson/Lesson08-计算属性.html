@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson08 计算属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        主机switch的价格是：{{price}}日元 <br>
+        含税价格为：{{priceInTax}}日元 <br>
+        折合人民币：{{priceRMB}}元 <br>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    price: 29980,
+                }
+            },
+            computed: {
+                priceInTax: function() {
+                    return this.price * 1.08;
+                },
+                priceRMB: function() {
+                    return Math.round(this.priceInTax / 16.75);
+                },
+            },
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13 - 条件渲染</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <p>知识点：v-if、v-else-if、v-else</p>
+    <p>判断Vue.js的变量的值，然后执行页面渲染逻辑。</p>
+    <hr>
+
+    <div id="app">
+        <h1 v-if="result == 0">成绩未公布</h1>
+        <h2 v-else-if="result < 60">{{result}}分 - 不及格!</h2>
+        <h2 v-else-if="result < 80">{{result}}分 - 还得加油呀!</h2>
+        <h2 v-else>{{result}}分 - 考得不错!</h2>
+        <button @click="btnClick">查询成绩</button>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    result: 0,
+                }
+            },
+            methods: {
+                btnClick: function() {
+                    this.result = Math.round(Math.random() * 100);
+                }
+            },
+        });
+    </script>
+
+</body>
+
+</html>
