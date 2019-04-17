@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20 - 表单单选 v-model radio</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <p>知识点：v-model input:radio</p>
+    <hr>
+    <div id="app">
+        <h3>选择性别：</h3>
+        <input type="radio" id="male" value="男" v-model="pickedSex"> 男
+        <input type="radio" id="female" value="女" v-model="pickedSex"> 女
+        <h3>选择爱好：</h3>
+        <input type="radio" id="game" value="玩游戏" v-model="pickedHobby"> 玩游戏
+        <input type="radio" id="movie" value="看电影" v-model="pickedHobby"> 看电影
+        <hr>
+        <h3>选择结果：</h3>
+        <p>性别：{{pickedSex}}</p>
+        <p>爱好：{{pickedHobby}}</p>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    pickedSex: "",
+                    pickedHobby: "",
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>18 - 双向数据绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <p>知识点：v-model  input:text</p>
+    <p>为表单数据元素创建双向数据绑定。（将JS变量的值‘快速’设置到控价上，然后将用户输入的内容‘快速’设置回JS变量。）</p>
+    <div id="app">
+        <input type="text" v-model="message" placeholder="编辑我">
+        <p>MESSAGE : {{message}}</p>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    message: "英雄，去超越！"
+                }
+            },
+            methods: {
+            },
+        })
+    </script>
+
+</body>
+
+</html>
