@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>23 - 组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div>
+        知识点：component
+        <p>组件就是页面上的一小块区域内容，完成一个小页面的功能。</p>
+        <p>注意，组建的定义要在 vm 之前。</p>
+    </div>
+    <hr>
+    <div id="app">
+        <today-weather></today-weather>
+    </div>
+
+    <script>
+        Vue.component('today-weather', {    // 注意这里是 component
+            template: '<div>今天下雨，出不去了，干什么呢？上 bilibili 学习吧！</div>'
+        });
+        let vm = new Vue({
+            el: '#app',
+        })
+    </script>
+
+</body>
+
+</html>

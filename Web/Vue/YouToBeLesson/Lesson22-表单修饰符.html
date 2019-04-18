@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22 - 表单修饰符</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div>
+        知识点： .lazy .number .trim
+        <p>.lazy 用户输入内容时，不做绑定数据的更新处理，在控件的onchange事件中更新绑定的变量。主要用于提高性能。</p>
+        <p>.number 将用户输入的内容转换为数值类型，如果用户输入非数值的时候，返回NaN。</p>
+        <p>.trim 自动去掉用户输入内容两端的空格。</p>
+    </div>
+    <hr>
+    <div id="app">
+        <h1>用户信息：</h1>
+        <div>
+            <label for="username">用户名：</label>
+            <input type="text" id="username" v-model.lazy="username" @change="checkUsername">
+            <span v-if="checkUsernameOK">可注册</span>
+        </div>
+        <div>
+            <label for="age">年龄：</label>
+            <input type="number" id="age" v-model.number="age">
+        </div>
+        <div>
+            <label for="content">个人简介：</label>
+            <textarea id="content" v-model.trim="content" cols="50" rows="10"></textarea>
+        </div>
+        <hr>
+        <h4>信息区：</h4>
+        <p>用户名：{{username}}</p>
+        <p>年龄：{{age}}</p>
+        <p>
+            <pre>个人简介：{{content}}</pre>
+        </p>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    username: "",
+                    checkUsernameOK: false,
+                    age: "",
+                    content: "",
+                }
+            },
+            methods: {
+                checkUsername: function () {
+                    if (this.username.length > 0) this.checkUsernameOK = true;
+                    else this.checkUsernameOK = false;
+                }
+            },
+        });
+    </script>
+
+</body>
+
+</html>

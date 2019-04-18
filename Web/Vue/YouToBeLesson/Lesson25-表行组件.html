@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>25 - 表行组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <p>知识点：制作表行组件</p>
+    </div>
+    <hr>
+    <div id="app">
+        <h1>你最喜欢的LOL英雄是：</h1>
+        <table border="1" style="border-color: aquamarine">
+            <tr>
+                <td>编号</td>
+                <td>英雄名</td>
+            </tr>
+            <tr is="my-row1"></tr>
+            <tr is="my-row2"></tr>
+            <tr is="my-row3"></tr>
+        </table>
+    </div>
+
+    <script>
+        Vue.component('my-row1', {
+            template: '<tr><td>(1)</td><td>风暴之怒-迦娜</td></tr>'
+        });
+        Vue.component('my-row2', {
+            template: '<tr><td>(2)</td><td>堕落女神-莫甘娜</td></tr>'
+        });
+        Vue.component('my-row3', {
+            template: '<tr><td>(3)</td><td>弗雷尔卓德之心-布隆</td></tr>'
+        });
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                }
+            },
+            methods: {
+            },
+        })
+    </script>
+
+</body>
+
+</html>

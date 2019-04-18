@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>27 - 组件中传递数据</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <p>知识点：为组件传递数据。</p>
+        <p>制作可以接受参数的组件。</p>
+    </div>
+    <hr>
+
+    <div id="app">
+        <h1>成绩评价：</h1>
+        <test-result :score="50"></test-result>
+        <test-result :score="65"></test-result>
+        <test-result :score="90"></test-result>
+        <test-result :score="100"></test-result>
+    </div>
+
+    <script>
+        Vue.component('test-result', {
+            props: ['score'],
+            template: '<div><strong>{{score}}分，{{result}}</strong></div>',
+            computed: {
+                result: function() {
+                    var str = "";
+                    if (this.score < 60) {
+                        str = "不及格";
+                    } else if (this.score < 90) {
+                        str = "不理想";
+                    } else if (this.score <= 100) {
+                        str = "优秀";
+                    }
+                    return str;
+                }
+            },
+        })
+        let vm = new Vue({
+            el: '#app',
+        })
+    </script>
+
+</body>
+
+</html>

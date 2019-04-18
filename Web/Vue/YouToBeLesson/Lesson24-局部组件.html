@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>24 - 局部组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <p>知识点：组建的局部注册</p>
+        <p>Lesson23 使用的是全剧组件。Vue的组件不仅可以单独声明注册使用，还可以在Vue实例中局部注册使用。</p>
+    </div>
+    <hr>
+    <div id="app">
+        <my-weather></my-weather>
+    </div>
+
+    <script>
+        var WeatherComponent = {
+            template: '<div>今天下雨啦，上bilibili学习吧！</div>'
+        };
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                }
+            },
+            components: {   // 注意这里是 components
+                'my-weather': WeatherComponent
+            },
+        })
+    </script>
+
+</body>
+
+</html>
