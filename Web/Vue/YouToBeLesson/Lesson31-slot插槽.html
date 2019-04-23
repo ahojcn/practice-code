@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lesson 31 slot插槽</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div>
+        <p>知识点：slot</p>
+        <p>
+            <strong>slot：</strong>
+            slot是父组件与子组件的通讯方式，可以将父组件的内容显示在子组件当中。
+        </p>
+    </div>
+    <hr>
+
+    <div id="app">
+        <!-- 组件中的参数是通过属性传递的 -->
+        <!-- 组件中的内容，通过插槽传递 -->
+        <say-to name='ahoj'>加油！找个好实习！</say-to>
+        <say-to name='tim'>加油！找个好工作！</say-to>
+        <say-to name='dali'>加油！找个女朋友！</say-to>
+    </div>
+
+    <script>
+        Vue.component('say-to', {
+            props: ['name'],
+            template: `
+                <div>
+                    <strong>{{name}}</strong>, 
+                    <slot></slot>
+                </div>
+            `
+        });
+        let vm = new Vue({
+            el: '#app',
+        });
+    </script>
+    
+</body>
+</html>

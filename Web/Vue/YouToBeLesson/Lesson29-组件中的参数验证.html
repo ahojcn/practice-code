@@ -18,17 +18,45 @@
     <hr>
 
     <div id="app">
-
+        <h1>身份信息：</h1>
+        <!-- 当传递字符串且是常量时，不使用v-bind或者冒号。其他传递任何类型的常量或变量都需要加冒号。 -->
+        <!-- 加冒号的，说明后面的是一个变量或者表达式，没加冒号的后面就是对应的字符串字面量 -->
+        <show-info name="ahoj" :age="21" :detail="{address:'China',language:'Chinese'}"></show-info>
     </div>
 
     <script>
+        Vue.component('show-info', {
+            props: {
+                name: {
+                    type: String,
+                    required: true, // 必须，说明这个name是必须的，而且必须是String类型
+                },
+                age: {
+                    type: Number,
+                    validator: function(value) { // 校验age的函数
+                        return value >= 0 && value <= 130;
+                    }
+                },
+                detail: {
+                    type: Object,
+                    default: function() {
+                        return {
+                            address: 'China',
+                            language: 'Chinese',
+                        }
+                    },
+                },
+            },
+            template: `
+                <div>姓名：{{this.name}}<br>
+                年龄：{{this.age}}<br>
+                地址：{{this.detail.address}}<br>
+                语言：{{this.detail.language}}<br></div>
+            `,
+        });
         let vm = new Vue({
             el: '#app',
-            data: {
-            },
-            methods: {
-            },
-        })
+        });
     </script>
 
 </body>

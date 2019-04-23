@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson30 - 组件中的事件传递</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div>
+        <p>知识点：事件传递</p>
+        <p>v-on 和 $emit</p>
+        <p>
+            <strong>v-on：</strong>监听事件，当事件触发后进行处理。<br>
+            <strong>$emit：</strong>触发事件，将事件提交给事件监听者。<br>
+        </p>
+    </div>
+    <hr>
+
+    <div id="app">
+        <h1>人生加法：</h1>
+        <add-method :a='5' :b='10' v-on:add_event="getAddResult"></add-method>
+        <br>
+        <strong>{{result}}</strong>
+    </div>
+
+    <script>
+        Vue.component('add-method', {
+            props: ['a', 'b'],
+            template: `<div><button v-on:click="add">加吧</button></div>`,
+            methods: {
+                add: function() {
+                    this.$emit('add_event',{
+                        result: this.a+this.b,  // 这个是要传给父组件的参数，就是下面getAddResult的参数pval
+                    });
+                },
+            },
+        });
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                result: 0,    
+            },
+            methods: {
+                getAddResult: function(pval) {
+                    this.result = pval.result;
+                },
+            },
+        });
+    </script>
+    
+</body>
+</html>
