@@ -5,19 +5,19 @@
 </template>
 
 <script>
-export default {
-    name: 'SaySomething',
-    data() {
-        return {
-            msg: "SaySomething Page!",
-        }
-    },
-}
+    export default {
+        name: 'SaySomething',
+        data() {
+            return {
+                msg: "SaySomething Page!",
+            }
+        },
+    }
 </script>
 
 <style scoped>
-h1 {
-    font-weight: normal;
-    color: red;
-}
+    h1 {
+        font-weight: normal;
+        color: red;
+    }
 </style>
