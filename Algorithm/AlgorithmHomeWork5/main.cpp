@@ -51,7 +51,7 @@ int main()
                 }
             }
         }
-        else if(isdigit(*it))
+        else if (isdigit(*it))
         {
             if (*(it - 1) == ')')
             {
@@ -63,6 +63,8 @@ int main()
                 sc.push(*it);
             }
         }
+        else // is cal, ignore
+        { ; }
         ++it;
     }   // while()
 
