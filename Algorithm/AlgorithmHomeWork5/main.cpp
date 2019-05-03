@@ -36,6 +36,7 @@ int main()
             if (sk.empty())
             {
                 flag = false;
+                break;
             }
             else
             {
@@ -50,7 +51,7 @@ int main()
                 }
             }
         }
-        else
+        else if(isdigit(*it))
         {
             if (*(it - 1) == ')')
             {
