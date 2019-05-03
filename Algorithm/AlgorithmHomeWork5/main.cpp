@@ -2,8 +2,6 @@
 #include <string>
 #include <stack>
 
-// 记录上一个pop出去的字符
-char ahead = 0;
 std::stack<char> sk; // 用来存放括号
 std::stack<char> sc; // 用来存放除括号外的字符
 std::string str;
