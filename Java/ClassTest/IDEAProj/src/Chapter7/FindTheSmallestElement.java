@@ -2,10 +2,13 @@ package Chapter7;
 
 import java.util.Scanner;
 
+/*
+ *7.9
+ */
 public class FindTheSmallestElement {
     public static double min(double[] array) {
         double min = array[0];
-        for(double i : array) {
+        for (double i : array) {
             if (i < min) {
                 min = i;
             }
