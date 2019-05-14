@@ -33,7 +33,15 @@ public class SortStudentOnGrades {
         System.out.println(tree);
 
         List<Map.Entry<String, Integer>> treeList = new ArrayList<>(tree.entrySet());
+
         treeList.sort(Comparator.comparing(Map.Entry::getValue));
+//        Collections.sort(treeList, new Comparator<Map.Entry<String, Integer>>() {
+//            @Override
+//            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+//                return o1.getValue().compareTo(o2.getValue());
+//            }
+//        });
+
 
         System.out.println(treeList);
     }
