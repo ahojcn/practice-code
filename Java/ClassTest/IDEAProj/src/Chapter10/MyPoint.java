@@ -1,22 +1,25 @@
 package Chapter10;
 
+/**
+ * 10.4
+ */
 public class MyPoint {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
@@ -24,7 +27,7 @@ public class MyPoint {
         this.x = this.y = 0;
     }
 
-    public MyPoint(int x, int y) {
+    public MyPoint(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -39,14 +42,13 @@ public class MyPoint {
                 + Math.pow(Math.abs(this.y - p.y), 2));
     }
 
-    public static double distance(MyPoint p1, MyPoint p2) {
-        return p1.distance(p2);
+    public double distance(double x, double y) {
+        return this.distance(new MyPoint(x, y));
     }
 
     public static void main(String[] args) {
-        MyPoint p1 = new MyPoint(-20, 20);
-        MyPoint p2 = new MyPoint(20, -10);
+        MyPoint p1 = new MyPoint(); // 0, 0
+        MyPoint p2 = new MyPoint(10, 30.5); // 10, 30.5
         System.out.println(p1.distance(p2));
-        System.out.println(MyPoint.distance(p1,p2));
     }
 }

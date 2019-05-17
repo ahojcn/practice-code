@@ -1,5 +1,8 @@
 package Chapter10;
 
+/**
+ * 10.3
+ */
 public class MyInteger {
     private int data;
 
@@ -104,7 +107,9 @@ public class MyInteger {
     public static int parseInt(String s) {
         return parseInt(s.toCharArray());
     }
+}
 
+class Test {
     public static void main(String[] args) {
         MyInteger m = new MyInteger(7);
         System.out.println(m.isEven());
