@@ -24,7 +24,7 @@ public class MyPoint {
     }
 
     public MyPoint() {
-        this.x = this.y = 0;
+        x = y = 0;
     }
 
     public MyPoint(double x, double y) {
