@@ -7,7 +7,7 @@ class GeometricObject {
     private boolean filled;
     private java.util.Date dateCreated;
 
-    public GeometricObject() {
+    GeometricObject() {
         dateCreated = new java.util.Date();
     }
 

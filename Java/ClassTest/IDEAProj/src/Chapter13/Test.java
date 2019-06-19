@@ -3,7 +3,7 @@ package Chapter13;
 class Circle {
     private double r = 0;
 
-    public Circle(double r) {
+    Circle(double r) {
         this.r = r;
     }
 
@@ -11,14 +11,14 @@ class Circle {
         this.r = r;
     }
 
-    public double getR() {
+    double getR() {
         return r;
     }
 }
 
 class ComparableCircle extends Circle implements Comparable<Circle> {
 
-    public ComparableCircle(double r) {
+    ComparableCircle(double r) {
         super(r);
     }
 
