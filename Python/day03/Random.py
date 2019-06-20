@@ -1,11 +1,9 @@
 """
 掷骰子决定做什么事
 """
+import random
 
-from random import randint
-
-# 生成 1 - 6 的随机数
-face = randint(1, 6)
+face = random.randint(1, 6)
 
 if face == 1:
     print("唱歌")
