@@ -1,8 +1,10 @@
 import pygame
 import time
 from pygame.locals import *
+import random
 
-# 飞机类 
+# 飞机类
+# 英雄飞机类
 class HeroPlane(object):
     def __init__(self, screen_temp):
         self.x = 210
@@ -24,10 +26,10 @@ class HeroPlane(object):
                 self.bullet_list.remove(b)
 
     def move_left(self):
-        self.x -= 5
+        self.x -= 10
 
     def move_right(self):
-        self.x += 5
+        self.x += 10
 
     def fire(self):
         self.bullet_list.append(Bullet(self.screen, self.x, self.y))
@@ -65,10 +67,19 @@ class EnemyPlane(object):
         self.screen = screen_temp
         # 敌机移动方向
         self.direction = "right"
+        # 敌机子弹列表
+        self.bullet_list = []
 
     def display(self):
         # 显示飞机
         self.screen.blit(self.image, (self.x, self.y))
+        # 显示子弹
+        for b in self.bullet_list:
+            b.display()
+            b.move()
+            # 判断子弹是否越界
+            if b.judge():
+                self.bullet_list.remove(b)
 
     def move(self):
         if self.direction == "right":
@@ -82,7 +93,32 @@ class EnemyPlane(object):
             self.direction = "right"
 
     def fire(self):
-        pass
+        random_num = random.randint(1, 100)
+        if random_num == 8 or random_num == 9 or random_num == 10:
+            self.bullet_list.append(EnemyBullet(self.screen, self.x, self.y))
+
+
+
+
+# 敌机子弹
+class EnemyBullet(object):
+    def __init__(self, screen, x, y):
+        self.x = x + 20
+        self.y = y + 30
+        self.screen = screen
+        self.image = pygame.image.load("./feiji/bullet1.png")
+
+    def display(self):
+        self.screen.blit(self.image, (self.x, self.y))
+
+    def move(self):
+        self.y += 5
+
+    def judge(self):
+        if self.y > 852:
+            return True
+        else:
+            return False
 
 
 
@@ -131,6 +167,8 @@ def main():
 
         enemy.display()
         enemy.move()
+        # 敌机开火
+        enemy.fire()
 
         pygame.display.update()
 
