@@ -2,7 +2,7 @@ import pygame
 import time
 from pygame.locals import *
 
-# 飞机类
+# 飞机类 
 class HeroPlane(object):
     def __init__(self, screen_temp):
         self.x = 210
