@@ -49,7 +49,7 @@ class Bullet(object):
         self.y -= 5
 
     def judge(self):
-        if self.y < 200:
+        if self.y < 0:
             return True
         else:
             return False
