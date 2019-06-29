@@ -17,5 +17,5 @@ if __name__ == '__main__':
     print(next(b))
     print(next(b))
 
-    '''会抛出异常'''
+    '''到了生成器的最后一个，再next()就会抛出异常'''
     # print(next(b))
