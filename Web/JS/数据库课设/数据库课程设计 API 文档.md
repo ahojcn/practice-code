@@ -122,7 +122,8 @@ sno 学号 Int
             "cname": "计卓一班",
             "sno": 417083101,
             "sname": "孙悟空",
-            "tel": 13093944163
+            "tel": 13093944163,
+            "gender": 0 # 分数
         }
     ]
 }
@@ -167,7 +168,8 @@ sno 学号 Int
     "data": [
         {
             "pno": null,
-            "sno": 417083102
+            "sno": 417083105,
+            "gender": 0 # 分数
         }
     ]
 }
@@ -178,9 +180,10 @@ sno 学号 Int
     "status": 0,
     "data": [
         {
-            "pno": 1,
+            "pno": 4,
             "sno": 417083101,
-            "pname": "客户订购登记系统"
+            "pname": "工资管理系统",
+            "gender": 0 # 分数
         }
     ]
 }
@@ -283,6 +286,32 @@ sno 学生号 Int
     }
 }
 ```
+
+#### 获取老师的评价
+
+地址：
+
+```
+
+```
+
+
+
+参数：
+
+```
+
+```
+
+
+
+返回示例：
+
+```json
+
+```
+
+
 
 
 
@@ -409,6 +438,133 @@ tno 教师号 Int
     msg: "don't have this course info.",
     status: -2,
     data: ""
+}
+```
+
+#### 获取选自己带的课程的学生
+
+地址：
+
+```
+/teacher/getStudentsInfo
+```
+
+参数：
+
+```
+tno 老师no Int类型
+```
+
+返回示例：
+
+```json
+# 成功
+## 有人选
+{
+    "msg": "success",
+    "status": 0,
+    "data": [
+        {
+            "pno": 2,
+            "pname": "货存控制系统",
+            "sno": 417083102,
+            "sname": "牛魔王",
+            "sex": "男",
+            "tel": 13093944164,
+            "gender": 80
+        }
+    ]
+}
+## 没人选
+{
+    "msg": "success",
+    "status": 0,
+    "data": []
+}
+# 失败
+
+```
+
+#### 给学生打分
+
+地址：
+
+```
+/teacher/putStudentGrade
+```
+
+参数：
+
+```
+sno 学生no Int类型
+```
+
+返回示例：
+
+```json
+# 成功
+{
+    "msg": "success",
+    "status": 0,
+    "data": {
+        "fieldCount": 0,
+        "affectedRows": 1,
+        "insertId": 0,
+        "serverStatus": 2,
+        "warningCount": 0,
+        "message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+        "protocol41": true,
+        "changedRows": 0
+    }
+}
+# 失败
+{
+    "msg": "faild",
+    "status": -2,
+    "data": {
+        "code": "ER_BAD_FIELD_ERROR",
+        "errno": 1054,
+        "sqlMessage": "Unknown column '417083101a' in 'where clause'",
+        "sqlState": "42S22",
+        "index": 0,
+        "sql": "\n    update students set gender = 0\n    where sno = 417083101a;"
+    }
+}
+```
+
+#### 给学生评价
+
+地址：
+
+```
+/teacher/sendMsg
+```
+
+参数：
+
+```
+sno 学生号 Int
+pno 课程号 Int
+word 说的话 String
+```
+
+返回示例：
+
+```json
+# 成功
+{
+    "msg": "success",
+    "status": 0,
+    "data": { # 这里不用管
+        "fieldCount": 0,
+        "affectedRows": 1,
+        "insertId": 0,
+        "serverStatus": 2,
+        "warningCount": 0,
+        "message": "",
+        "protocol41": true,
+        "changedRows": 0
+    }
 }
 ```
 

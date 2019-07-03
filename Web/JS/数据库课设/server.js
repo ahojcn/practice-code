@@ -15,6 +15,43 @@ const STUDENT_CHOSE_COURSE = '/students/choseCourse'; // 学生选课
 const STUDENT_CANCEL_COURSE = '/students/cancelCourse'; // 学生取消选课
 
 const TEACHER_GET_ALL_COURSE = '/teacher/getAllCourse'; // 老师获取自己的选课
+const TEACHER_GET_STUDENTS_INFO = '/teacher/getStudentsInfo'; // 老师获取选自己的课题的学生
+const TEACHER_PUT_STUDENT_GRADE = '/teacher/putStudentGrade'; // 老师给学生打分
+const TEACHER_SEND_MSG = '/teacher/sendMsg'; // 老师给学生评价
+
+
+// router
+function router(req, res, db, pathname, query) {
+    console.log('----------------- ⤵️ ----------------');
+    console.log(new Date().toLocaleTimeString())
+    console.log(pathname, query);
+    // 路由
+    if (pathname === STUDENTLOGIN) {
+        studentLogin(res, db, query);
+    } else if (pathname === TEACHERLOGIN) {
+        teacherLogin(res, db, query);
+    } else if (pathname === GET_STUDENT_INFO) {
+        getStudentInfo(res, db, query);
+    } else if (pathname === GET_STUDENT_CHOSE) {
+        getStudentChose(res, db, query);
+    } else if (pathname === GET_ALL_COURSE) {
+        getAllCourse(res, db, query);
+    } else if (pathname === STUDENT_CHOSE_COURSE) {
+        studentChoseCourse(res, db, query);
+    } else if (pathname === STUDENT_CANCEL_COURSE) {
+        studentCancelCourse(res, db, query);
+    } else if (pathname === TEACHER_GET_ALL_COURSE) {
+        teacherGetAllCourse(res, db, query);
+    } else if (pathname === TEACHER_GET_STUDENTS_INFO) {
+        teacherGetStudentsInfo(res, db, query);
+    } else if (pathname === TEACHER_PUT_STUDENT_GRADE) {
+        teacherPutStudentGrade(res, db, query);
+    } else if (pathname === TEACHER_SEND_MSG) {
+        teacherSendMsg(res, db, query);
+    } else {
+        requestTo(res, "404 not found.", -404, "404 not found.")
+    }
+}
 
 
 // 建立数据库连接，返回连接对象
@@ -38,11 +75,58 @@ function requestTo(res, msg, status, data) {
     res.end();
 }
 
+// 老师给学生发消息
+// sno 学生号, pno 课程号, word 说的话
+function teacherSendMsg(res, db, query) {
+    db.query(`
+    insert into says(sno, pno, msg, word, isread)
+    value(${query.sno}, ${query.pno}, '老师给学生的意见', ${(query.word).toString()}, 0);`,
+        function (err, data) {
+            if (err) {
+                requestTo(res, "faild", -2, err);
+                console.log(err);
+            } else {
+                requestTo(res, "success", 0, data);
+            }
+        });
+}
+
+// 老师给学生打分
+// sno 学生no
+function teacherPutStudentGrade(res, db, query) {
+    db.query(`
+    update students set gender = 0
+    where sno = ${query.sno};`,
+        function (err, data) {
+            if (err) {
+                requestTo(res, "faild", -2, err);
+            } else {
+                requestTo(res, "success", 0, data);
+            }
+        });
+}
+
+// 老师获取选自己课题的学生
+// tno 老师的no
+function teacherGetStudentsInfo(res, db, query) {
+    db.query(`
+    select distinct course.pno, course.pname, students.sno, students.sname, students.sex, students.tel, students.gender
+    from course, teacher, students
+    where students.pno = course.pno and course.tno = ${query.tno};`,
+        function (err, data) {
+            if (err) {
+                requestTo(res, "没有查到相关信息", -2, err)
+            } else {
+                requestTo(res, "success", 0, data)
+            }
+        });
+}
+
 // 获取学生个人信息
 // sno
 function getStudentInfo(res, db, query) {
     db.query(`
-    select classes.cname, students.sno, students.sname, students.tel
+    select classes.cname, students.sno, students.sname, students.tel, students.gender
     from classes, students
     where students.cno = classes.cno and students.sno = ${query.sno}`,
         function (err, data) {
@@ -62,9 +146,10 @@ function getStudentInfo(res, db, query) {
 }
 
 // 获取学生选课信息
+// sno
 function getStudentChose(res, db, query) {
     db.query(`
-    select students.pno, students.sno
+    select students.pno, students.sno, students.gender
     from students
     where students.sno = ${query.sno}`,
         function (err, data) {
@@ -82,7 +167,7 @@ function getStudentChose(res, db, query) {
                         requestTo(res, "success", 0, data);
                     } else {
                         // 学生选课了
-                        db.query(`select students.pno, students.sno, course.pname
+                        db.query(`select students.pno, students.sno, course.pname, students.gender
                         from students,course
                         where students.sno = ${query.sno}
                         and course.pno = students.pno;`,
@@ -164,6 +249,7 @@ function teacherGetAllCourse(res, db, query) {
 // 学生登录
 // sno, password
 function studentLogin(res, db, query) {
+    console.log(query.sno, query.password);
     db.query(`SELECT sno,password FROM students where sno = ${query.sno}`, function (err, data) {
         if (err) {
             requestTo(res, "用户名或密码错误", -1, "")
@@ -213,30 +299,6 @@ function teacherLogin(res, db, query) {
             }
         }
     });
-}
-
-// router
-function router(req, res, db, pathname, query) {
-    // 路由跳转
-    if (pathname === STUDENTLOGIN) {
-        studentLogin(res, db, query);
-    } else if (pathname === TEACHERLOGIN) {
-        teacherLogin(res, db, query);
-    } else if (pathname === GET_STUDENT_INFO) {
-        getStudentInfo(res, db, query);
-    } else if (pathname === GET_STUDENT_CHOSE) {
-        getStudentChose(res, db, query);
-    } else if (pathname === GET_ALL_COURSE) {
-        getAllCourse(res, db, query);
-    } else if (pathname === STUDENT_CHOSE_COURSE) {
-        studentChoseCourse(res, db, query);
-    } else if (pathname === STUDENT_CANCEL_COURSE) {
-        studentCancelCourse(res, db, query);
-    } else if (pathname === TEACHER_GET_ALL_COURSE) {
-        teacherGetAllCourse(res, db, query);
-    } else {
-        requestTo(res, "404 not found.", -404, "404 not found.")
-    }
 }
 
 let server = http.createServer(function (req, res) {
