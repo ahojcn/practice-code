@@ -13,16 +13,29 @@ const GET_ALL_COURSE = '/course/getAll'; // 获取所有课程选题
 
 const STUDENT_CHOSE_COURSE = '/students/choseCourse'; // 学生选课
 const STUDENT_CANCEL_COURSE = '/students/cancelCourse'; // 学生取消选课
+const STUDENT_GET_MSG = '/students/getMsg'; // 学生获取老师说的话
 
 const TEACHER_GET_ALL_COURSE = '/teacher/getAllCourse'; // 老师获取自己的选课
 const TEACHER_GET_STUDENTS_INFO = '/teacher/getStudentsInfo'; // 老师获取选自己的课题的学生
 const TEACHER_PUT_STUDENT_GRADE = '/teacher/putStudentGrade'; // 老师给学生打分
 const TEACHER_SEND_MSG = '/teacher/sendMsg'; // 老师给学生评价
 
+/*
+    email
+*/
+const TEACHER_SEND_EMAIL = '/teacher/sendEmail'; // 老师给学生发 email
+const STUDENT_SEND_EMAIL = '/student/sendEmail'; // 学生给老师发 email
+
+const STUDENT_GET_EMAIL = '/student/getEmail'; // 学生收件
+const TEACHER_GET_EMAIL = '/teacher/getEmail'; // 教师收件
+
+
+const TEACHER_GET_INFO = '/teacher/getInfo' // 老师获取自己的信息
+
 
 // router
 function router(req, res, db, pathname, query) {
-    console.log('----------------- ⤵️ ----------------');
+    console.log('----------------- ⤵️  ----------------');
     console.log(new Date().toLocaleTimeString())
     console.log(pathname, query);
     // 路由
@@ -48,6 +61,18 @@ function router(req, res, db, pathname, query) {
         teacherPutStudentGrade(res, db, query);
     } else if (pathname === TEACHER_SEND_MSG) {
         teacherSendMsg(res, db, query);
+    } else if (pathname === TEACHER_GET_INFO) {
+        teacherGetInfo(res, db, query);
+    } else if (pathname === STUDENT_GET_MSG) {
+        studentGetMsg(res, db, query);
+    } else if (pathname === TEACHER_SEND_EMAIL) {
+        teacherSendEmail(res, db, query);
+    } else if (pathname === STUDENT_SEND_EMAIL) {
+        studentSendEmail(res, db, query);
+    } else if (pathname === STUDENT_GET_EMAIL) {
+        studentGetEmail(res, db, query);
+    } else if (pathname === TEACHER_GET_EMAIL) {
+        teacherGetEmail(res, db, query);
     } else {
         requestTo(res, "404 not found.", -404, "404 not found.")
     }
@@ -57,7 +82,8 @@ function router(req, res, db, pathname, query) {
 // 建立数据库连接，返回连接对象
 function connectDatabase() {
     return mysql.createConnection({
-        host: '192.168.1.112',
+        // host: '192.168.1.112',
+        host: '192.168.43.81',
         user: 'root',
         password: '123',
         database: 'test'
@@ -75,27 +101,121 @@ function requestTo(res, msg, status, data) {
     res.end();
 }
 
+// 教师收件
+// sno tno
+function teacherGetEmail(res, db, query) {
+    console.log(query.sno, query.tno, '-----');
+    db.query(`
+    select distinct * from dfg where sno=${query.sno} and tno=${query.tno} and word is not null;
+    `, function (err, data) {
+        if (err) {
+            requestTo(res, "faild", -2, err);
+        } else {
+            requestTo(res, "success", 0, data);
+        }
+    });
+}
+
+// 学生收件
+// sno tno
+function studentGetEmail(res, db, query) {
+    db.query(`
+    select distinct * from wfg where sno=${query.sno} and tno=${query.tno} and word is not null;
+    `, function (err, data) {
+        if (err) {
+            requestTo(res, "faild", -2, err);
+        } else {
+            requestTo(res, "success", 0, data);
+        }
+    })
+}
+
+// 学生给老师发 email
+// sno word
+function studentSendEmail(res, db, query) {
+    db.query(`
+    insert into s_email(sno, word) values (${query.sno},${'\'' + query.word + '\''});`, function (err, data) {
+        if (err) {
+            requestTo(res, "faild", -2, err);
+        } else {
+            requestTo(res, "success", 0, data);
+        }
+    })
+}
+
+// 老师给学生发 email
+// tno word
+function teacherSendEmail(res, db, query) {
+    db.query(`
+    insert into t_email(tno, word) values (${query.tno},${'\'' + query.word + '\''});
+    `, function (err, data) {
+        if (err) {
+            requestTo(res, "faild", -2, err);
+        } else {
+            requestTo(res, "success", 0, data);
+        }
+    });
+}
+
+// 学生获取消息
+// pno, sno, tno
+function studentGetMsg(res, db, query) {
+    db.query(`
+    select distinct teacher.tname, says.word, says.time, says.sno, says.pno, says.isread
+    from students, teacher, says, course
+    where says.sno = ${query.sno} and course.pno = ${query.pno} and teacher.tno = ${query.tno}`,
+        function (err, data) {
+            if (err) {
+                requestTo(res, "faild", -2, err);
+            } else {
+                db.query(`update says set isread = 1
+                where sno = ${query.sno} and pno = ${query.pno};`, function (err, data) {
+                    if (err) {} else {}
+                });
+                requestTo(res, "success", 0, data);
+            }
+        }
+    );
+}
+
+// 老师获取自己的信息
+// tno
+function teacherGetInfo(res, db, query) {
+    db.query(`select xueyuan.yname, teacher.tno, teacher.tname
+    from xueyuan, teacher
+    where teacher.yno = xueyuan.yno and teacher.tno = ${query.tno}`,
+        function (err, data) {
+            if (err) {
+                requestTo(res, "faild", -2, err);
+            } else {
+                requestTo(res, "success", 0, data);
+            }
+        }
+    );
+}
+
 // 老师给学生发消息
 // sno 学生号, pno 课程号, word 说的话
 function teacherSendMsg(res, db, query) {
     db.query(`
     insert into says(sno, pno, msg, word, isread)
-    value(${query.sno}, ${query.pno}, '老师给学生的意见', ${(query.word).toString()}, 0);`,
+    value(${query.sno}, ${query.pno}, '老师给学生的意见', ${'\'' + query.word + '\''}, 0);`,
         function (err, data) {
             if (err) {
                 requestTo(res, "faild", -2, err);
-                console.log(err);
             } else {
                 requestTo(res, "success", 0, data);
             }
-        });
+        }
+    );
 }
 
 // 老师给学生打分
 // sno 学生no
+// gender 分数
 function teacherPutStudentGrade(res, db, query) {
     db.query(`
-    update students set gender = 0
+    update students set gender = ${query.gender}
     where sno = ${query.sno};`,
         function (err, data) {
             if (err) {
@@ -167,10 +287,11 @@ function getStudentChose(res, db, query) {
                         requestTo(res, "success", 0, data);
                     } else {
                         // 学生选课了
-                        db.query(`select students.pno, students.sno, course.pname, students.gender
-                        from students,course
+                        db.query(`
+                        select students.pno, students.sno, course.pname, students.gender, teacher.tno, teacher.tname
+                        from students,course,teacher
                         where students.sno = ${query.sno}
-                        and course.pno = students.pno;`,
+                        and course.pno = students.pno and teacher.tno = course.tno;`,
                             function (err, info) {
                                 if (err) {
                                     requestTo(res, "faild", -2, err);
@@ -249,8 +370,7 @@ function teacherGetAllCourse(res, db, query) {
 // 学生登录
 // sno, password
 function studentLogin(res, db, query) {
-    console.log(query.sno, query.password);
-    db.query(`SELECT sno,password FROM students where sno = ${query.sno}`, function (err, data) {
+    db.query(`SELECT sno,password FROM students where sno = ${parseInt(query.sno)}`, function (err, data) {
         if (err) {
             requestTo(res, "用户名或密码错误", -1, "")
         } else {
@@ -262,7 +382,7 @@ function studentLogin(res, db, query) {
                 data = JSON.parse(data);
                 sno = data[0].sno;
                 password = data[0].password;
-                db.query(`SELECT cno,pno,sno,sname,sex,tel,gender FROM students where sno = ${query.sno}`, function (err, info) {
+                db.query(`SELECT cno,pno,sno,sname,sex,tel,gender FROM students where sno = ${parseInt(query.sno)}`, function (err, info) {
                     if (err) {
                         requestTo(res, err.sqlMessage, -1, "")
                     } else {
@@ -277,7 +397,9 @@ function studentLogin(res, db, query) {
 // 教师登录
 // tno, password
 function teacherLogin(res, db, query) {
-    db.query(`SELECT tno,password FROM teacher where tno = ${query.tno}`, function (err, data) {
+    console.log(typeof parseInt(query.tno))
+    console.log(typeof query.password)
+    db.query(`SELECT tno,password FROM teacher where tno = ${parseInt(query.tno)}`, function (err, data) {
         if (err) {
             requestTo(res, "用户名或密码错误", -1, "")
         } else {
@@ -289,7 +411,7 @@ function teacherLogin(res, db, query) {
                 data = JSON.parse(data);
                 tno = data[0].tno;
                 password = data[0].password;
-                db.query(`SELECT tno,tname,yno FROM teacher where tno = ${query.tno}`, function (err, info) {
+                db.query(`SELECT tno,tname,yno FROM teacher where tno = ${parseInt(query.tno)}`, function (err, info) {
                     if (err) {
                         requestTo(res, err.sqlMessage, -1, "")
                     } else {
