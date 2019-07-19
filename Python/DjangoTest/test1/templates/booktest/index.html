@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>booktest</title>
+</head>
+<body>
+<div>
+    <h1>hello django.</h1>
+    <ul>
+        {% for book in list %}
+            <li>
+                <a href="{{ book.id }}">{{ book.btitle }}</a>
+                {{ book.bpub_date }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

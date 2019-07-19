@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<ul>
+    {% for book in book_list %}
+        <li>{{ book.btitle }}-[{{ book.bread }}]-[{{ book.bcommet }}]</li>
+    {% endfor %}
+
+    <hr>
+
+    {{ max }}
+</ul>
+</body>
+</html>
