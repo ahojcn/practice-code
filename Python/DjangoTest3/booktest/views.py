@@ -34,7 +34,10 @@ def create(req):
 def delete(req, bid):
     """删除图书"""
     # 1. 通过 bid 获取图书对象并删除
-    BookInfo.objects.get(id=bid).delete()
+    # BookInfo.objects.get(id=bid).delete()
+    b = BookInfo.objects.get(id=bid)
+    b.delete()
+
     # 2. 重定向到 index
     # return HttpResponseRedirect('index')
     # 简写

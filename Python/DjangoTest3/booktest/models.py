@@ -48,8 +48,8 @@ class BookInfo(models.Model):
         return self.btitle
 
     # 元选项
-    class Meta:
-        db_table = 'bookinfo'  # 指定模型类的对应的表名
+    # class Meta:
+    #     db_table = 'bookinfo'  # 指定模型类的对应的表名
 
 
 # n
