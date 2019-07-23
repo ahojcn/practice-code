@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+POST: 提交的参数在请求头中，数据安全性高的时候，使用 post
+GET: 提交的参数在 url 中
+<form method="post" action="login_check">
+    <label>
+        用户名：
+        <input type="text" name="username">
+    </label><br>
+
+    <label>
+        密码：
+        <input type="password" name="password">
+    </label><br>
+
+    <input type="submit" value="登录">
+</form>
+</body>
+</html>
