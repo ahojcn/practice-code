@@ -52,7 +52,7 @@ def areas(req):
     # 查询西安市的下级地区
     children = area.areainfo_set.all()
     return render(req, 'booktest/area.html', {
-                      'area': area,
-                      'parent': parent,
-                      'children': children
-                  })
+        'area': area,
+        'parent': parent,
+        'children': children
+    })
