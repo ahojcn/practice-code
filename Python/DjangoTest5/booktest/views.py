@@ -5,6 +5,7 @@ from django.http import HttpResponse
 
 from booktest.models import *
 
+
 # Create your views here.
 
 # /booktest/index
@@ -39,6 +40,9 @@ def temp_var(request):
     return render(request, 'booktest/temp_var.html', context)
 
 
-def hello(request, num):
-    print(num, '#'.center(20, '*'))
-    return HttpResponse("num:" + str(num))
+def hello(request, username, age):
+    print(username, type(username))
+    print(age, type(age))
+    print(request.GET.get('c'))
+    print(request.POST)
+    return HttpResponse('username : ' + str(username) + '<br>' + 'age : ' + str(age))
