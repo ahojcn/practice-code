@@ -10,15 +10,7 @@ from booktest.models import *
 
 # /booktest/index
 def index(request):
-    # 1. 加载模板文件
-    # temp = loader.get_template('booktest/index.html')
-    # 2. 定义模板上下文，传数据给模板
-    # context = {}
-    # 3. 模板渲染，产生一个替换后的 html 内容
-    # res_html = temp.render(context)
-    # 4. 返回应答
-    # return HttpResponse(res_html)
-
+    # ....
     # 上面的简写
     return render(request, 'booktest/index.html', {})
 
