@@ -124,3 +124,158 @@ int main() {
 }
 
 #endif
+
+
+#if 1
+
+#include <iostream>
+
+inline int add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int ret = 0;
+
+    size_t begin = clock();
+
+    ret = add(1, 2);
+    return 0;
+}
+
+
+
+
+//struct A {
+//    int data[10000];
+//};
+//
+//A a;
+//
+//A func1() {
+//    return a;
+//}
+//
+//A& func2() {
+//    return a;
+//}
+//
+//int main() {
+//    size_t begin = clock();
+//    for (size_t i = 0; i < 100000; ++i)
+//        func1();
+//    size_t end = clock();
+//    std::cout << "A func1() : " << end - begin << std::endl;
+//
+//    begin = clock();
+//    for (size_t i = 0; i < 100000; ++i)
+//        func2();
+//    end = clock();
+//    std::cout << "A& func2() : " << end - begin << std::endl;
+//
+//    return 0;
+//}
+
+
+
+//void func1(A a) {
+//}
+//
+//void func2(A &a) {
+//}
+//
+//int main() {
+//    A a;
+//
+//    size_t begin = clock();
+//    for (size_t i = 0; i < 10000; ++i)
+//        func1(a);
+//    size_t end = clock();
+//    std::cout << "func1(A a) : " << end - begin << std::endl;
+//
+//    begin = clock();
+//    for (size_t i = 0; i < 10000; ++i)
+//        func2(a);
+//    end = clock();
+//    std::cout << "func2(A a) : " << end - begin << std::endl;
+//
+//    return 0;
+//}
+
+//int& Add(int a, int b)
+//{
+//    int c = a + b;
+//    return c;
+//}
+//int main() {
+//    int& ret = Add(1, 2);
+//    Add(3, 4);
+//    std::cout << "Add(1, 2) is :"<< ret <<std::endl;
+//    return 0;
+//}
+
+//int main() {
+//    const int a = 10;
+////    int &ar = a;
+//    const int &ar = a;
+//
+//    int b = 20;
+//    int &rb1 = b;
+//    const int &rb2 = b;
+//
+//    int c = 30;
+////    double &rc1 = c;
+//    const double &rc2 = c;
+//
+//    return 0;
+//}
+
+//extern "C" int Add(int x, int y) {
+//    return x + y;
+//}
+//
+//int main() {
+//    std::cout << Add(1, 2) << std::endl;
+//    return 0;
+//}
+
+//void func(int i=1, double d=1.0);
+//
+//int main() {
+//    func();
+//
+//    return 0;
+//}
+//
+//void func(int i, double d) {
+//    std::cout << i << std::endl << d << std::endl;
+//}
+
+//#include <iostream>
+//
+//int a = 10;
+//
+//int main() {
+//    int a = 20;
+//
+//    std::cout << ::a << std::endl;
+//
+//    return 0;
+//}
+
+//namespace A {
+//    int aa = 1;
+//    int ab = 2;
+//}
+//
+//namespace A {
+////    int ab = 3;  // 提示已存在变量 ab
+//    int ac = 4;
+//}
+//
+//int main() {
+//    std::cout << A::aa << " " << A::ab << " " << A::ac << std::endl;
+//    return 0;
+//}
+
+#endif
