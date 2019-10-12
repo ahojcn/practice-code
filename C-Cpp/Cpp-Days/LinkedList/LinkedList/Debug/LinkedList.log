@@ -1,0 +1,14 @@
+﻿  main.cpp
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\LinkedList.h(24,1): error C2440:  “=”: 无法从“ahoj::LinkedList<int>::_node”转换为“ahoj::LinkedList<int>::_node *”
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\LinkedList.h(24,17): message :  没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\LinkedList.h(18): message :  在编译 类 模板 成员函数“ahoj::LinkedList<int>::LinkedList(const size_t,const T &)”时
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\LinkedList.h(18): message :         with
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\LinkedList.h(18): message :         [
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\LinkedList.h(18): message :             T=int
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\LinkedList.h(18): message :         ]
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\main.cpp(7): message :  查看对正在编译的函数 模板 实例化“ahoj::LinkedList<int>::LinkedList(const size_t,const T &)”的引用
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\main.cpp(7): message :         with
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\main.cpp(7): message :         [
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\main.cpp(7): message :             T=int
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\main.cpp(7): message :         ]
+Y:\Code\PracticeCode\C-Cpp\Cpp-Days\LinkedList\LinkedList\main.cpp(7): message :  查看对正在编译的 类 模板 实例化“ahoj::LinkedList<int>”的引用
