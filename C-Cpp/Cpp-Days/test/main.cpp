@@ -242,30 +242,32 @@
 
 
 
-#include <stdio.h>
+//#include <stdio.h>
+//
+//
+//typedef struct Node
+//{
+//    int data;
+//    struct Node* next;
+//} Node, *LinkList;
+//
+//int main()
+//{
+//    Node n{};
+//
+//    typedef int i, *pint;
+//    int a = 10;
+//
+//    pint p = &a;
+//    i aaa = 20;
+//
+//    printf("%d\n", *p);
+//    printf("%d\n", aaa);
+//
+//    return 0;
+//}
 
 
-typedef struct Node
-{
-    int data;
-    struct Node* next;
-} Node, *LinkList;
-
-int main()
-{
-    Node n{};
-
-    typedef int i, *pint;
-    int a = 10;
-
-    pint p = &a;
-    i aaa = 20;
-
-    printf("%d\n", *p);
-    printf("%d\n", aaa);
-
-    return 0;
-}
 
 
 
