@@ -1,0 +1,8 @@
+
+# CMD
+
+FROM centos
+
+RUN yum install -y curl
+
+CMD ["curl", "-s", "https://ip.cn"]

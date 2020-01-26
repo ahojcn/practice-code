@@ -1,18 +1,29 @@
-
+# 继承自 centos
 FROM centos
+
+# 作者
 MAINTAINER ahojcn<ahojcn@qq.com>
 
 
+# 默认登录进去的路径
 ENV MY_PATH /usr/local/
 WORKDIR $MY_PATH
 
 
+# 安装 vim
 RUN yum -y install vim
+# 安装 ifconfigs 等网络相关命令
 RUN yum -y install net-tools
 
 
+# 暴露 80 端口
 EXPOSE 80
+
+
+# log
 CMD echo $MY_PATH
 CMD echo "success --- ok"
+
+# 默认使用 bash
 CMD ["/bin/bash"]
 

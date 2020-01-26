@@ -1,0 +1,8 @@
+
+# CMD
+
+FROM centos
+
+RUN yum install -y curl
+
+ENTRYPOINT ["curl", "-s", "https://ip.cn"]
